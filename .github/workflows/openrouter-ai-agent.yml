@@ -1,10 +1,15 @@
 name: Run OpenRouter AI Agent
 
 on:
-  workflow_dispatch:  # Allows manual run from GitHub UI
+  workflow_dispatch:
+    inputs:
+      prompt:
+        description: 'Prompt for the AI agent'
+        required: true
+        default: 'What is the meaning of life?'
   push:
     branches:
-      - openrouter-ai-agent  # Automatically triggers on push to this branch
+      - openrouter-ai-agent
 
 jobs:
   run-agent:
@@ -26,6 +31,6 @@ jobs:
     - name: Run OpenRouter Agent Script
       env:
         API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-        PROMPT: "What is the meaning of life?"
+        PROMPT: ${{ github.event.inputs.prompt }}
       run: |
         python agent.py
