@@ -2,13 +2,13 @@ import requests
 import json
 import time
 
-API_KEY = "YOUR_API_KEY"  # Public API key here (since you want others to reuse)
+API_KEY = "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"
 
 headers = {
-    "Authorization": f"Bearer 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",
+    "Authorization": f"Bearer {API_KEY}",
     "Content-Type": "application/json",
-    "HTTP-Referer": "https://github.com/ks-suraj/projects/new/openrouter-ai-agent",  # Optional for rankings
-    "X-Title": "OpenRouter AI Agent on GitHub",                              # Optional title
+    "HTTP-Referer": "https://github.com/ks-suraj/projects/new/openrouter-ai-agent",
+    "X-Title": "OpenRouter AI Agent on GitHub",
 }
 
 def ask_ai(prompt):
@@ -28,13 +28,29 @@ def ask_ai(prompt):
         data=json.dumps(data)
     )
 
-    result = response.json()
+    try:
+        result = response.json()
+    except Exception as e:
+        raise ValueError(f"Failed to decode JSON response: {e}\nRaw Response:\n{response.text}")
+
+    # Print entire response for debugging
+    print("API Raw Response:", json.dumps(result, indent=2))
+
+    # Check for 'choices' key safely
+    if 'choices' not in result:
+        raise ValueError("API Error: " + result.get('error', {}).get('message', 'Unknown error'))
+
     return result['choices'][0]['message']['content']
 
 def agentic_query(prompt, max_retries=2):
     for attempt in range(max_retries + 1):
         print(f"\n--- Attempt {attempt + 1} ---")
-        answer = ask_ai(prompt)
+        try:
+            answer = ask_ai(prompt)
+        except Exception as e:
+            print(f"API Call Failed: {e}")
+            break
+
         print("AI Answer:", answer)
 
         if "I don't know" in answer or "uncertain" in answer or "unsure" in answer:
