@@ -1,8 +1,10 @@
-# Trigger GitHub detection
 name: Run OpenRouter AI Agent
 
 on:
-  workflow_dispatch:  # Allows manual trigger from GitHub Actions tab
+  workflow_dispatch:  # Allows manual run from GitHub UI
+  push:
+    branches:
+      - openrouter-ai-agent  # Automatically triggers on push to this branch
 
 jobs:
   run-agent:
