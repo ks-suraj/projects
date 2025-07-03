@@ -7,7 +7,7 @@ jobs:
   run-agent:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout repo
+    - name: openrouter-ai-agent
       uses: actions/checkout@v4
 
     - name: Set up Python
