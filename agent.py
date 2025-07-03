@@ -2,7 +2,7 @@ import requests
 import json
 import time
 
-API_KEY = "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"
+API_KEY = "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"
 
 headers = {
     "Authorization": f"Bearer {API_KEY}",
@@ -13,7 +13,7 @@ headers = {
 
 def ask_ai(prompt):
     data = {
-        "model": "deepseek/deepseek-chat-v3-0324:free",
+        "model": "qwen/qwen3-32b:free",
         "messages": [
             {
                 "role": "user",
