@@ -3,7 +3,7 @@ name: Run Agentic AI Script
 on:
   workflow_dispatch:  # Allow manual run from GitHub UI
   push:
-    branches: [main]  # Auto-run on every push to main
+    branches: [openrouter-ai-agent]  # Auto-run on every push to main
 
 jobs:
   run-agent:
