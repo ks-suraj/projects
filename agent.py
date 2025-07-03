@@ -2,23 +2,18 @@ import requests
 import json
 import time
 
-API_KEY = "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"
+def ask_ai(api_key, prompt):
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json",
+        "HTTP-Referer": "https://github.com/ks-suraj/projects",
+        "X-Title": "OpenRouter AI Agent on GitHub",
+    }
 
-headers = {
-    "Authorization": f"Bearer {API_KEY}",
-    "Content-Type": "application/json",
-    "HTTP-Referer": "https://github.com/ks-suraj/projects/new/openrouter-ai-agent",
-    "X-Title": "OpenRouter AI Agent on GitHub",
-}
-
-def ask_ai(prompt):
     data = {
-        "model": "qwen/qwen3-32b:free",
+        "model": "deepseek/deepseek-chat-v3-0324:free",
         "messages": [
-            {
-                "role": "user",
-                "content": prompt
-            }
+            {"role": "user", "content": prompt}
         ],
     }
 
@@ -31,22 +26,18 @@ def ask_ai(prompt):
     try:
         result = response.json()
     except Exception as e:
-        raise ValueError(f"Failed to decode JSON response: {e}\nRaw Response:\n{response.text}")
+        raise ValueError(f"Invalid JSON: {e}\n{response.text}")
 
-    # Print entire response for debugging
-    print("API Raw Response:", json.dumps(result, indent=2))
-
-    # Check for 'choices' key safely
     if 'choices' not in result:
         raise ValueError("API Error: " + result.get('error', {}).get('message', 'Unknown error'))
 
     return result['choices'][0]['message']['content']
 
-def agentic_query(prompt, max_retries=2):
+def agentic_query(api_key, prompt, max_retries=2):
     for attempt in range(max_retries + 1):
         print(f"\n--- Attempt {attempt + 1} ---")
         try:
-            answer = ask_ai(prompt)
+            answer = ask_ai(api_key, prompt)
         except Exception as e:
             print(f"API Call Failed: {e}")
             break
@@ -55,11 +46,13 @@ def agentic_query(prompt, max_retries=2):
 
         if "I don't know" in answer or "uncertain" in answer or "unsure" in answer:
             print("Agent detected uncertainty. Retrying...")
-            prompt = f"{prompt} Please clarify and explain thoroughly."
+            prompt += " Please clarify and explain thoroughly."
             time.sleep(2)
         else:
             print("Agent is satisfied with the answer.")
             break
 
-# Example task
-agentic_query("What is the meaning of life?")
+if __name__ == "__main__":
+    api_key = input("Enter your OpenRouter API Key: ").strip()
+    prompt = input("Enter your prompt: ").strip()
+    agentic_query(api_key, prompt)
