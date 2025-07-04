@@ -1,36 +1,25 @@
+import sys
 import os
-import requests
-from dotenv import load_dotenv
 
-# Load API key from .env for local development
-load_dotenv()
+# Ensure proper import
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from utils.api_client import query_openrouter
+from utils.logger import log_info, log_error
 
-API_KEY = os.getenv("OPENROUTER_API_KEY")
-
-if not API_KEY:
-    raise ValueError("API key missing! Please set OPENROUTER_API_KEY in .env or GitHub Secrets.")
-
-def query_openrouter(prompt):
-    url = "https://openrouter.ai/api/v1/chat/completions"
-    headers = {
-        "Authorization": f"Bearer {API_KEY}",
-        "Content-Type": "application/json"
-    }
-    payload = {
-        "model": "qwen/qwen3-32b:free",  # You can replace with any available model
-        "messages": [
-            {"role": "user", "content": prompt}
-        ]
-    }
-    response = requests.post(url, headers=headers, json=payload)
-    
-    if response.status_code != 200:
-        raise Exception(f"API Error: {response.status_code} - {response.text}")
-    
-    result = response.json()
-    return result["choices"][0]["message"]["content"]
+def read_paper_and_summarize(paper_content):
+    prompt = f"Summarize this research paper:\n\n{paper_content}"
+    try:
+        log_info("Starting paper summarization...")
+        summary = query_openrouter(prompt)
+        log_info("Paper summarization completed successfully.")
+        return summary
+    except Exception as e:
+        log_error(f"Paper summarization failed: {e}")
+        return None
 
 if __name__ == "__main__":
-    prompt = "Summarize the key points from the latest machine learning research papers."
-    reply = query_openrouter(prompt)
-    print("📝 OpenRouter Response:\n", reply)
+    # Example usage
+    paper = "This paper introduces a novel method for optimizing deep learning architectures using evolutionary strategies."
+    summary = read_paper_and_summarize(paper)
+    if summary:
+        print("📄 Paper Summary:\n", summary)
