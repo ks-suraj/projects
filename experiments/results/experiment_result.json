@@ -1,0 +1,5 @@
+{
+    "accuracy": 0.85,
+    "loss": 0.35,
+    "epochs": 10
+}
