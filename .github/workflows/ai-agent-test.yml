@@ -1,12 +1,12 @@
-name: ArXiv Scraper AI Agent
+name: Genesis AI Agent Pipeline
 
 on:
-  workflow_dispatch:
+  workflow_dispatch:  # Allows manual trigger from GitHub UI
   schedule:
-    - cron: '0 0 * * 0'
+    - cron: '0 0 * * 0'  # Runs every Sunday at midnight UTC
 
 jobs:
-  run-arxiv-scraper:
+  run-genesis-ai-pipeline:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,13 +23,19 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run arXiv Scraper Pipeline
+      - name: Run Paper Reader Agent (Summarizes Papers)
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: |
+          python agents/paper_reader_agent.py
+
+      - name: Run arXiv Scraper Pipeline (Fetch & Summarize Papers)
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: |
           python -m services.arxiv_scraper
 
-      - name: Run Model Designer Agent
+      - name: Run Model Designer Agent (AI-Generated Model Design)
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: |
