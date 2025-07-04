@@ -1,6 +1,7 @@
 import sys
 import os
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + "/..")
+sys.stdout.reconfigure(encoding='utf-8')
 from utils.logger import log_info, log_error
 from utils.api_client import query_openrouter
 import json
