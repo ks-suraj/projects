@@ -17,7 +17,7 @@ def query_openrouter(prompt):
         "Content-Type": "application/json"
     }
     payload = {
-        "model": "mistral/mistral-7b-instruct",  # You can replace with any available model
+        "model": "qwen/qwen3-32b:free",  # You can replace with any available model
         "messages": [
             {"role": "user", "content": prompt}
         ]
