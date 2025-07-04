@@ -1,9 +1,9 @@
 name: ArXiv Scraper AI Agent
 
 on:
-  workflow_dispatch:  # Manual trigger anytime
+  workflow_dispatch:
   schedule:
-    - cron: '0 0 * * 0'  # Every Sunday at midnight (optional, remove if not needed)
+    - cron: '0 0 * * 0'
 
 jobs:
   run-arxiv-scraper:
@@ -28,3 +28,9 @@ jobs:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: |
           python -m services.arxiv_scraper
+
+      - name: Run Model Designer Agent
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: |
+          python agents/model_designer_agent.py
