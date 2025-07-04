@@ -1,4 +1,4 @@
-name: ArXiv + Model Designer Agents
+name: ArXiv and Model Designer Agents
 
 on:
   workflow_dispatch:  # Manual trigger
