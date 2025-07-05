@@ -1,0 +1,122 @@
+[
+    {
+        "timestamp": "2025-07-05T17:24:31.688879",
+        "accuracy": 47.95,
+        "loss": 0.52,
+        "hyperparameters": {
+            "learning_rate": 0.001,
+            "batch_size": 16,
+            "optimizer": "SGD",
+            "epochs": 5
+        },
+        "generation": 1
+    },
+    {
+        "timestamp": "2025-07-05T17:29:35.278065",
+        "accuracy": 47.95,
+        "loss": 0.52,
+        "hyperparameters": {
+            "learning_rate": 0.001,
+            "batch_size": 16,
+            "optimizer": "SGD",
+            "epochs": 5
+        },
+        "generation": 2
+    },
+    {
+        "timestamp": "2025-07-05T17:43:06.273547",
+        "accuracy": 47.95,
+        "loss": 0.52,
+        "hyperparameters": {
+            "learning_rate": 0.001,
+            "batch_size": 16,
+            "optimizer": "SGD",
+            "epochs": 5
+        },
+        "generation": 3
+    },
+    {
+        "timestamp": "2025-07-05T17:44:59.792222",
+        "accuracy": 47.95,
+        "loss": 0.52,
+        "hyperparameters": {
+            "learning_rate": 0.001,
+            "batch_size": 16,
+            "optimizer": "SGD",
+            "epochs": 5
+        },
+        "generation": 4
+    },
+    {
+        "timestamp": "2025-07-05T17:58:25.998870",
+        "accuracy": 69.0,
+        "loss": 0.31,
+        "hyperparameters": {
+            "learning_rate": 0.001,
+            "batch_size": 16,
+            "optimizer": "SGD",
+            "epochs": 5
+        },
+        "generation": 5
+    },
+    {
+        "timestamp": "2025-07-05T17:59:58.142961",
+        "accuracy": 71.22,
+        "loss": 0.2878,
+        "hyperparameters": {
+            "learning_rate": 0.0009,
+            "batch_size": 16,
+            "optimizer": "SGD",
+            "epochs": 5
+        },
+        "generation": 6
+    },
+    {
+        "timestamp": "2025-07-05T18:05:15.724988",
+        "accuracy": 73.69,
+        "loss": 0.2631,
+        "hyperparameters": {
+            "learning_rate": 0.00081,
+            "batch_size": 16,
+            "optimizer": "SGD",
+            "epochs": 5
+        },
+        "generation": 7
+    },
+    {
+        "timestamp": "2025-07-05T18:06:21.621960",
+        "accuracy": 76.43,
+        "loss": 0.2357,
+        "hyperparameters": {
+            "learning_rate": 0.000729,
+            "batch_size": 16,
+            "optimizer": "SGD",
+            "epochs": 5
+        },
+        "generation": 8
+    },
+    {
+        "timestamp": "2025-07-05T18:07:21.413350",
+        "accuracy": 79.49,
+        "loss": 0.2051,
+        "hyperparameters": {
+            "learning_rate": 0.000656,
+            "batch_size": 16,
+            "optimizer": "SGD",
+            "epochs": 5
+        },
+        "generation": 9
+    },
+    {
+        "timestamp": "2025-07-05T18:13:03.686772",
+        "accuracy": 82.9,
+        "loss": 0.171,
+        "hyperparameters": {
+            "learning_rate": 0.00059,
+            "batch_size": 16,
+            "optimizer": "SGD",
+            "epochs": 5
+        },
+        "generation": 10
+    }
+]

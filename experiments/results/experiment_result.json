@@ -1,8 +1,8 @@
 {
-    "accuracy": 47.95,
-    "loss": 0.52,
+    "accuracy": 82.9,
+    "loss": 0.171,
     "hyperparameters": {
-        "learning_rate": 0.001,
+        "learning_rate": 0.00059,
         "batch_size": 16,
         "optimizer": "SGD",
         "epochs": 5
