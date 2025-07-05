@@ -20,6 +20,7 @@ if __name__ == "__main__":
     log_info("🚀 Starting Genesis AI Pipeline...")
 
     agents = [
+        "services/arxiv_scraper.py",
         "agents/paper_reader_agent.py",
         "agents/model_designer_agent.py",
         "agents/experiment_runner_agent.py",

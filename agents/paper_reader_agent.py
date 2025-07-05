@@ -1,32 +1,40 @@
-import sys
 import os
-sys.stdout.reconfigure(encoding='utf-8')
+import sys
+import json
 
-# Ensure proper import
+# Add project root to sys.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from utils.api_client import query_openrouter
+
+from utils.api_client import call_openrouter_api
 from utils.logger import log_info, log_error
 
-def read_paper_and_summarize(paper_content):
-    prompt = f"Summarize this research paper:\n\n{paper_content}"
+def run_paper_reader_agent():
     try:
-        log_info("Starting paper summarization...")
-        summary = query_openrouter(prompt)
-        log_info("Paper summarization completed successfully.")
-        return summary
-    except Exception as e:
-        log_error(f"Paper summarization failed: {e}")
-        return None
+        log_info("Starting Paper Reader Agent...")
 
-if __name__ == "__main__":
-    # Example usage
-    paper = "This paper introduces a novel method for optimizing deep learning architectures using evolutionary strategies."
-    summary = read_paper_and_summarize(paper)
-    if summary:
-        print("📄 Paper Summary:\n", summary)
+        # Load input paper content
+        with open("data/paper_input.txt", "r", encoding="utf-8") as f:
+            paper_content = f.read()
 
-        # Save to file (NEW)
+        # Send request to LLM
+        response = call_openrouter_api([
+            {
+                "role": "user",
+                "content": paper_content
+            }
+        ])
+
+        log_info("LLM Response received.")
+
+        # Save response
         os.makedirs("outputs", exist_ok=True)
         with open("outputs/paper_summary.txt", "w", encoding="utf-8") as f:
-            f.write(summary)
-        log_info("Saved paper summary to outputs/paper_summary.txt")
+            f.write(response)
+
+        log_info("Paper summary saved to outputs/paper_summary.txt.")
+
+    except Exception as e:
+        log_error(f"Paper Reader Agent Error: {str(e)}")
+
+if __name__ == "__main__":
+    run_paper_reader_agent()

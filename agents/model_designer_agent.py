@@ -1,50 +1,63 @@
-import sys
 import os
-sys.path.append(os.path.dirname(os.path.abspath(__file__)) + "/..")
-sys.stdout.reconfigure(encoding='utf-8')
-from utils.logger import log_info, log_error
-from utils.api_client import query_openrouter
+import sys
 import json
 
-def design_new_model(paper_summary, save_dir="models/generated_models/"):
-    """Uses LLM to generate new neural model design from paper summary."""
-    log_info("Starting model design agent...")
+# Add project root to sys.path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-    prompt = f"""
-    You are an AI Research Assistant.
+from utils.logger import log_info, log_error
+from utils.api_client import call_openrouter_api
 
-    Given the following research paper summary, design a NEW deep learning architecture inspired by it.
-
-    Please provide:
-    1. A short textual description of the architecture (max 150 words).
-    2. A sample PyTorch-like pseudocode (no need for full runnable code).
-
-    Research Paper Summary:
-    {paper_summary}
-    """
-
+def run_model_designer():
     try:
-        response = query_openrouter(prompt)
-        log_info("Model design generated successfully.")
+        log_info("Starting Model Designer Agent...")
 
-        os.makedirs(save_dir, exist_ok=True)
-        file_path = os.path.join(save_dir, "generated_model.json")
-        with open(file_path, "w", encoding="utf-8") as f:
-            json.dump({"summary": paper_summary, "design": response}, f, indent=2)
+        # Load paper summary from outputs
+        with open("outputs/paper_summary.txt", "r", encoding="utf-8") as f:
+            paper_summary = f.read()
 
-        log_info(f"Saved model design to {file_path}")
-        return response
+        # Prepare prompt
+        prompt = f"""
+        Given this paper summary:
+        \"\"\"{paper_summary}\"\"\"
+
+        Design a deep learning model based on the paper.
+        Return ONLY a valid JSON object describing:
+        - 'summary': Brief description of the model (in max 100 words).
+        - 'design': PyTorch-like pseudocode (as string).
+        - 'key_points': Key design notes (as string).
+
+        Only return the JSON object. No additional text.
+        """
+
+        # Prepare messages for OpenRouter API
+        messages = [
+            {
+                "role": "user",
+                "content": prompt
+            }
+        ]
+
+        # Call LLM API with messages
+        llm_response = call_openrouter_api(messages)
+        print("LLM RAW Response:", llm_response)  # Debugging
+
+        # Parse LLM response as JSON
+        try:
+            model_design = json.loads(llm_response)
+        except json.JSONDecodeError as e:
+            log_error(f"Failed to decode LLM response: {e}")
+            raise ValueError("LLM returned invalid JSON.") from e
+
+        # Save the model design
+        os.makedirs("models/generated_models", exist_ok=True)
+        with open("models/generated_models/generated_model.json", "w", encoding="utf-8") as f:
+            json.dump(model_design, f, indent=4, ensure_ascii=False)
+
+        log_info("Model design saved to models/generated_models/generated_model.json")
 
     except Exception as e:
-        log_error(f"Failed to generate model design: {e}")
-        return None
-
+        log_error(f"Model Designer Agent Error: {e}")
 
 if __name__ == "__main__":
-    test_summary = """
-    This is a sample paper summary discussing a novel convolutional transformer hybrid model for image classification,
-    which combines convolution layers with attention-based modules to improve accuracy and efficiency on the ImageNet benchmark.
-    """
-    design = design_new_model(test_summary)
-    if design:
-        print("📝 AI-Generated Model Design:\n", design)
+    run_model_designer()

@@ -118,5 +118,77 @@
             "epochs": 5
         },
         "generation": 10
+    },
+    {
+        "timestamp": "2025-07-05T18:27:42.302077",
+        "accuracy": 86.66,
+        "loss": 0.1334,
+        "hyperparameters": {
+            "learning_rate": 0.000531,
+            "batch_size": 16,
+            "optimizer": "SGD",
+            "epochs": 5
+        },
+        "generation": 11
+    },
+    {
+        "timestamp": "2025-07-05T18:41:56.194487",
+        "accuracy": 46.06,
+        "loss": 0.47,
+        "hyperparameters": {
+            "learning_rate": 0.001,
+            "batch_size": 32,
+            "optimizer": "Adam",
+            "epochs": 10
+        },
+        "generation": 12
+    },
+    {
+        "timestamp": "2025-07-05T19:04:14.318239",
+        "accuracy": 45.53,
+        "loss": 0.47,
+        "hyperparameters": {
+            "learning_rate": 0.001,
+            "batch_size": 32,
+            "optimizer": "Adam",
+            "epochs": 10
+        },
+        "generation": 13
+    },
+    {
+        "timestamp": "2025-07-05T19:25:04.145176",
+        "accuracy": 48.05,
+        "loss": 0.63,
+        "hyperparameters": {
+            "learning_rate": 0.001,
+            "batch_size": 16,
+            "optimizer": "SGD",
+            "epochs": 5
+        },
+        "generation": 14
+    },
+    {
+        "timestamp": "2025-07-05T19:26:39.798416",
+        "accuracy": 46.9,
+        "loss": 0.43,
+        "hyperparameters": {
+            "learning_rate": 0.001,
+            "batch_size": 16,
+            "optimizer": "SGD",
+            "epochs": 5
+        },
+        "generation": 15
+    },
+    {
+        "timestamp": "2025-07-05T19:37:29.280360",
+        "accuracy": 45.36,
+        "loss": 0.55,
+        "hyperparameters": {
+            "learning_rate": 0.001,
+            "batch_size": 16,
+            "optimizer": "SGD",
+            "epochs": 5
+        },
+        "generation": 16
     }
 ]

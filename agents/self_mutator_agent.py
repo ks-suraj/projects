@@ -1,59 +1,67 @@
 import os
-import json
-import random
 import sys
+import json
+
+# Setup project root
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 from utils.logger import log_info, log_error
+from utils.api_client import call_openrouter_api
 
 def run_self_mutator():
     try:
-        log_info("Starting self-mutator agent...")
+        log_info("🔄 Starting Self-Mutator Agent (AI-powered)...")
 
-        generation_log_path = "experiments/logs/generation_log.json"
-        if not os.path.exists(generation_log_path):
-            log_info("No generation log found. Skipping mutation.")
-            return
+        experiment_result_path = "experiments/results/experiment_result.json"
+        if not os.path.exists(experiment_result_path):
+            raise FileNotFoundError(f"{experiment_result_path} not found. Run experiment first.")
 
-        with open(generation_log_path, "r") as f:
-            generations = json.load(f)
+        # Load previous experiment results
+        with open(experiment_result_path, "r", encoding="utf-8") as f:
+            experiment_result = json.load(f)
 
-        if len(generations) < 2:
-            log_info("Not enough generations to perform adaptive mutation. Skipping.")
-            return
+        # Prepare message for LLM (Send previous input, hyperparameters & result)
+        prompt = f"""
+You are an AI-based optimizer.
 
-        last_gen = generations[-1]
-        prev_gen = generations[-2]
+Here is the previous experiment result:
+Accuracy: {experiment_result['accuracy']}
+Loss: {experiment_result['loss']}
+Hyperparameters: {json.dumps(experiment_result['hyperparameters'], indent=2)}
 
-        # Compare last 2 generations
-        last_acc = last_gen["accuracy"]
-        prev_acc = prev_gen["accuracy"]
+Suggest improved hyperparameters for the next run. 
+Return ONLY a JSON object with updated hyperparameters.
+"""
 
-        # Mutate learning rate (example)
-        lr = last_gen["hyperparameters"]["learning_rate"]
+        llm_response = call_openrouter_api([
+            {"role": "user", "content": prompt}
+        ])
 
-        if last_acc >= prev_acc:
-            new_lr = max(lr * 0.9, 1e-5)  # If improving, reduce LR slowly
-            mutation_note = "Decreased learning rate to fine-tune"
-        else:
-            new_lr = min(lr * 1.1, 0.1)  # If not improving, increase LR
-            mutation_note = "Increased learning rate to escape local minima"
+        log_info("✅ LLM Response received.")
+        log_info(f"LLM Response:\n{llm_response}")
 
-        mutation = {
+        # Try parsing LLM's response as JSON
+        try:
+            suggested_params = json.loads(llm_response)
+        except json.JSONDecodeError:
+            raise ValueError("LLM did not return valid JSON. Please verify the response format.")
+
+        # Save Mutation Log
+        mutation_log = {
             "mutation_type": "parameter_tweak",
-            "previous_accuracy": last_acc,
-            "new_parameter": "learning_rate",
-            "new_value": round(new_lr, 6),
-            "note": mutation_note
+            "previous_accuracy": experiment_result["accuracy"],
+            "parameters": suggested_params
         }
 
         os.makedirs("experiments/results", exist_ok=True)
-        with open("experiments/results/mutation_log.json", "w") as f:
-            json.dump(mutation, f, indent=4)
+        with open("experiments/results/mutation_log.json", "w", encoding="utf-8") as f:
+            json.dump(mutation_log, f, indent=4, ensure_ascii=False)
 
-        log_info(f"Applied mutation: {mutation_note} → New LR: {new_lr}")
+        log_info("✅ New mutation log saved successfully.")
 
     except Exception as e:
         log_error(f"Self-Mutator Agent Error: {str(e)}")
+
 
 if __name__ == "__main__":
     run_self_mutator()

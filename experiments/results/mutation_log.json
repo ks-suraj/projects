@@ -1,7 +1,10 @@
 {
     "mutation_type": "parameter_tweak",
-    "previous_accuracy": 82.9,
-    "new_parameter": "learning_rate",
-    "new_value": 0.000531,
-    "note": "Decreased learning rate to fine-tune"
+    "previous_accuracy": 45.36,
+    "parameters": {
+        "learning_rate": 0.002,
+        "batch_size": 32,
+        "optimizer": "Adam",
+        "epochs": 10
+    }
 }

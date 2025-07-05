@@ -1,0 +1,258 @@
+2025-07-05 18:38:19 - INFO - Querying OpenRouter AI...
+2025-07-05 18:38:39 - INFO - Received response from OpenRouter AI.
+2025-07-05 18:40:02 - INFO - Starting Self Mutator Agent...
+2025-07-05 18:40:02 - INFO - Querying OpenRouter AI...
+2025-07-05 18:40:22 - INFO - Received response from OpenRouter AI.
+2025-07-05 18:40:22 - INFO - Mutation suggestions saved successfully.
+2025-07-05 18:41:56 - INFO - Starting Experiment Runner Agent...
+2025-07-05 18:41:56 - INFO - Loaded mutated hyperparameters.
+2025-07-05 18:41:56 - INFO - Running with hyperparameters: {'learning_rate': 0.001, 'batch_size': 32, 'optimizer': 'Adam', 'epochs': 10}
+2025-07-05 18:41:56 - INFO - Experiment result saved.
+2025-07-05 18:41:56 - INFO - Logged generation 12.
+2025-07-05 18:45:28 - INFO - Starting Paper Reader Agent...
+2025-07-05 18:45:46 - INFO - Paper Summary saved to outputs/paper_summary.txt
+2025-07-05 18:47:47 - INFO - Starting Model Designer Agent...
+2025-07-05 18:48:37 - INFO - LLM Response received.
+2025-07-05 18:48:37 - ERROR - Model Designer Agent Error: Expecting value: line 1 column 1 (char 0)
+2025-07-05 18:51:10 - INFO - Starting Model Designer Agent...
+2025-07-05 18:51:10 - ERROR - Model Designer Agent Error: call_openrouter_api() missing 1 required positional argument: 'messages'
+2025-07-05 18:52:23 - INFO - Starting Model Designer Agent...
+2025-07-05 18:52:23 - ERROR - Model Designer Agent Error: call_openrouter_api() missing 1 required positional argument: 'messages'
+2025-07-05 18:52:39 - INFO - Starting Model Designer Agent...
+2025-07-05 18:52:39 - ERROR - Model Designer Agent Error: call_openrouter_api() missing 1 required positional argument: 'messages'
+2025-07-05 18:55:09 - INFO - Starting Model Designer Agent...
+2025-07-05 18:55:50 - INFO - Model design saved to models/generated_models/generated_model.json
+2025-07-05 18:57:07 - INFO - Starting Paper Reader Agent...
+2025-07-05 18:57:07 - ERROR - Paper Reader Agent Error: call_openrouter_api() got an unexpected keyword argument 'model'
+2025-07-05 18:59:28 - INFO - Starting Paper Reader Agent...
+2025-07-05 18:59:28 - ERROR - Paper Reader Agent Error: [Errno 2] No such file or directory: 'data/paper_input.txt'
+2025-07-05 19:01:50 - INFO - Starting Paper Reader Agent...
+2025-07-05 19:01:50 - ERROR - Paper Reader Agent Error: [Errno 2] No such file or directory: 'data/paper_input.txt'
+2025-07-05 19:02:31 - INFO - Starting Paper Reader Agent...
+2025-07-05 19:03:19 - INFO - LLM Response received.
+2025-07-05 19:03:19 - INFO - Paper summary saved to outputs/paper_summary.txt.
+2025-07-05 19:03:35 - INFO - Starting Model Designer Agent...
+2025-07-05 19:03:55 - INFO - Model design saved to models/generated_models/generated_model.json
+2025-07-05 19:04:14 - INFO - Starting Experiment Runner Agent...
+2025-07-05 19:04:14 - INFO - Loaded mutated hyperparameters.
+2025-07-05 19:04:14 - INFO - Running with hyperparameters: {'learning_rate': 0.001, 'batch_size': 32, 'optimizer': 'Adam', 'epochs': 10}
+2025-07-05 19:04:14 - INFO - Experiment result saved.
+2025-07-05 19:04:14 - INFO - Logged generation 13.
+2025-07-05 19:07:15 - INFO - \U0001f4c4 Starting Report Generator Agent...
+2025-07-05 19:07:15 - INFO - \u2705 Report generated successfully. Check reports/final_report.json
+2025-07-05 19:09:21 - INFO - \U0001f504 Starting Self-Mutator Agent (AI-powered)...
+2025-07-05 19:09:33 - INFO - \u2705 LLM Response received.
+2025-07-05 19:09:33 - INFO - LLM Response:
+{"learning_rate": 0.0015, "batch_size": 64, "optimizer": "Adam", "epochs": 20}
+2025-07-05 19:09:33 - INFO - \u2705 New mutation log saved successfully.
+2025-07-05 19:22:10 - INFO - Starting arXiv Scraper Pipeline...
+2025-07-05 19:22:10 - INFO - Fetching latest 3 papers from arXiv for query: 'machine learning'
+2025-07-05 19:22:11 - INFO - Successfully fetched 3 papers.
+2025-07-05 19:22:27 - INFO - AI Summary completed for: MultiGen: Using Multimodal Generation in Simulation to Learn Multimodal
+  Policies in Real
+2025-07-05 19:22:42 - INFO - AI Summary completed for: Point3R: Streaming 3D Reconstruction with Explicit Spatial Pointer
+  Memory
+2025-07-05 19:22:57 - INFO - AI Summary completed for: RefTok: Reference-Based Tokenization for Video Generation
+2025-07-05 19:22:57 - INFO - Saved paper summary to data/paper_input.txt
+2025-07-05 19:22:57 - INFO - arXiv Scraper Pipeline completed successfully.
+2025-07-05 19:22:57 - INFO - You can now run the Paper Reader Agent to process the saved paper summary.
+2025-07-05 19:24:28 - INFO - \U0001f680 Starting Genesis AI Pipeline...
+2025-07-05 19:24:28 - INFO - Running services/arxiv_scraper.pyagents/paper_reader_agent.py...
+2025-07-05 19:24:28 - ERROR - Error running services/arxiv_scraper.pyagents/paper_reader_agent.py: Command '['D:\\ai\\projects\\enviii\\Scripts\\python.exe', 'services/arxiv_scraper.pyagents/paper_reader_agent.py']' returned non-zero exit status 2.
+
+2025-07-05 19:24:28 - INFO - Running agents/model_designer_agent.py...
+2025-07-05 19:24:28 - INFO - Starting Model Designer Agent...
+2025-07-05 19:24:53 - INFO - \U0001f680 Starting Genesis AI Pipeline...
+2025-07-05 19:24:53 - INFO - Running services/arxiv_scraper.py...
+2025-07-05 19:24:54 - INFO - Starting arXiv Scraper Pipeline...
+2025-07-05 19:24:54 - INFO - Fetching latest 3 papers from arXiv for query: 'machine learning'
+2025-07-05 19:24:54 - INFO - Successfully fetched 3 papers.
+2025-07-05 19:24:56 - ERROR - API Request Error: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+2025-07-05 19:24:56 - ERROR - Failed to summarize paper 'MultiGen: Using Multimodal Generation in Simulation to Learn Multimodal
+  Policies in Real': 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+2025-07-05 19:24:58 - ERROR - API Request Error: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+2025-07-05 19:24:58 - ERROR - Failed to summarize paper 'Point3R: Streaming 3D Reconstruction with Explicit Spatial Pointer
+  Memory': 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+2025-07-05 19:24:59 - ERROR - API Request Error: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+2025-07-05 19:24:59 - ERROR - Failed to summarize paper 'RefTok: Reference-Based Tokenization for Video Generation': 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+2025-07-05 19:24:59 - INFO - Saved paper summary to data/paper_input.txt
+2025-07-05 19:24:59 - INFO - arXiv Scraper Pipeline completed successfully.
+2025-07-05 19:24:59 - INFO - You can now run the Paper Reader Agent to process the saved paper summary.
+2025-07-05 19:24:59 - INFO - Agent services/arxiv_scraper.py completed successfully.
+
+2025-07-05 19:24:59 - INFO - Running agents/paper_reader_agent.py...
+2025-07-05 19:25:00 - INFO - Starting Paper Reader Agent...
+2025-07-05 19:25:01 - ERROR - API Request Error: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+2025-07-05 19:25:01 - ERROR - Paper Reader Agent Error: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+2025-07-05 19:25:01 - INFO - Agent agents/paper_reader_agent.py completed successfully.
+
+2025-07-05 19:25:01 - INFO - Running agents/model_designer_agent.py...
+2025-07-05 19:25:02 - INFO - Starting Model Designer Agent...
+2025-07-05 19:25:03 - ERROR - API Request Error: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+2025-07-05 19:25:03 - ERROR - Model Designer Agent Error: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+2025-07-05 19:25:04 - INFO - Agent agents/model_designer_agent.py completed successfully.
+
+2025-07-05 19:25:04 - INFO - Running agents/experiment_runner_agent.py...
+2025-07-05 19:25:04 - INFO - Starting Experiment Runner Agent...
+2025-07-05 19:25:04 - INFO - Loaded mutated hyperparameters.
+2025-07-05 19:25:04 - INFO - Running with hyperparameters: {'learning_rate': 0.001, 'batch_size': 16, 'optimizer': 'SGD', 'epochs': 5}
+2025-07-05 19:25:04 - INFO - Experiment result saved.
+2025-07-05 19:25:04 - INFO - Logged generation 14.
+2025-07-05 19:25:04 - INFO - Agent agents/experiment_runner_agent.py completed successfully.
+
+2025-07-05 19:25:04 - INFO - Running agents/report_generator_agent.py...
+2025-07-05 19:25:04 - INFO - \U0001f4c4 Starting Report Generator Agent...
+2025-07-05 19:25:04 - INFO - \u2705 Report generated successfully. Check reports/final_report.json
+2025-07-05 19:25:04 - INFO - Agent agents/report_generator_agent.py completed successfully.
+
+2025-07-05 19:25:04 - INFO - Running agents/self_mutator_agent.py...
+2025-07-05 19:25:04 - INFO - \U0001f504 Starting Self-Mutator Agent (AI-powered)...
+2025-07-05 19:25:06 - ERROR - API Request Error: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+2025-07-05 19:25:06 - ERROR - Self-Mutator Agent Error: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+2025-07-05 19:25:06 - INFO - Agent agents/self_mutator_agent.py completed successfully.
+
+2025-07-05 19:25:06 - INFO - \U0001f4ca Running Visualization Step...
+2025-07-05 19:25:06 - INFO - \u2705 Visualization completed successfully.
+
+2025-07-05 19:25:06 - INFO - \U0001f389 Genesis AI Pipeline completed.
+2025-07-05 19:25:06 - INFO - All agents executed successfully. Check reports, results & visualizations.
+2025-07-05 19:26:29 - INFO - \U0001f680 Starting Genesis AI Pipeline...
+2025-07-05 19:26:29 - INFO - Running services/arxiv_scraper.py...
+2025-07-05 19:26:30 - INFO - Starting arXiv Scraper Pipeline...
+2025-07-05 19:26:30 - INFO - Fetching latest 3 papers from arXiv for query: 'machine learning'
+2025-07-05 19:26:30 - INFO - Successfully fetched 3 papers.
+2025-07-05 19:26:32 - ERROR - API Request Error: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+2025-07-05 19:26:32 - ERROR - Failed to summarize paper 'MultiGen: Using Multimodal Generation in Simulation to Learn Multimodal
+  Policies in Real': 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+2025-07-05 19:26:33 - ERROR - API Request Error: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+2025-07-05 19:26:33 - ERROR - Failed to summarize paper 'Point3R: Streaming 3D Reconstruction with Explicit Spatial Pointer
+  Memory': 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+2025-07-05 19:26:35 - ERROR - API Request Error: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+2025-07-05 19:26:35 - ERROR - Failed to summarize paper 'RefTok: Reference-Based Tokenization for Video Generation': 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+2025-07-05 19:26:35 - INFO - Saved paper summary to data/paper_input.txt
+2025-07-05 19:26:35 - INFO - arXiv Scraper Pipeline completed successfully.
+2025-07-05 19:26:35 - INFO - You can now run the Paper Reader Agent to process the saved paper summary.
+2025-07-05 19:26:35 - INFO - Agent services/arxiv_scraper.py completed successfully.
+
+2025-07-05 19:26:35 - INFO - Running agents/paper_reader_agent.py...
+2025-07-05 19:26:36 - INFO - Starting Paper Reader Agent...
+2025-07-05 19:26:37 - ERROR - API Request Error: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+2025-07-05 19:26:37 - ERROR - Paper Reader Agent Error: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+2025-07-05 19:26:37 - INFO - Agent agents/paper_reader_agent.py completed successfully.
+
+2025-07-05 19:26:37 - INFO - Running agents/model_designer_agent.py...
+2025-07-05 19:26:38 - INFO - Starting Model Designer Agent...
+2025-07-05 19:26:39 - ERROR - API Request Error: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+2025-07-05 19:26:39 - ERROR - Model Designer Agent Error: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+2025-07-05 19:26:39 - INFO - Agent agents/model_designer_agent.py completed successfully.
+
+2025-07-05 19:26:39 - INFO - Running agents/experiment_runner_agent.py...
+2025-07-05 19:26:39 - INFO - Starting Experiment Runner Agent...
+2025-07-05 19:26:39 - INFO - Loaded mutated hyperparameters.
+2025-07-05 19:26:39 - INFO - Running with hyperparameters: {'learning_rate': 0.001, 'batch_size': 16, 'optimizer': 'SGD', 'epochs': 5}
+2025-07-05 19:26:39 - INFO - Experiment result saved.
+2025-07-05 19:26:39 - INFO - Logged generation 15.
+2025-07-05 19:26:39 - INFO - Agent agents/experiment_runner_agent.py completed successfully.
+
+2025-07-05 19:26:39 - INFO - Running agents/report_generator_agent.py...
+2025-07-05 19:26:39 - INFO - \U0001f4c4 Starting Report Generator Agent...
+2025-07-05 19:26:39 - INFO - \u2705 Report generated successfully. Check reports/final_report.json
+2025-07-05 19:26:39 - INFO - Agent agents/report_generator_agent.py completed successfully.
+
+2025-07-05 19:26:39 - INFO - Running agents/self_mutator_agent.py...
+2025-07-05 19:26:40 - INFO - \U0001f504 Starting Self-Mutator Agent (AI-powered)...
+2025-07-05 19:26:41 - ERROR - API Request Error: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+2025-07-05 19:26:41 - ERROR - Self-Mutator Agent Error: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+2025-07-05 19:26:42 - INFO - Agent agents/self_mutator_agent.py completed successfully.
+
+2025-07-05 19:26:42 - INFO - \U0001f4ca Running Visualization Step...
+2025-07-05 19:26:42 - INFO - \u2705 Visualization completed successfully.
+
+2025-07-05 19:26:42 - INFO - \U0001f389 Genesis AI Pipeline completed.
+2025-07-05 19:26:42 - INFO - All agents executed successfully. Check reports, results & visualizations.
+2025-07-05 19:27:34 - INFO - \U0001f504 Starting Self-Mutator Agent (AI-powered)...
+2025-07-05 19:27:36 - ERROR - API Request Error: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+2025-07-05 19:27:37 - ERROR - Self-Mutator Agent Error: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+2025-07-05 19:29:52 - INFO - Starting arXiv Scraper Pipeline...
+2025-07-05 19:29:52 - INFO - Fetching latest 3 papers from arXiv for query: 'machine learning'
+2025-07-05 19:29:53 - INFO - Successfully fetched 3 papers.
+2025-07-05 19:29:54 - ERROR - API Request Error: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+2025-07-05 19:29:54 - ERROR - Failed to summarize paper 'MultiGen: Using Multimodal Generation in Simulation to Learn Multimodal
+  Policies in Real': 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+2025-07-05 19:29:56 - ERROR - API Request Error: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+2025-07-05 19:29:56 - ERROR - Failed to summarize paper 'Point3R: Streaming 3D Reconstruction with Explicit Spatial Pointer
+  Memory': 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+2025-07-05 19:29:57 - ERROR - API Request Error: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+2025-07-05 19:29:57 - ERROR - Failed to summarize paper 'RefTok: Reference-Based Tokenization for Video Generation': 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+2025-07-05 19:29:57 - INFO - Saved paper summary to data/paper_input.txt
+2025-07-05 19:29:57 - INFO - arXiv Scraper Pipeline completed successfully.
+2025-07-05 19:29:57 - INFO - You can now run the Paper Reader Agent to process the saved paper summary.
+2025-07-05 19:33:51 - INFO - Starting arXiv Scraper Pipeline...
+2025-07-05 19:33:51 - INFO - Fetching latest 3 papers from arXiv for query: 'machine learning'
+2025-07-05 19:33:51 - INFO - Successfully fetched 3 papers.
+2025-07-05 19:34:13 - INFO - AI Summary completed for: MultiGen: Using Multimodal Generation in Simulation to Learn Multimodal
+  Policies in Real
+2025-07-05 19:34:26 - INFO - AI Summary completed for: Point3R: Streaming 3D Reconstruction with Explicit Spatial Pointer
+  Memory
+2025-07-05 19:34:53 - INFO - AI Summary completed for: RefTok: Reference-Based Tokenization for Video Generation
+2025-07-05 19:34:53 - INFO - Saved paper summary to data/paper_input.txt
+2025-07-05 19:34:53 - INFO - arXiv Scraper Pipeline completed successfully.
+2025-07-05 19:34:53 - INFO - You can now run the Paper Reader Agent to process the saved paper summary.
+2025-07-05 19:35:01 - INFO - \U0001f680 Starting Genesis AI Pipeline...
+2025-07-05 19:35:01 - INFO - Running services/arxiv_scraper.py...
+2025-07-05 19:35:01 - INFO - Starting arXiv Scraper Pipeline...
+2025-07-05 19:35:01 - INFO - Fetching latest 3 papers from arXiv for query: 'machine learning'
+2025-07-05 19:35:02 - INFO - Successfully fetched 3 papers.
+2025-07-05 19:35:24 - INFO - AI Summary completed for: MultiGen: Using Multimodal Generation in Simulation to Learn Multimodal
+  Policies in Real
+2025-07-05 19:35:32 - INFO - AI Summary completed for: Point3R: Streaming 3D Reconstruction with Explicit Spatial Pointer
+  Memory
+2025-07-05 19:36:19 - INFO - AI Summary completed for: RefTok: Reference-Based Tokenization for Video Generation
+2025-07-05 19:36:19 - INFO - Saved paper summary to data/paper_input.txt
+2025-07-05 19:36:19 - INFO - arXiv Scraper Pipeline completed successfully.
+2025-07-05 19:36:19 - INFO - You can now run the Paper Reader Agent to process the saved paper summary.
+2025-07-05 19:36:19 - INFO - Agent services/arxiv_scraper.py completed successfully.
+
+2025-07-05 19:36:19 - INFO - Running agents/paper_reader_agent.py...
+2025-07-05 19:36:21 - INFO - Starting Paper Reader Agent...
+2025-07-05 19:36:52 - INFO - LLM Response received.
+2025-07-05 19:36:52 - INFO - Paper summary saved to outputs/paper_summary.txt.
+2025-07-05 19:36:52 - INFO - Agent agents/paper_reader_agent.py completed successfully.
+
+2025-07-05 19:36:52 - INFO - Running agents/model_designer_agent.py...
+2025-07-05 19:36:52 - INFO - Starting Model Designer Agent...
+2025-07-05 19:37:29 - ERROR - Failed to decode LLM response: Expecting value: line 1 column 1 (char 0)
+2025-07-05 19:37:29 - ERROR - Model Designer Agent Error: LLM returned invalid JSON.
+2025-07-05 19:37:29 - INFO - Agent agents/model_designer_agent.py completed successfully.
+
+2025-07-05 19:37:29 - INFO - Running agents/experiment_runner_agent.py...
+2025-07-05 19:37:29 - INFO - Starting Experiment Runner Agent...
+2025-07-05 19:37:29 - INFO - Loaded mutated hyperparameters.
+2025-07-05 19:37:29 - INFO - Running with hyperparameters: {'learning_rate': 0.001, 'batch_size': 16, 'optimizer': 'SGD', 'epochs': 5}
+2025-07-05 19:37:29 - INFO - Experiment result saved.
+2025-07-05 19:37:29 - INFO - Logged generation 16.
+2025-07-05 19:37:29 - INFO - Agent agents/experiment_runner_agent.py completed successfully.
+
+2025-07-05 19:37:29 - INFO - Running agents/report_generator_agent.py...
+2025-07-05 19:37:29 - INFO - \U0001f4c4 Starting Report Generator Agent...
+2025-07-05 19:37:29 - INFO - \u2705 Report generated successfully. Check reports/final_report.json
+2025-07-05 19:37:29 - INFO - Agent agents/report_generator_agent.py completed successfully.
+
+2025-07-05 19:37:29 - INFO - Running agents/self_mutator_agent.py...
+2025-07-05 19:37:29 - INFO - \U0001f504 Starting Self-Mutator Agent (AI-powered)...
+2025-07-05 19:37:38 - INFO - \u2705 LLM Response received.
+2025-07-05 19:37:38 - INFO - LLM Response:
+{
+  "learning_rate": 0.002,
+  "batch_size": 32,
+  "optimizer": "Adam",
+  "epochs": 10
+}
+2025-07-05 19:37:38 - INFO - \u2705 New mutation log saved successfully.
+2025-07-05 19:37:38 - INFO - Agent agents/self_mutator_agent.py completed successfully.
+
+2025-07-05 19:37:38 - INFO - \U0001f4ca Running Visualization Step...
+2025-07-05 19:37:39 - INFO - \u2705 Visualization completed successfully.
+
+2025-07-05 19:37:39 - INFO - \U0001f389 Genesis AI Pipeline completed.
+2025-07-05 19:37:39 - INFO - All agents executed successfully. Check reports, results & visualizations.

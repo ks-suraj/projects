@@ -1,17 +1,22 @@
 import logging
-from datetime import datetime
+import os
 
-# Logger setup
-logger = logging.getLogger("GenesisLogger")
-logger.setLevel(logging.INFO)
+# Create logs directory if not exists
+os.makedirs("logs", exist_ok=True)
 
-handler = logging.StreamHandler()
-formatter = logging.Formatter("[%(asctime)s] [%(levelname)s] %(message)s", "%Y-%m-%d %H:%M:%S")
-handler.setFormatter(formatter)
-logger.addHandler(handler)
+# Configure Logger
+logging.basicConfig(
+    filename="logs/genesis_ai.log",
+    filemode="a",
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S",
+    level=logging.INFO
+)
 
 def log_info(message):
-    logger.info(message)
+    print(f"[INFO] {message}")  # Also print in terminal
+    logging.info(message)
 
 def log_error(message):
-    logger.error(message)
+    print(f"[ERROR] {message}")
+    logging.error(message)
