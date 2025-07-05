@@ -1,11 +1,11 @@
 import os
 import sys
 import json
+import re
 
-# Fix the import path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
 from utils.logger import log_info, log_error
+from utils.api_client import query_openrouter  # Assuming you're using this for LLM
 
 def run_self_mutator():
     try:
@@ -16,23 +16,37 @@ def run_self_mutator():
             experiment_result = json.load(f)
         log_info("Loaded experiment results successfully.")
 
-        # Simulate mutation logic based on results (this is dummy for now)
-        log_info("Performing self-mutation based on experiment results...")
-        mutation_details = {
-            "mutation_type": "parameter_tweak",
-            "previous_accuracy": experiment_result["accuracy"],
-            "new_parameter": "learning_rate",
-            "new_value": 0.001  # Dummy tweak
-        }
+        # Send result summary to OpenRouter for mutation advice
+        prompt = f"""
+Given these experiment results:
+Accuracy: {experiment_result['accuracy']}
+Loss: {experiment_result['loss']}
 
-        # Save mutation details
-        os.makedirs("experiments/results", exist_ok=True)
-        with open("experiments/results/mutation_log.json", "w") as f:
-            json.dump(mutation_details, f, indent=4)
-        log_info("Mutation completed successfully. Mutation details saved.")
+Suggest improved hyperparameters in JSON format.
+"""
+        llm_response = query_openrouter(prompt)
+        log_info("Received mutation suggestion from LLM.")
+
+        # Extract and save hyperparameters from LLM response
+        extract_and_save_hyperparams(llm_response)
 
     except Exception as e:
         log_error(f"Self-Mutator Agent Error: {str(e)}")
+
+
+def extract_and_save_hyperparams(llm_response):
+    try:
+        json_blocks = re.findall(r"\{[\s\S]*?\}", llm_response)
+        if json_blocks:
+            suggested_config = json.loads(json_blocks[-1])  # Take last JSON
+            os.makedirs("experiments/results", exist_ok=True)
+            with open("experiments/results/next_experiment_config.json", "w") as f:
+                json.dump(suggested_config, f, indent=4)
+            log_info("Saved new hyperparameters for next experiment.")
+        else:
+            log_error("No JSON config found in LLM response.")
+    except Exception as e:
+        log_error(f"Failed to parse LLM hyperparameters: {str(e)}")
 
 
 if __name__ == "__main__":

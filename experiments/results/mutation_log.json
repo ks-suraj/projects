@@ -1,6 +1,6 @@
 {
     "mutation_type": "parameter_tweak",
-    "previous_accuracy": 0.85,
+    "previous_accuracy": 0.4794537423916805,
     "new_parameter": "learning_rate",
     "new_value": 0.001
 }

@@ -24,3 +24,9 @@ if __name__ == "__main__":
     summary = read_paper_and_summarize(paper)
     if summary:
         print("📄 Paper Summary:\n", summary)
+
+        # Save to file (NEW)
+        os.makedirs("outputs", exist_ok=True)
+        with open("outputs/paper_summary.txt", "w", encoding="utf-8") as f:
+            f.write(summary)
+        log_info("Saved paper summary to outputs/paper_summary.txt")
