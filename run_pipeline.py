@@ -1,7 +1,7 @@
 import subprocess
 import sys
 import os
-
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from utils.logger import log_info, log_error
 
 def run_agent(agent_path):
@@ -20,7 +20,8 @@ if __name__ == "__main__":
         "agents/paper_reader_agent.py",
         "agents/model_designer_agent.py",
         "agents/experiment_runner_agent.py",
-        "agents/report_generator_agent.py"  # ✅ New Agent added here
+        "agents/report_generator_agent.py",
+        "agents/self_mutator_agent.py"  # ✅ New Agent added here
     ]
 
     for agent in agents:

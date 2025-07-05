@@ -13,21 +13,32 @@ def run_report_generator():
 
         # Load Paper Summary
         with open("outputs/paper_summary.txt", "r", encoding="utf-8") as f:
-            paper_summary = f.read()
+            paper_summary = f.read().strip()
 
         # Load Model Design
         with open("models/generated_models/generated_model.json", "r", encoding="utf-8") as f:
             model_design = json.load(f)
 
+        # Inject correct paper summary into model design's 'summary' field
+        model_design["summary"] = paper_summary
+
         # Load Experiment Results
         with open("experiments/results/experiment_result.json", "r", encoding="utf-8") as f:
             experiment_result = json.load(f)
+
+        # Load Mutation Result (if it exists)
+        mutation_result_path = "mutation_log.json"
+        mutation_result = {}
+        if os.path.exists(mutation_result_path):
+            with open(mutation_result_path, "r", encoding="utf-8") as f:
+                mutation_result = json.load(f)
 
         # Combine into Final Report
         final_report = {
             "Paper Summary": paper_summary,
             "Model Design": model_design,
-            "Experiment Result": experiment_result
+            "Experiment Result": experiment_result,
+            "Mutation Result": mutation_result
         }
 
         # Save Final Report
