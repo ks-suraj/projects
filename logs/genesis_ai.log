@@ -256,3 +256,672 @@
 
 2025-07-05 19:37:39 - INFO - \U0001f389 Genesis AI Pipeline completed.
 2025-07-05 19:37:39 - INFO - All agents executed successfully. Check reports, results & visualizations.
+2025-07-05 20:25:40 - INFO - Starting Model Designer Agent...
+2025-07-05 20:26:27 - ERROR - Failed to parse LLM response as JSON: Expecting value: line 1 column 1 (char 0)
+2025-07-05 20:26:27 - INFO - Model design saved to models/generated_models/generated_model.json
+2025-07-05 20:26:27 - INFO - Model pseudocode saved to D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\model_20250705_202627.py
+2025-07-05 20:26:27 - INFO - Model Designer Agent completed successfully.
+2025-07-05 20:29:35 - INFO - Starting Model Designer Agent...
+2025-07-05 20:30:05 - INFO - Model design saved to models/generated_models/generated_model.json
+2025-07-05 20:30:05 - INFO - Model pseudocode saved to D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\model_20250705_203005.py
+2025-07-05 20:30:05 - INFO - Model Designer Agent completed successfully.
+2025-07-05 20:31:18 - INFO - Starting Model Designer Agent...
+2025-07-05 20:31:42 - INFO - Model design saved to models/generated_models/generated_model.json
+2025-07-05 20:31:42 - INFO - Model pseudocode saved to D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\model_20250705_203142.py
+2025-07-05 20:31:42 - INFO - Model Designer Agent completed successfully.
+2025-07-05 20:33:20 - INFO - Starting Model Designer Agent...
+2025-07-05 20:33:50 - ERROR - Failed to parse LLM response as JSON: Invalid control character at: line 3 column 657 (char 1053)
+2025-07-05 20:33:50 - INFO - Model design saved to models/generated_models/generated_model.json
+2025-07-05 20:33:50 - INFO - Model pseudocode saved to D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\model_20250705_203350.py
+2025-07-05 20:33:50 - INFO - Model Designer Agent completed successfully.
+2025-07-05 20:37:38 - INFO - Starting Model Designer Agent...
+2025-07-05 20:39:45 - INFO - Model code saved to D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\model_20250705_203944.py
+2025-07-05 20:39:45 - INFO - Model Designer Agent completed successfully.
+2025-07-05 20:40:31 - INFO - Starting Model Designer Agent...
+2025-07-05 20:43:21 - INFO - Model code saved to D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\model_20250705_204321.py
+2025-07-05 20:43:21 - INFO - Model Designer Agent completed successfully.
+2025-07-06 07:38:47 - INFO - Starting arXiv Scraper Pipeline...
+2025-07-06 07:38:47 - INFO - Fetching latest 3 papers from arXiv for query: 'machine learning'
+2025-07-06 07:38:47 - INFO - Successfully fetched 3 papers.
+2025-07-06 07:39:09 - INFO - AI Summary completed for: MultiGen: Using Multimodal Generation in Simulation to Learn Multimodal
+  Policies in Real
+2025-07-06 07:39:36 - INFO - AI Summary completed for: Point3R: Streaming 3D Reconstruction with Explicit Spatial Pointer
+  Memory
+2025-07-06 07:40:02 - INFO - AI Summary completed for: RefTok: Reference-Based Tokenization for Video Generation
+2025-07-06 07:40:02 - INFO - Saved paper summary to data/paper_input.txt
+2025-07-06 07:40:02 - INFO - arXiv Scraper Pipeline completed successfully.
+2025-07-06 07:40:02 - INFO - You can now run the Paper Reader Agent to process the saved paper summary.
+2025-07-06 07:46:13 - INFO - Starting arXiv Scraper Pipeline...
+2025-07-06 07:46:13 - INFO - Fetching latest 5 papers from arXiv (attempt 1/3)
+2025-07-06 07:46:13 - INFO - Successfully fetched 5 papers.
+2025-07-06 07:46:49 - INFO - AI Summary completed for: MultiGen: Using Multimodal Generation in Simulation to Learn Multimodal
+  Policies in Real
+2025-07-06 07:47:22 - INFO - AI Summary completed for: Point3R: Streaming 3D Reconstruction with Explicit Spatial Pointer
+  Memory
+2025-07-06 07:47:59 - INFO - AI Summary completed for: LiteReality: Graphics-Ready 3D Scene Reconstruction from RGB-D Scans
+2025-07-06 07:48:31 - INFO - AI Summary completed for: RefTok: Reference-Based Tokenization for Video Generation
+2025-07-06 07:49:00 - INFO - AI Summary completed for: Answer Matching Outperforms Multiple Choice for Language Model
+  Evaluation
+2025-07-06 07:49:00 - INFO - Saved complete paper data to data/papers_20250706_074900.json
+2025-07-06 07:49:00 - INFO - Saved pipeline input to data/paper_input.txt
+2025-07-06 07:49:00 - INFO - arXiv Scraper Pipeline completed successfully.
+2025-07-06 07:49:00 - INFO - You can now run the Paper Reader Agent to process the saved paper summary.
+2025-07-06 07:53:55 - INFO - \U0001f680 Starting Genesis AI Pipeline...
+2025-07-06 07:53:55 - INFO - Running agents/paper_reader_agent.py...
+2025-07-06 07:53:57 - INFO - Starting Paper Reader Agent...
+2025-07-06 07:54:52 - INFO - LLM Response received.
+2025-07-06 07:54:52 - INFO - Paper summary saved to outputs/paper_summary.txt.
+2025-07-06 07:54:52 - INFO - Agent agents/paper_reader_agent.py completed successfully.
+
+2025-07-06 07:54:52 - INFO - Running agents/model_designer_agent.py...
+2025-07-06 07:54:53 - INFO - Starting Model Designer Agent...
+2025-07-06 07:58:37 - INFO - Model code saved to D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\model_20250706_075837.py
+2025-07-06 07:58:37 - INFO - Model Designer Agent completed successfully.
+2025-07-06 07:58:37 - INFO - Agent agents/model_designer_agent.py completed successfully.
+
+2025-07-06 07:58:37 - INFO - Running agents/experiment_runner_agent.py...
+2025-07-06 07:58:39 - INFO - Starting Experiment Runner Agent...
+2025-07-06 07:58:39 - INFO - Loaded mutated hyperparameters.
+2025-07-06 07:58:39 - INFO - Running with hyperparameters: {'learning_rate': 0.001, 'batch_size': 16, 'optimizer': 'SGD', 'epochs': 5}
+2025-07-06 07:58:39 - INFO - Experiment result saved.
+2025-07-06 07:58:39 - INFO - Logged generation 17.
+2025-07-06 07:58:39 - INFO - Agent agents/experiment_runner_agent.py completed successfully.
+
+2025-07-06 07:58:39 - INFO - Running agents/report_generator_agent.py...
+2025-07-06 07:58:39 - INFO - \U0001f4c4 Starting Report Generator Agent...
+2025-07-06 07:58:39 - INFO - \u2705 Report generated successfully. Check reports/final_report.json
+2025-07-06 07:58:39 - INFO - Agent agents/report_generator_agent.py completed successfully.
+
+2025-07-06 07:58:39 - INFO - Running agents/self_mutator_agent.py...
+2025-07-06 07:58:41 - INFO - \U0001f504 Starting Self-Mutator Agent (AI-powered)...
+2025-07-06 07:59:05 - INFO - \u2705 LLM Response received.
+2025-07-06 07:59:05 - INFO - LLM Response:
+{"learning_rate": 0.0015, "batch_size": 32, "optimizer": "Adam", "epochs": 10}
+2025-07-06 07:59:05 - INFO - \u2705 New mutation log saved successfully.
+2025-07-06 07:59:05 - INFO - Agent agents/self_mutator_agent.py completed successfully.
+
+2025-07-06 07:59:05 - INFO - \U0001f4ca Running Visualization Step...
+2025-07-06 07:59:07 - INFO - \u2705 Visualization completed successfully.
+
+2025-07-06 07:59:07 - INFO - \U0001f389 Genesis AI Pipeline completed.
+2025-07-06 07:59:07 - INFO - All agents executed successfully. Check reports, results & visualizations.
+2025-07-06 08:10:44 - INFO - Starting Code Expert Agent...
+2025-07-06 08:10:45 - INFO - Analyzing code: d:/ai/projects/Real-World-Projects/genesis-self-evolving-ai/codes\model_20250706_075837.py
+2025-07-06 08:10:45 - ERROR - Syntax error in code: invalid syntax (<unknown>, line 4)
+2025-07-06 08:10:45 - ERROR - Analysis failed: invalid syntax (<unknown>, line 4)
+2025-07-06 08:15:13 - INFO - Starting Code Expert Agent...
+2025-07-06 08:15:13 - INFO - Analyzing code: d:/ai/projects/Real-World-Projects/genesis-self-evolving-ai/codes\model_20250706_075837.py
+2025-07-06 08:15:13 - ERROR - Syntax error at line 4, column 1
+Error details: invalid syntax (<unknown>, line 4)
+Problematic line: ```python
+
+2025-07-06 08:15:13 - ERROR - Analysis failed: Syntax error at line 4, column 1
+Error details: invalid syntax (<unknown>, line 4)
+Problematic line: ```python
+
+2025-07-06 08:28:31 - INFO - Starting Code Expert Agent...
+2025-07-06 08:28:31 - INFO - Analyzing code: d:/ai/projects/Real-World-Projects/genesis-self-evolving-ai/codes\model_20250706_075837.py
+2025-07-06 08:28:31 - ERROR - Error in general check: 'arguments' object has no attribute 'annotations'
+2025-07-06 08:28:31 - ERROR - Error in framework_specific check: 'Attribute' object has no attribute 'id'
+2025-07-06 08:28:31 - INFO - Detected frameworks: pytorch
+2025-07-06 08:28:31 - INFO - Found 120 issues to address
+2025-07-06 08:33:02 - INFO - Saved improved code to d:/ai/projects/Real-World-Projects/genesis-self-evolving-ai/codes/improved\improved_20250706_083302_model_20250706_075837.py
+2025-07-06 08:33:02 - INFO - Code improvement completed successfully
+2025-07-06 08:36:30 - INFO - \U0001f680 Starting Genesis AI Pipeline...
+2025-07-06 08:36:30 - INFO - Running services/arxiv_scraper.py...
+2025-07-06 08:36:31 - INFO - Starting arXiv Scraper Pipeline...
+2025-07-06 08:36:31 - INFO - Fetching latest 5 papers from arXiv (attempt 1/3)
+2025-07-06 08:36:31 - INFO - Successfully fetched 5 papers.
+2025-07-06 08:37:04 - INFO - AI Summary completed for: MultiGen: Using Multimodal Generation in Simulation to Learn Multimodal
+  Policies in Real
+2025-07-06 08:37:38 - INFO - AI Summary completed for: Point3R: Streaming 3D Reconstruction with Explicit Spatial Pointer
+  Memory
+2025-07-06 08:37:54 - INFO - AI Summary completed for: LiteReality: Graphics-Ready 3D Scene Reconstruction from RGB-D Scans
+2025-07-06 08:38:35 - INFO - AI Summary completed for: RefTok: Reference-Based Tokenization for Video Generation
+2025-07-06 08:38:51 - INFO - AI Summary completed for: Answer Matching Outperforms Multiple Choice for Language Model
+  Evaluation
+2025-07-06 08:38:51 - INFO - Saved complete paper data to data/papers_20250706_083851.json
+2025-07-06 08:38:51 - INFO - Saved pipeline input to data/paper_input.txt
+2025-07-06 08:38:51 - INFO - arXiv Scraper Pipeline completed successfully.
+2025-07-06 08:38:51 - INFO - You can now run the Paper Reader Agent to process the saved paper summary.
+2025-07-06 08:38:51 - INFO - Agent services/arxiv_scraper.py completed successfully.
+
+2025-07-06 08:38:51 - INFO - Running agents/paper_reader_agent.py...
+2025-07-06 08:38:52 - INFO - Starting Paper Reader Agent...
+2025-07-06 08:39:04 - INFO - LLM Response received.
+2025-07-06 08:39:04 - INFO - Paper summary saved to outputs/paper_summary.txt.
+2025-07-06 08:39:04 - INFO - Agent agents/paper_reader_agent.py completed successfully.
+
+2025-07-06 08:39:04 - INFO - Running agents/model_designer_agent.py...
+2025-07-06 08:39:05 - INFO - Starting Model Designer Agent...
+2025-07-06 08:43:48 - INFO - Model code saved to D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\model_20250706_084348.py
+2025-07-06 08:43:48 - INFO - Model Designer Agent completed successfully.
+2025-07-06 08:43:48 - INFO - Agent agents/model_designer_agent.py completed successfully.
+
+2025-07-06 08:43:48 - INFO - Running agents/experiment_runner_agent.py...
+2025-07-06 08:43:49 - INFO - Starting Experiment Runner Agent...
+2025-07-06 08:43:49 - INFO - Loaded mutated hyperparameters.
+2025-07-06 08:43:49 - INFO - Running with hyperparameters: {'learning_rate': 0.001, 'batch_size': 16, 'optimizer': 'SGD', 'epochs': 5}
+2025-07-06 08:43:49 - INFO - Experiment result saved.
+2025-07-06 08:43:49 - INFO - Logged generation 18.
+2025-07-06 08:43:49 - INFO - Agent agents/experiment_runner_agent.py completed successfully.
+
+2025-07-06 08:43:49 - INFO - Running agents/report_generator_agent.py...
+2025-07-06 08:43:49 - INFO - \U0001f4c4 Starting Report Generator Agent...
+2025-07-06 08:43:49 - INFO - \u2705 Report generated successfully. Check reports/final_report.json
+2025-07-06 08:43:49 - INFO - Agent agents/report_generator_agent.py completed successfully.
+
+2025-07-06 08:43:49 - INFO - Running agents/self_mutator_agent.py...
+2025-07-06 08:43:49 - INFO - \U0001f504 Starting Self-Mutator Agent (AI-powered)...
+2025-07-06 08:45:20 - INFO - \u2705 LLM Response received.
+2025-07-06 08:45:20 - INFO - LLM Response:
+{
+  "learning_rate": 0.001,
+  "batch_size": 32,
+  "optimizer": "Adam",
+  "epochs": 20
+}
+2025-07-06 08:45:20 - INFO - \u2705 New mutation log saved successfully.
+2025-07-06 08:45:20 - INFO - Agent agents/self_mutator_agent.py completed successfully.
+
+2025-07-06 08:45:20 - INFO - Running agents/code_expert_agent.py...
+2025-07-06 08:45:20 - INFO - Starting Code Expert Agent...
+2025-07-06 08:45:22 - INFO - Analyzing code: d:/ai/projects/Real-World-Projects/genesis-self-evolving-ai/codes\model_20250706_084348.py
+2025-07-06 08:45:22 - ERROR - Error in general check: 'arguments' object has no attribute 'annotations'
+2025-07-06 08:45:22 - ERROR - Error in framework_specific check: 'Attribute' object has no attribute 'id'
+2025-07-06 08:45:22 - INFO - Detected frameworks: pytorch, scikit-learn
+2025-07-06 08:45:22 - INFO - Found 92 issues to address
+2025-07-06 08:51:44 - ERROR - API Request Error: Expecting value: line 1811 column 1 (char 9955)
+2025-07-06 08:51:44 - ERROR - Failed to improve code: Expecting value: line 1811 column 1 (char 9955)
+2025-07-06 08:51:44 - INFO - Agent agents/code_expert_agent.py completed successfully.
+
+2025-07-06 08:51:46 - INFO - \U0001f4ca Running Visualization Step...
+2025-07-06 08:51:47 - INFO - \u2705 Visualization completed successfully.
+
+2025-07-06 08:51:47 - INFO - \U0001f389 Genesis AI Pipeline completed.
+2025-07-06 08:51:47 - INFO - All agents executed successfully. Check reports, results & visualizations.
+2025-07-06 09:06:45 - INFO - Starting Code Expert Agent...
+2025-07-06 09:06:45 - INFO - Analyzing code: d:/ai/projects/Real-World-Projects/genesis-self-evolving-ai/codes\model_20250706_084348.py
+2025-07-06 09:06:46 - INFO - Detected frameworks: pytorch, scikit-learn, sqlalchemy
+2025-07-06 09:06:46 - INFO - Found 127 issues to address
+2025-07-06 09:13:30 - INFO - Saved improved code to d:/ai/projects/Real-World-Projects/genesis-self-evolving-ai/codes/improved\improved_20250706_091328_model_20250706_084348.py
+2025-07-06 09:13:30 - INFO - Code improvement completed successfully
+2025-07-06 09:23:44 - INFO - Starting Code Expert Agent...
+2025-07-06 09:23:44 - INFO - Analyzing code: d:/ai/projects/Real-World-Projects/genesis-self-evolving-ai/codes\model_20250706_084348.py
+2025-07-06 09:23:44 - INFO - Detected frameworks: pytorch, scikit-learn, sqlalchemy
+2025-07-06 09:23:44 - INFO - Found 127 issues to address
+2025-07-06 09:39:46 - INFO - Starting Code Expert Agent...
+2025-07-06 09:39:46 - INFO - Analyzing code: d:/ai/projects/Real-World-Projects/genesis-self-evolving-ai/codes\model_20250706_084348.py
+2025-07-06 09:39:46 - INFO - Detected frameworks: pytorch, scikit-learn, sqlalchemy
+2025-07-06 09:39:46 - INFO - Found 127 issues to address
+2025-07-06 09:49:40 - INFO - Starting Code Expert Agent...
+2025-07-06 09:49:40 - INFO - Analyzing code: d:/ai/projects/Real-World-Projects/genesis-self-evolving-ai/codes\model_20250706_084348.py
+2025-07-06 09:49:40 - INFO - Detected frameworks: pytorch, scikit-learn, sqlalchemy
+2025-07-06 09:49:40 - INFO - Found 127 issues to address
+2025-07-06 09:57:11 - INFO - Saved improved code to d:/ai/projects/Real-World-Projects/genesis-self-evolving-ai/codes/improved\improved_20250706_095709_model_20250706_084348.py
+2025-07-06 09:57:11 - INFO - Code improvement completed successfully
+2025-07-06 10:08:29 - INFO - Starting Code Expert Agent...
+2025-07-06 10:08:29 - INFO - Processing file: d:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\model_20250705_204321.py
+2025-07-06 10:08:29 - INFO - Found 64 issues to address
+2025-07-06 10:14:11 - ERROR - API Request Error: Expecting value: line 1621 column 1 (char 8910)
+2025-07-06 10:14:11 - ERROR - API call attempt 1 failed: Expecting value: line 1621 column 1 (char 8910)
+2025-07-06 10:19:56 - ERROR - API Request Error: Expecting value: line 1625 column 1 (char 8932)
+2025-07-06 10:19:56 - ERROR - API call attempt 2 failed: Expecting value: line 1625 column 1 (char 8932)
+2025-07-06 10:24:55 - INFO - Starting Code Expert Agent...
+2025-07-06 10:24:55 - INFO - Analyzing code: d:/ai/projects/Real-World-Projects/genesis-self-evolving-ai/codes\model_20250706_084348.py
+2025-07-06 10:24:55 - INFO - Detected frameworks: pytorch, scikit-learn, sqlalchemy
+2025-07-06 10:24:55 - INFO - Found 45 issues to address
+2025-07-06 10:37:05 - ERROR - API Request Error: Expecting value: line 1887 column 1 (char 10373)
+2025-07-06 10:37:05 - ERROR - API call attempt 1 failed: Expecting value: line 1887 column 1 (char 10373)
+2025-07-06 10:39:10 - INFO - Saved improved code to d:/ai/projects/Real-World-Projects/genesis-self-evolving-ai/codes/improved\improved_20250706_103910_model_20250706_084348.py
+2025-07-06 10:39:10 - INFO - Code improvement completed successfully
+2025-07-06 10:39:10 - INFO - Code Expert Agent completed successfully
+2025-07-06 10:43:07 - INFO - \U0001f680 Starting Genesis AI Pipeline...
+2025-07-06 10:43:07 - INFO - Running services/arxiv_scraper.py...
+2025-07-06 10:43:08 - INFO - Starting arXiv Scraper Pipeline...
+2025-07-06 10:43:08 - INFO - Fetching latest 5 papers from arXiv (attempt 1/3)
+2025-07-06 10:43:09 - INFO - Successfully fetched 5 papers.
+2025-07-06 10:43:21 - INFO - AI Summary completed for: MultiGen: Using Multimodal Generation in Simulation to Learn Multimodal
+  Policies in Real
+2025-07-06 10:43:50 - INFO - AI Summary completed for: Point3R: Streaming 3D Reconstruction with Explicit Spatial Pointer
+  Memory
+2025-07-06 10:44:19 - INFO - AI Summary completed for: RefTok: Reference-Based Tokenization for Video Generation
+2025-07-06 10:45:01 - INFO - AI Summary completed for: Answer Matching Outperforms Multiple Choice for Language Model
+  Evaluation
+2025-07-06 10:45:14 - INFO - AI Summary completed for: MOTIF: Modular Thinking via Reinforcement Fine-tuning in LLMs
+2025-07-06 10:45:14 - INFO - Saved complete paper data to data/papers_20250706_104514.json
+2025-07-06 10:45:14 - INFO - Saved pipeline input to data/paper_input.txt
+2025-07-06 10:45:14 - INFO - arXiv Scraper Pipeline completed successfully.
+2025-07-06 10:45:14 - INFO - You can now run the Paper Reader Agent to process the saved paper summary.
+2025-07-06 10:45:14 - INFO - Agent services/arxiv_scraper.py completed successfully.
+
+2025-07-06 10:45:14 - INFO - Running agents/paper_reader_agent.py...
+2025-07-06 10:45:15 - INFO - Starting Paper Reader Agent...
+2025-07-06 10:45:37 - INFO - LLM Response received.
+2025-07-06 10:45:37 - INFO - Paper summary saved to outputs/paper_summary.txt.
+2025-07-06 10:45:37 - INFO - Agent agents/paper_reader_agent.py completed successfully.
+
+2025-07-06 10:45:37 - INFO - Running agents/model_designer_agent.py...
+2025-07-06 10:45:38 - INFO - Starting Model Designer Agent...
+2025-07-06 10:46:23 - INFO - Model code saved to D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\model_20250706_104623.py
+2025-07-06 10:46:23 - INFO - Model Designer Agent completed successfully.
+2025-07-06 10:46:23 - INFO - Agent agents/model_designer_agent.py completed successfully.
+
+2025-07-06 10:46:23 - INFO - Running agents/experiment_runner_agent.py...
+2025-07-06 10:46:23 - INFO - Starting Experiment Runner Agent...
+2025-07-06 10:46:23 - INFO - Loaded mutated hyperparameters.
+2025-07-06 10:46:23 - INFO - Running with hyperparameters: {'learning_rate': 0.001, 'batch_size': 16, 'optimizer': 'SGD', 'epochs': 5}
+2025-07-06 10:46:23 - INFO - Experiment result saved.
+2025-07-06 10:46:23 - INFO - Logged generation 19.
+2025-07-06 10:46:23 - INFO - Agent agents/experiment_runner_agent.py completed successfully.
+
+2025-07-06 10:46:23 - INFO - Running agents/report_generator_agent.py...
+2025-07-06 10:46:23 - INFO - \U0001f4c4 Starting Report Generator Agent...
+2025-07-06 10:46:23 - INFO - \u2705 Report generated successfully. Check reports/final_report.json
+2025-07-06 10:46:23 - INFO - Agent agents/report_generator_agent.py completed successfully.
+
+2025-07-06 10:46:23 - INFO - Running agents/self_mutator_agent.py...
+2025-07-06 10:46:24 - INFO - \U0001f504 Starting Self-Mutator Agent (AI-powered)...
+2025-07-06 10:46:34 - INFO - \u2705 LLM Response received.
+2025-07-06 10:46:34 - INFO - LLM Response:
+```json
+{
+  "learning_rate": 0.001,
+  "batch_size": 32,
+  "optimizer": "Adam",
+  "epochs": 10
+}
+```
+2025-07-06 10:46:34 - ERROR - Self-Mutator Agent Error: LLM did not return valid JSON. Please verify the response format.
+2025-07-06 10:46:34 - INFO - Agent agents/self_mutator_agent.py completed successfully.
+
+2025-07-06 10:46:34 - INFO - Running agents/code_expert_agent.py...
+2025-07-06 10:46:34 - INFO - Starting Code Expert Agent...
+2025-07-06 10:46:34 - INFO - Analyzing code: d:/ai/projects/Real-World-Projects/genesis-self-evolving-ai/codes\model_20250706_104623.py
+2025-07-06 10:46:34 - INFO - Detected frameworks: pytorch, scikit-learn, sqlalchemy
+2025-07-06 10:46:34 - INFO - Found 30 issues to address
+2025-07-06 10:49:07 - INFO - Saved improved code to d:/ai/projects/Real-World-Projects/genesis-self-evolving-ai/codes/improved\improved_20250706_104907_model_20250706_104623.py
+2025-07-06 10:49:07 - INFO - Code improvement completed successfully
+2025-07-06 10:49:07 - INFO - Code Expert Agent completed successfully
+2025-07-06 10:49:08 - INFO - Agent agents/code_expert_agent.py completed successfully.
+
+2025-07-06 10:49:08 - INFO - \U0001f4ca Running Visualization Step...
+2025-07-06 10:49:10 - INFO - \u2705 Visualization completed successfully.
+
+2025-07-06 10:49:10 - INFO - \U0001f389 Genesis AI Pipeline completed.
+2025-07-06 10:49:10 - INFO - All agents executed successfully. Check reports, results & visualizations.
+2025-07-06 14:00:25 - INFO - \U0001f504 Starting Self-Mutator Agent (AI-powered)...
+2025-07-06 14:00:39 - INFO - \u2705 LLM Response received.
+2025-07-06 14:00:39 - INFO - LLM Response:
+{"learning_rate": 0.001, "batch_size": 32, "optimizer": "Adam", "epochs": 10}
+2025-07-06 14:00:39 - INFO - \u2705 New mutation log saved successfully.
+2025-07-06 14:00:39 - INFO - Self Mutator Agent executed successfully.
+2025-07-06 14:00:39 - INFO - This agent mutates hyperparameters based on previous experiment results.
+2025-07-06 14:12:51 - INFO - Starting arXiv Scraper Pipeline...
+2025-07-06 14:12:51 - INFO - Fetching latest 5 papers from arXiv (attempt 1/3)
+2025-07-06 14:12:53 - INFO - Successfully fetched 5 papers.
+2025-07-06 14:13:11 - INFO - AI Summary completed for: MultiGen: Using Multimodal Generation in Simulation to Learn Multimodal
+  Policies in Real
+2025-07-06 14:13:44 - INFO - AI Summary completed for: Point3R: Streaming 3D Reconstruction with Explicit Spatial Pointer
+  Memory
+2025-07-06 14:14:19 - INFO - AI Summary completed for: RefTok: Reference-Based Tokenization for Video Generation
+2025-07-06 14:14:20 - ERROR - API Request Error: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+2025-07-06 14:14:20 - ERROR - Summary attempt 1 failed for 'Answer Matching Outperforms Multiple Choice for Language Model
+  Evaluation': 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+2025-07-06 14:14:23 - ERROR - API Request Error: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+2025-07-06 14:14:23 - ERROR - Summary attempt 2 failed for 'Answer Matching Outperforms Multiple Choice for Language Model
+  Evaluation': 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+2025-07-06 14:14:27 - ERROR - API Request Error: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+2025-07-06 14:14:27 - ERROR - Summary attempt 3 failed for 'Answer Matching Outperforms Multiple Choice for Language Model
+  Evaluation': 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+2025-07-06 14:14:29 - ERROR - API Request Error: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+2025-07-06 14:14:29 - ERROR - Summary attempt 1 failed for 'MOTIF: Modular Thinking via Reinforcement Fine-tuning in LLMs': 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+2025-07-06 14:14:31 - ERROR - API Request Error: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+2025-07-06 14:14:31 - ERROR - Summary attempt 2 failed for 'MOTIF: Modular Thinking via Reinforcement Fine-tuning in LLMs': 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+2025-07-06 14:14:34 - ERROR - API Request Error: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+2025-07-06 14:14:34 - ERROR - Summary attempt 3 failed for 'MOTIF: Modular Thinking via Reinforcement Fine-tuning in LLMs': 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+2025-07-06 14:14:34 - INFO - Saved all paper data to data/papers_20250706_141434.json
+2025-07-06 14:14:34 - INFO - Saved pipeline input to data/paper_input_1_20250706_141434.txt
+2025-07-06 14:14:34 - INFO - Saved pipeline input to data/paper_input_2_20250706_141434.txt
+2025-07-06 14:14:34 - INFO - Saved pipeline input to data/paper_input_3_20250706_141434.txt
+2025-07-06 14:14:34 - ERROR - No valid summary for paper: Answer Matching Outperforms Multiple Choice for Language Model
+  Evaluation
+2025-07-06 14:14:34 - ERROR - No valid summary for paper: MOTIF: Modular Thinking via Reinforcement Fine-tuning in LLMs
+2025-07-06 14:14:34 - INFO - arXiv Scraper Pipeline completed successfully.
+2025-07-06 14:14:34 - INFO - You can now run the Paper Reader Agent to process the saved paper summaries.
+2025-07-06 14:58:20 - INFO - Starting Experiment Runner Agent...
+2025-07-06 14:58:20 - INFO - Loaded mutated hyperparameters.
+2025-07-06 14:58:20 - INFO - Running with hyperparameters: {'learning_rate': 0.001, 'batch_size': 32, 'optimizer': 'Adam', 'epochs': 10}
+2025-07-06 14:58:21 - INFO - Static code analysis found issues:
+SyntaxError: invalid syntax (model_20250706_104623.py, line 4)
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\model_20250706_104623.py:4:2: E999 SyntaxError: invalid syntax
+2025-07-06 15:00:48 - INFO - LLM Self-Critique:
+- **Shape mismatch in attention layers**: The `fused_emb` is created by concatenating video and audio embeddings along `dim=1` (sequence length), but the audio encoder outputs 32 channels while video outputs 64 channels. The Transformer expects `d_model=64`, so audio embeddings need to be projected to match 64 dimensions before fusion to avoid invalid input shapes during attention computation.
+
+- **Inadequate advantage estimation**: The current advantage calculation `(values - all_rewards.mean())` uses a global reward baseline, ignoring trajectory-specific value expectations. Replace with Generalized Advantage Estimation (GAE) or use the critic’s own output as a baseline for more consistent learning.
+
+- **Incorrect critic loss formulation**: The critic is trained using raw per-step rewards (`F.mse_loss(values, all_rewards)`), which fails to model the value function (expected cumulative return). Instead, compute the actual discounted returns for each state and train the critic to predict these, separating value and policy objectives properly.
+
+- **Lack of hyperparameter tuning for optimization**: The optimizer uses default arguments (e.g., no explicit `lr`), which may not align with optimal training dynamics for this architecture. Explicitly define learning rate, weight decay, and momentum to stabilize training.
+
+- **Ineffective cross-modal fusion**: Concatenation of video and audio streams (with `split_streams=True`) may not enable meaningful cross-attention due to heterogeneous spatial-temporal resolutions. Consider progressive cross-modal attention or modality-wise projection layers to align feature spaces before fusion.
+
+- **Insufficient exploration/exploitation mechanisms**: Using `Tanh` for action normalization restricts exploration without pairing with exploration bonuses. Add entropy regularization to the policy loss or incorporate action noise (e.g., Ornstein-Uhlenbeck process for continuous actions) to improve sample diversity.
+
+- **Output feature utilization in attention**: After reshaping, video embeddings (`16×64×64`) and audio embeddings (`<sequence_length>, 32`) are flattened into single vectors. Retain spatial-temporal dimensions (e.g., via 4D spatial attention in video) to preserve structure for better Transformer interaction.
+
+- **Suboptimal sequence alignment in attention**: The video (16 frames) and audio (200/64 \u2248 3.1 steps) have mismatched temporal lengths after pooling. Adjust pooling/strides to align `video_emb` and `audio_emb` sequence lengths for attention efficiency, or use unaligned attention mechanisms (e.g., multi-sequence attention).
+
+- **Poor evaluation metric feedback**: Reporting `final_actions.std()` as a proxy for performance is ambiguous. Track per-step policy entropy, cumulative predicted values, or align evaluation with domain-specific metrics (e.g., pouring accuracy in real-world examples).
+
+- **Untested environment-to-model input pipeline**: Assumptions about `sim_env.generate_video_frame(step)` (5D `video_state` input shapes) could conflict with encoder expectations. Verify input shapes for `video_encoder` and `audio_encoder` match (e.g., [batch, channels, T, H, W] for video and [batch, channels, T] for audio) during trajectory simulation.
+
+- **Missing gradient clipping in training**: Large gradients from the attention layers or high-dimensional inputs could destabilize training. Add `torch.nn.utils.clip_grad_norm_` during backpropagation to prevent exploding gradients, especially with complex spatiotemporal models.
+
+- **Overly simplistic policy gradient implementation**: The loss `- (actions * advantages).mean()` assumes deterministic policy updates and lacks PPO-style clipping, trust region constraints, or ratio-based surrogate objectives. Consider migrating to standard PPO updates with clipping (at 0.1–0.2) for better policy optimization stability.
+
+- **Fixed temporal frame stacking length**: `config.max_frame_stack` is fixed during training. Adaptive frame aggregation (e.g., temporal convolution preceding the attention layer) or dynamic frame handling could improve robustness to varying task durations.
+2025-07-06 15:00:48 - INFO - Simulated evaluation score: 0.5
+2025-07-06 15:00:48 - INFO - Experiment result saved.
+2025-07-06 15:00:48 - INFO - Logged generation 20.
+2025-07-06 15:00:48 - INFO - Experiment Runner Agent executed successfully.
+2025-07-06 15:00:48 - INFO - This agent runs experiments on the generated model code, evaluates it, and logs results.
+2025-07-06 15:02:43 - INFO - Starting Experiment Runner Agent...
+2025-07-06 15:02:43 - INFO - Loaded mutated hyperparameters.
+2025-07-06 15:02:43 - INFO - Running with hyperparameters: {'learning_rate': 0.001, 'batch_size': 32, 'optimizer': 'Adam', 'epochs': 10}
+2025-07-06 15:02:44 - INFO - Static code analysis found issues:
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:7:1: F401 'torch.optim' imported but unused
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:8:1: F401 'torch.utils.data.DataLoader' imported but unused
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:8:1: F401 'torch.utils.data.TensorDataset' imported but unused
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:9:1: F401 'numpy as np' imported but unused
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:11:1: E302 expected 2 blank lines, found 1
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:13:1: W293 blank line contains whitespace
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:21:1: W293 blank line contains whitespace
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:24:1: W293 blank line contains whitespace
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:35:1: W293 blank line contains whitespace
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:43:1: W293 blank line contains whitespace
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:46:44: E231 missing whitespace after ','
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:46:46: E231 missing whitespace after ','
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:46:61: E231 missing whitespace after ','
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:46:63: E231 missing whitespace after ','
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:49:40: E231 missing whitespace after ','
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:49:42: E231 missing whitespace after ','
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:50:45: E231 missing whitespace after ','
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:50:47: E231 missing whitespace after ','
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:50:62: E231 missing whitespace after ','
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:50:64: E231 missing whitespace after ','
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:53:40: E231 missing whitespace after ','
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:53:42: E231 missing whitespace after ','
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:56:1: W293 blank line contains whitespace
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:68:1: W293 blank line contains whitespace
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:71:80: E501 line too long (93 > 79 characters)
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:74:1: W293 blank line contains whitespace
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:81:1: W293 blank line contains whitespace
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:86:1: W293 blank line contains whitespace
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:88:80: E501 line too long (88 > 79 characters)
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:89:1: W293 blank line contains whitespace
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:93:1: W293 blank line contains whitespace
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:101:80: E501 line too long (87 > 79 characters)
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:103:80: E501 line too long (87 > 79 characters)
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:104:1: W293 blank line contains whitespace
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:107:80: E501 line too long (84 > 79 characters)
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:109:1: W293 blank line contains whitespace
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:112:1: W293 blank line contains whitespace
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:116:1: W293 blank line contains whitespace
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:118:80: E501 line too long (82 > 79 characters)
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:134:1: E302 expected 2 blank lines, found 1
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:134:80: E501 line too long (90 > 79 characters)
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:141:80: E501 line too long (90 > 79 characters)
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:142:80: E501 line too long (92 > 79 characters)
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:156:80: E501 line too long (85 > 79 characters)
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:157:80: E501 line too long (101 > 79 characters)
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:165:1: W293 blank line contains whitespace
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:170:1: W293 blank line contains whitespace
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:175:1: W293 blank line contains whitespace
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:178:1: W293 blank line contains whitespace
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:181:80: E501 line too long (80 > 79 characters)
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:182:1: W293 blank line contains whitespace
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:186:1: W293 blank line contains whitespace
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:191:1: W293 blank line contains whitespace
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:194:80: E501 line too long (89 > 79 characters)
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:195:1: W293 blank line contains whitespace
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:201:1: W293 blank line contains whitespace
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:207:80: E501 line too long (90 > 79 characters)
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:210:1: W293 blank line contains whitespace
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:214:1: W293 blank line contains whitespace
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:217:48: F821 undefined name 'cross_modal_attention'
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:217:80: E501 line too long (90 > 79 characters)
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:221:1: W293 blank line contains whitespace
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:224:1: W293 blank line contains whitespace
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:227:25: E128 continuation line under-indented for visual indent
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:228:25: E128 continuation line under-indented for visual indent
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:228:80: E501 line too long (86 > 79 characters)
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:229:1: W293 blank line contains whitespace
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:243:1: E302 expected 2 blank lines, found 1
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:249:80: E501 line too long (83 > 79 characters)
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:252:31: E261 at least two spaces before inline comment
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:254:34: E261 at least two spaces before inline comment
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:255:34: E261 at least two spaces before inline comment
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:255:80: E501 line too long (84 > 79 characters)
+D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\improved\improved_20250706_104907_model_20250706_104623.py:256:79: W292 no newline at end of file
+2025-07-06 15:05:05 - INFO - Starting Experiment Runner Agent...
+2025-07-06 15:05:05 - INFO - Loaded mutated hyperparameters.
+2025-07-06 15:05:05 - INFO - Running with hyperparameters: {'learning_rate': 0.001, 'batch_size': 32, 'optimizer': 'Adam', 'epochs': 10}
+2025-07-06 15:06:51 - INFO - LLM Self-Critique:
+- **Model Design**:  
+  - The audio encoder uses 1D convolutions but lacks explicit spectral feature extraction (e.g., CQT/STFT normalization or 2D convolutions for spectrograms), leading to under-extracted temporal-spectral features.  
+  - Cross-modal fusion relies on concatenated TransformerEncoderLayers for self-attention, which may not effectively align or integrate spatiotemporal video and audio features. Consider explicit cross-attention (e.g., a fixed query sequence being one modality attending to the other).  
+  - The Projection layer for audio (32 \u2192 *feature_dim*) is applied outside the model’s predefined forward pass, creating a potential inconsistency between training and inference. Ensure in-model projection for compatibility.  
+  - The video encoder’s final `AdaptiveAvgPool3d` may discard spatial-temporal hierarchies. Replace with global average pooling in spatial dimensions or add a ResNet-style trunk for better feature learning.  
+
+- **Learning Strategy**:  
+  - The critic loss targets (`all_rewards`) assume immediate rewards as ground truth, but actor-critic methods require estimated **expected returns** (e.g., GAE, TD targets) for effective value approximation.  
+  - Advantages are calculated by subtracting a static reward mean, which ignores temporal dependencies and introduces high variance. Use a baseline network or iterative value estimation instead.  
+  - Policy gradient is trained on raw action outputs (`actions * advantages`), but deterministic policies in PG require clipped or entropy-regularized actions to avoid overfitting. Add entropy bonus to encourage exploration.  
+  - No explicit action normalization is enforced during training, though `Tanh()` is used in the actor. Consider cosine similarity regularization of normalized features for better modality alignment.  
+
+- **Data Flow**:  
+  - The training loop samples only *one batch per epoch* (`indices = torch.randperm(...)[:batch_size]`), wasting most of the dataset. Replace with proper `DataLoader` sampling and iterate over all micro-batches per epoch.  
+  - During evaluation, the code conditionally applies a separate `cross_modal_attention()` function not used in training (conflicts with the model’s `attn_layers`). Ensure consistency between training and inference fusion strategies.  
+  - The video and audio branches process fixed temporal lengths (`max_frame_stack` and `T_audio`), but dynamic temporal padding/windowing (e.g., fixed-length via interpolation or sliding windows) could improve flexibility for real-world data.  
+  - No mention of domain-shifting (`video_encoder`’s `GroupNorm`) or curriculum learning (easiest to hardest audio/visual conditions).  
+
+- **Architectural Extensions**:  
+  - Add positional encodings in the attention layers to retain temporal order when fusing video and audio features.  
+  - Consider channel-attention mixing between video and audio features (e.g., via Skip-Connections or Squeeze-and-Excitation) before transformer layers.  
+  - Augment the audio encoder with residual connections or deeper bottleneck layers to capture more complex acoustic patterns.  
+
+- **Other Issues**:  
+  - The `actor` and `critic` share the exact same input (post-attention features), which may overfit the critic to the immediate rewards instead of projecting action values. Use separate heads or skip connections for better differentiation.  
+  - DID NOT use modular structures for each modality’s feature encoding \u2192 may lead to conflicting learning objectives. Train encoders separately to convergence before joint training.  
+  - No dropout or stochasticity in feature extractors, increasing risk of overfitting multimodal invariants. Add stochastic layers (e.g., DropPath for 3D convolutions) in the forward pass.
+2025-07-06 15:06:51 - INFO - Simulated evaluation score: 0.5
+2025-07-06 15:06:51 - INFO - Experiment result saved.
+2025-07-06 15:06:51 - INFO - Logged generation 21.
+2025-07-06 15:06:51 - INFO - Experiment Runner Agent executed successfully.
+2025-07-06 15:06:51 - INFO - This agent runs experiments based on the latest improved model code and hyperparameters.
+2025-07-06 15:23:59 - INFO - \U0001f680 Starting Genesis AI Pipeline...
+2025-07-06 15:23:59 - INFO - Running services/arxiv_scraper.py...
+2025-07-06 15:24:00 - INFO - Starting arXiv Scraper Pipeline...
+2025-07-06 15:24:00 - INFO - Fetching latest 1 papers from arXiv (attempt 1/3)
+2025-07-06 15:24:01 - INFO - Successfully fetched 1 papers.
+2025-07-06 15:24:23 - INFO - AI Summary completed for: MultiGen: Using Multimodal Generation in Simulation to Learn Multimodal
+  Policies in Real
+2025-07-06 15:24:23 - INFO - Saved all paper data to data/papers_20250706_152423.json
+2025-07-06 15:24:23 - INFO - Saved pipeline input to data/paper_input_1_20250706_152423.txt
+2025-07-06 15:24:23 - INFO - arXiv Scraper Pipeline completed successfully.
+2025-07-06 15:24:23 - INFO - You can now run the Paper Reader Agent to process the saved paper summaries.
+2025-07-06 15:24:23 - INFO - Agent services/arxiv_scraper.py completed successfully.
+
+2025-07-06 15:24:23 - INFO - Running agents/paper_reader_agent.py...
+2025-07-06 15:24:24 - INFO - Starting Paper Reader Agent...
+2025-07-06 15:25:18 - INFO - LLM Response received.
+2025-07-06 15:25:18 - INFO - Paper summary saved to outputs/paper_summary.txt.
+2025-07-06 15:25:18 - INFO - Agent agents/paper_reader_agent.py completed successfully.
+
+2025-07-06 15:25:18 - INFO - Running agents/model_designer_agent.py...
+2025-07-06 15:25:18 - INFO - Starting Model Designer Agent...
+2025-07-06 15:28:45 - INFO - Model code saved to D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\model_20250706_152845.py
+2025-07-06 15:28:45 - INFO - Model Designer Agent completed successfully.
+2025-07-06 15:28:45 - INFO - Agent agents/model_designer_agent.py completed successfully.
+
+2025-07-06 15:28:45 - INFO - Running agents/experiment_runner_agent.py...
+2025-07-06 15:28:46 - INFO - Starting Experiment Runner Agent...
+2025-07-06 15:28:46 - INFO - Loaded mutated hyperparameters.
+2025-07-06 15:28:46 - INFO - Running with hyperparameters: {'learning_rate': 0.001, 'batch_size': 32, 'optimizer': 'Adam', 'epochs': 10}
+2025-07-06 15:29:59 - INFO - LLM Self-Critique:
+- **Model Architecture Critique**:  
+  - The **video encoder** compresses spatiotemporal features without sufficient spatial compression, leading to excessively long sequence dimensions for attention (e.g., 65536 elements for 16x64x64 spatial pooling), which is computationally inefficient and impractical for Transformer attention.  
+  - The **audio encoder** outputs a fixed 32-dimensional feature, but the temporal resolution (sequence length) remains unaligned with the video encoder's time steps. Cross-modal attention requires consistent temporal abstraction between modalities.  
+  - **Missing cross-modal attention definition**: The `cross_modal_attention` function in the evaluation loop is not implemented in the model, creating inconsistency between training and inference. Use the same attention layers defined in `attn_layers` for both.  
+  - **Hard-coded feature dimensions**: The audio projection to `feature_dim` assumes compatibility, but no mechanism ensures temporal alignment. Consider dynamic temporal resolution or interpolation to merge video/audio streams effectively.  
+
+- **Learning Strategy Critique**:  
+  - **Incorrect advantage calculation**: Subtracts a static reward mean as baseline instead of using a dynamic state-dependent baseline (e.g., GAE, TD errors). Critic updates should reflect true value gradients against discounted rewards.  
+  - **Policy gradient flaws**: Directly uses raw action outputs in loss (`actions * advantages`) instead of log-probabilities, which is the standard in policy gradient frameworks. Replace with a distribution-based output (e.g., Gaussian/Categorical) and compute weighted negative log-probs.  
+  - **Imbalanced actor-critic gradient scaling**: Combines policy and value loss with equal weights, which may dominate during training. Introduce separate scaling factors (e.g., `PPO`-style coefficients) or curriculum learning for better convergence.  
+  - **Replay mechanism missing**: Samples random batches in each epoch without iterating through the full dataset. Implement a proper data loader with full coverage for offline learning or sequence-wise sampling for online methods.  
+
+- **Data Flow Critique**:  
+  - **Video input tensor inconsistency**: The model expects a 5D input `(batch, 3, T, H, W)`, but the `train_policy` function receives a 4D `all_states` tensor. Resolve this dimension mismatch by validating and restructuring training data.  
+  - **Incomplete feature fusion**: Concatenates video and audio features naively. Consider modality-specific architectures (e.g., dual-query cross-attention) or hierarchical fusion layers to better integrate different sequence lengths.  
+  - **Synthetic evaluation data misalignment**: The `sim_env.generate_complex_pouring_sequence()` outputs video/audio without confirming their temporal alignment with the model's expected sequence lengths (e.g., 16 frames for video vs. 125 audio samples). Standardize temporal sampling during evaluation.  
+
+- **Improvement Suggestions**:  
+  - **Add spatial compression** in video encoder (e.g., global average pooling over H/W to reduce dimensions to `(batch, T_source, feature_dim)` instead of `(T, 64, 64, 64)`).  
+  - **Adjust audio encoder** to output sequence lengths matching the video (e.g., interpolate or restrict frame stacking to align with audio sampling rates).  
+  - **Implement distribution-based action outputs** (e.g., 2 Gaussian heads for continuous actions) and revise policy loss using log probabilities for better gradient signals.  
+  - **Replace reward mean baseline** with critic-estimated values for advantages, ensuring value loss is computed against discounted returns or Q-values.  
+  - **Use modality-specific normalization** (e.g., instance norm for domain adaptation in video/audio encoders).  
+  - **Add residual connections** in the 3D CNN and attention layers to improve gradient flow and feature reuse.  
+  - **Implement separate attention submodules** for intra-modal and cross-modal processing (e.g., self-attention on video/audio features followed by cross-attention).  
+  - **Check for gradient leakage** by detaching features during advantage computation and ensuring training data is shuffled per epoch.  
+  - **Enhance batch processing** with `DataLoader` to avoid manual random sampling and ensure proper data iteration.  
+  - **Log separate actor-critic metrics** (e.g., policy score, value error, entropy) for hyperparameter tuning and analysis.
+2025-07-06 15:29:59 - INFO - Simulated evaluation score: 0.5
+2025-07-06 15:29:59 - INFO - Experiment result saved.
+2025-07-06 15:29:59 - INFO - Logged generation 22.
+2025-07-06 15:29:59 - INFO - Experiment Runner Agent executed successfully.
+2025-07-06 15:29:59 - INFO - This agent runs experiments based on the latest improved model code and hyperparameters.
+2025-07-06 15:30:00 - INFO - Agent agents/experiment_runner_agent.py completed successfully.
+
+2025-07-06 15:30:00 - INFO - Running agents/report_generator_agent.py...
+2025-07-06 15:30:00 - INFO - \U0001f4c4 Starting Report Generator Agent...
+2025-07-06 15:30:00 - INFO - \u2705 Report generated successfully. Check reports/final_report.json
+2025-07-06 15:30:00 - INFO - Agent agents/report_generator_agent.py completed successfully.
+
+2025-07-06 15:30:00 - INFO - Running agents/self_mutator_agent.py...
+2025-07-06 15:30:00 - INFO - \U0001f504 Starting Self-Mutator Agent (AI-powered)...
+2025-07-06 15:30:24 - INFO - \u2705 LLM Response received.
+2025-07-06 15:30:24 - INFO - LLM Response:
+{"learning_rate": 0.003, "batch_size": 64, "optimizer": "Adam", "epochs": 20}
+2025-07-06 15:30:24 - INFO - \u2705 New mutation log saved successfully.
+2025-07-06 15:30:24 - INFO - Self Mutator Agent executed successfully.
+2025-07-06 15:30:24 - INFO - This agent mutates hyperparameters based on previous experiment results.
+2025-07-06 15:30:24 - INFO - Agent agents/self_mutator_agent.py completed successfully.
+
+2025-07-06 15:30:24 - INFO - Running agents/code_expert_agent.py...
+2025-07-06 15:30:26 - INFO - Starting Code Expert Agent...
+2025-07-06 15:30:26 - INFO - Analyzing code: d:/ai/projects/Real-World-Projects/genesis-self-evolving-ai/codes\model_20250706_152845.py
+2025-07-06 15:30:26 - INFO - Detected frameworks: pytorch, sqlalchemy
+2025-07-06 15:30:26 - INFO - Found 31 issues to address
+2025-07-06 15:32:30 - INFO - Saved improved code to d:/ai/projects/Real-World-Projects/genesis-self-evolving-ai/codes/improved\improved_20250706_153228_model_20250706_152845.py
+2025-07-06 15:32:30 - INFO - Code improvement completed successfully
+2025-07-06 15:32:30 - INFO - Code Expert Agent completed successfully
+2025-07-06 15:32:30 - INFO - Agent agents/code_expert_agent.py completed successfully.
+
+2025-07-06 15:32:30 - INFO - \U0001f4ca Running Visualization Step...
+2025-07-06 15:32:32 - INFO - \u2705 Visualization completed successfully.
+
+2025-07-06 15:32:32 - INFO - \U0001f389 Genesis AI Pipeline completed.
+2025-07-06 15:32:32 - INFO - All agents executed successfully. Check reports, results & visualizations.
+2025-07-06 17:12:39 - INFO - \U0001f680 Starting Genesis AI Pipeline...
+2025-07-06 17:12:39 - INFO - Running services/arxiv_scraper.py...
+2025-07-06 17:12:40 - INFO - Starting arXiv Scraper Pipeline...
+2025-07-06 17:12:40 - INFO - Fetching latest 1 papers from arXiv (attempt 1/3)
+2025-07-06 17:12:41 - INFO - Successfully fetched 1 papers.
+2025-07-06 17:13:00 - INFO - AI Summary completed for: MultiGen: Using Multimodal Generation in Simulation to Learn Multimodal
+  Policies in Real
+2025-07-06 17:13:00 - INFO - Saved all paper data to data/papers_20250706_171300.json
+2025-07-06 17:13:00 - INFO - Saved pipeline input to data/paper_input_1_20250706_171300.txt
+2025-07-06 17:13:00 - INFO - arXiv Scraper Pipeline completed successfully.
+2025-07-06 17:13:00 - INFO - You can now run the Paper Reader Agent to process the saved paper summaries.
+2025-07-06 17:13:00 - INFO - Agent services/arxiv_scraper.py completed successfully.
+
+2025-07-06 17:13:00 - INFO - Running agents/paper_reader_agent.py...
+2025-07-06 17:13:01 - INFO - Starting Paper Reader Agent...
+2025-07-06 17:13:56 - INFO - LLM Response received.
+2025-07-06 17:13:56 - INFO - Paper summary saved to outputs/paper_summary.txt.
+2025-07-06 17:13:56 - INFO - Agent agents/paper_reader_agent.py completed successfully.
+
+2025-07-06 17:13:56 - INFO - Running agents/model_designer_agent.py...
+2025-07-06 17:13:57 - INFO - Starting Model Designer Agent...
+2025-07-06 17:15:34 - INFO - Model code saved to D:\ai\projects\Real-World-Projects\genesis-self-evolving-ai\codes\model_20250706_171534.py
+2025-07-06 17:15:34 - INFO - Model Designer Agent completed successfully.
+2025-07-06 17:15:34 - INFO - Agent agents/model_designer_agent.py completed successfully.
+
+2025-07-06 17:15:34 - INFO - Running agents/experiment_runner_agent.py...
+2025-07-06 17:15:35 - INFO - Starting Experiment Runner Agent...
+2025-07-06 17:15:35 - INFO - Loaded mutated hyperparameters.
+2025-07-06 17:15:35 - INFO - Running with hyperparameters: {'learning_rate': 0.003, 'batch_size': 64, 'optimizer': 'Adam', 'epochs': 20}
+2025-07-06 17:16:19 - INFO - LLM Self-Critique:
+**Critique and Suggested Improvements**  
+- **Model Design**  
+  - **Feature Fusion Strategy**: Simple concatenation + MLP may fail to weight modality contributions effectively (e.g., depth/RGB features are fixed 512D, audio/haptic 128D/64D). Consider adaptive fusion like cross-attention or gate mechanisms (e.g., hypernetworks or LSTM-based multimodal integration).  
+  - **Haptic Encoder Capacity**: Two linear layers for haptic data might be insufficient. Expand depth (e.g., 3-4 layers) or use a residual structure to avoid information loss in low-dimensional inputs.  
+  - **ResNet Modifications**: First conv layer uses `kernel_size=7` for input H/W \u2265 224. If operating on lower-res inputs (e.g., 64x64), this could lose spatial context; validate input resolution requirements or adjust conv kernel/stride.  
+  - **Audio Encoder**: Shallow (3x `Conv2D + ReLU + MaxPool`) may underfit spectrogram patterns. Add temporal convolution (1D CNN) or transformer blocks to capture sequences in audio instead of fixed pooling.  
+
+- **Learning Strategy**  
+  - **Final Action Layer**: The single linear layer (`hidden_size` \u2192 `action_dim`) lacks nonlinearity. Add a task-specific head with activation functions (e.g., GELU) and smaller final layer width (e.g., `hidden_size // 2` \u2192 `action_dim`) to refine representations.  
+  - **Pretrained Encoders**: RGB and depth encoders are initialized randomly. Pretrain RGB encoder on ImageNet (or domain-specific data) and adapt depth encoder to correlate with RGB features (e.g., multi-task training).  
+  - **Modality Training Balance**: All modalities are fused equally, but loss values/accuracy suggest poor modality contribution. Use modality-specific losses (e.g., MAE for vision, spectral contrasts for audio) and associated task-based weights during training.  
+  - **Regularization**: Dropout is only in fusion MLP. Add spatial dropout in RGB/depth encoders or spectral normalization in audio layers to prevent overfitting in high-D features (especially with 1296D to 256D compression).  
+
+- **Data Flow and Handling**  
+  - **Input Consistency Checks**: Audio input assumes fixed `N_FRAMES=100` in code, but the arg parser lacks a `--audio-frames` parameter. Ensure all modalities are synchronized and adaptively processed (e.g., `AdaptiveAvgPool1d` for audio sequences).  
+  - **Heterogeneous Modality Interaction**: RGB, depth, and audio are processed as independent embeddings. Add cross-modal interactions (e.g., bilinear pooling, message passing between encoders) to better model joint latent relationships.  
+  - **Normalization Uniformity**: Audio and haptic inputs are not normalized. Implement separate input normalization layers (`LayerNorm`/batch-specific norms) per modality to stabilize training.  
+  - **Gradient Flow Between Modalities**: Depth encoder shares ResNet architecture but depth inputs may carry distinct patterns (e.g., scatter distribution in depth vs. RGB). Consider asymmetric architectures (e.g., lightweight net for depth) or pretrained depth-specific models.
+2025-07-06 17:16:19 - INFO - Simulated evaluation score: 0.5
+2025-07-06 17:16:19 - INFO - Experiment result saved.
+2025-07-06 17:16:19 - INFO - Logged generation 23.
+2025-07-06 17:16:19 - INFO - Experiment Runner Agent executed successfully.
+2025-07-06 17:16:19 - INFO - This agent runs experiments based on the latest improved model code and hyperparameters.
+2025-07-06 17:16:19 - INFO - Agent agents/experiment_runner_agent.py completed successfully.
+
+2025-07-06 17:16:19 - INFO - Running agents/report_generator_agent.py...
+2025-07-06 17:16:19 - INFO - \U0001f4c4 Starting Report Generator Agent...
+2025-07-06 17:16:19 - INFO - \u2705 Report generated successfully. Check reports/final_report.json
+2025-07-06 17:16:19 - INFO - Agent agents/report_generator_agent.py completed successfully.
+
+2025-07-06 17:16:19 - INFO - Running agents/self_mutator_agent.py...
+2025-07-06 17:16:20 - INFO - \U0001f504 Starting Self-Mutator Agent (AI-powered)...
+2025-07-06 17:16:56 - INFO - \u2705 LLM Response received.
+2025-07-06 17:16:56 - INFO - LLM Response:
+{
+  "learning_rate": 0.005,
+  "batch_size": 128,
+  "optimizer": "AdamW",
+  "epochs": 25
+}
+2025-07-06 17:16:56 - INFO - \u2705 New mutation log saved successfully.
+2025-07-06 17:16:56 - INFO - Self Mutator Agent executed successfully.
+2025-07-06 17:16:56 - INFO - This agent mutates hyperparameters based on previous experiment results.
+2025-07-06 17:16:56 - INFO - Agent agents/self_mutator_agent.py completed successfully.
+
+2025-07-06 17:16:56 - INFO - Running agents/code_expert_agent.py...
+2025-07-06 17:16:57 - INFO - Starting Code Expert Agent...
+2025-07-06 17:16:57 - INFO - Analyzing code: d:/ai/projects/Real-World-Projects/genesis-self-evolving-ai/codes\model_20250706_171534.py
+2025-07-06 17:16:57 - INFO - Detected frameworks: pytorch, tensorflow, sqlalchemy
+2025-07-06 17:16:57 - INFO - Found 20 issues to address
+2025-07-06 17:20:59 - INFO - Saved improved code to d:/ai/projects/Real-World-Projects/genesis-self-evolving-ai/codes/improved\improved_20250706_172059_model_20250706_171534.py
+2025-07-06 17:20:59 - INFO - Code improvement completed successfully
+2025-07-06 17:20:59 - INFO - Code Expert Agent completed successfully
+2025-07-06 17:20:59 - INFO - Agent agents/code_expert_agent.py completed successfully.
+
+2025-07-06 17:20:59 - INFO - \U0001f4ca Running Visualization Step...
+2025-07-06 17:21:02 - INFO - \u2705 Visualization completed successfully.
+
+2025-07-06 17:21:02 - INFO - \U0001f389 Genesis AI Pipeline completed.
+2025-07-06 17:21:02 - INFO - All agents executed successfully. Check reports, results & visualizations.

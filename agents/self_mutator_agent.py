@@ -40,9 +40,14 @@ Return ONLY a JSON object with updated hyperparameters.
         log_info("✅ LLM Response received.")
         log_info(f"LLM Response:\n{llm_response}")
 
-        # Try parsing LLM's response as JSON
+        # Try parsing LLM's response as JSON, removing markdown code fences if present
         try:
-            suggested_params = json.loads(llm_response)
+            cleaned_response = llm_response.strip()
+            if cleaned_response.startswith("```"):
+                # Remove code fences and optional language tag
+                cleaned_response = cleaned_response.split("```")[1]
+                cleaned_response = cleaned_response.strip()
+            suggested_params = json.loads(cleaned_response)
         except json.JSONDecodeError:
             raise ValueError("LLM did not return valid JSON. Please verify the response format.")
 
@@ -64,4 +69,7 @@ Return ONLY a JSON object with updated hyperparameters.
 
 
 if __name__ == "__main__":
-    run_self_mutator()
+    run_self_mutator()      
+    log_info("Self Mutator Agent executed successfully.")
+    log_info("This agent mutates hyperparameters based on previous experiment results.")
+    

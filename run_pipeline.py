@@ -25,7 +25,8 @@ if __name__ == "__main__":
         "agents/model_designer_agent.py",
         "agents/experiment_runner_agent.py",
         "agents/report_generator_agent.py",
-        "agents/self_mutator_agent.py"
+        "agents/self_mutator_agent.py",
+        "agents/code_expert_agent.py"
     ]
 
     for agent in agents:
