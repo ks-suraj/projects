@@ -1,0 +1,23 @@
+{
+  "title": "MultiGen: Using Multimodal Generation in Simulation to Learn Multimodal\n  Policies in Real",
+  "authors": [
+    "Renhao Wang",
+    "Haoran Geng",
+    "Tingle Li",
+    "Feishi Wang",
+    "Gopala Anumanchipalli",
+    "Philipp Wu",
+    "Trevor Darrell",
+    "Boyi Li",
+    "Pieter Abbeel",
+    "Jitendra Malik",
+    "Alexei A. Efros"
+  ],
+  "categories": [
+    "cs.RO",
+    "cs.CV"
+  ],
+  "summary": "### Structured Summary of the Research Paper  \n\n**1. Main Research Contribution**  \nThe authors introduce **MultiGen**, a novel framework that bridges **multimodal sim-to-real transfer** by integrating **large-scale generative models** (e.g., text-to-speech, audio-visual synthesis) with traditional physics simulators. This enables the generation of **rich multisensory (audiovisual) training data** in simulation, addressing the challenge of simulating non-visual modalities like sound, which are critical for real-world robotic tasks but difficult to model accurately.\n\n---\n\n**2. Key Methodology/Approach**  \n- **Framework Design**: Combines **vision simulation** (using a physics engine for visual realism) with **generative models** for other modalities (e.g., audio).  \n  - **Physics-based visual simulation**: Generates realistic RGB-D video of the environment.  \n  - **Generative audio synthesis**: Trains a **large conditional audio generation model** (e.g., using simulated video data) to produce realistic sound effects (e.g., liquid pouring, object contact).  \n- **Policy Training**: Monomodal (vision-only) and multimodal (vision + audio) robotic policies are trained entirely in simulation using **self-supervised learning** on the synthesized audiovisual trajectories.  \n- **Zero-shot Transfer**: Evaluates the trained policies on real-world hardware without requiring any additional data, leveraging the generative models to close the sim-to-real gap for challenging modalities.  \n\n---\n\n**3. Primary Findings/Results**  \n- **Effective Sim-to-Real Transfer for Pouring Tasks**: MultiGen achieves high success rates in real-world robot pouring tasks using only simulation-trained policies (zero-shot transfer) for **novel containers and liquids** (not seen during training).  \n- **Improved Multimodal Learning**: Policies trained with synthesized audio (using TTS models) outperform those trained with physics-based audio only, as the generative model better captures the **rich variability of real-world acoustic feedback** (e.g., splashing, pouring sounds).  \n- **Generalization Across Modalities**: The framework demonstrates that integrating generative models for multimodal data (vision + audio) enables robust generalization to real-world scenarios, even when the physical dynamics of the simulator are not perfectly aligned with reality.  \n\n---\n\n**4. Potential Applications**  \n- **Multimodal Robotics**: Tasks requiring audio-visual integration, such as object manipulation (e.g., identifying materials by touch/sight/sound), grasping, or human-robot interaction (e.g., responding to verbal cues and visual context).  \n- **Sim-to-Real Training for Complex Environments**: Enabling large-scale policy learning for scenarios where collecting real-world data (especially non-visual modalities) is impractical or expensive (e.g., hazardous or acoustically complex environments).  \n- **Cross-Modal Sensing**: Enhancing robotic perception by simulating interactions between modalities (e.g., using audio to infer liquid levels indirectly when visual occlusion occurs).  \n- **Education and Training**: Creating lifelike simulation environments for training robots in human-centric settings (e.g., cooking, cleaning) where multimodal feedback (sound, motion) improves task understanding and adaptability.  \n\n---\n\nThis approach highlights the promise of **generative modeling** to augment physics-based simulators, enabling scalable, multimodal learning for real-world robotics without relying on costly real-data collection.",
+  "arxiv_id": "2507.02864v1",
+  "pdf_url": "https://arxiv.org/pdf/2507.02864v1.pdf"
+}
