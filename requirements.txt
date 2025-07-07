@@ -1,2 +1,6 @@
 requests
 python-dotenv
+matplotlib
+rich
+scrapy
+PyPDF2
