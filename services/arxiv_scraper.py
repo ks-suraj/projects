@@ -10,7 +10,7 @@ except ImportError:
 
 class ArxivMinimalSpider(scrapy.Spider):
     name = "arxiv_minimal_spider"
-    start_urls = ["https://arxiv.org/list/cs.AI/recent"]
+    start_urls = ["https://arxiv.org/list/q-bio.TO/recent"]
 
     def parse(self, response):
         # Extract the first PDF link (latest paper)

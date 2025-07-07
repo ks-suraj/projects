@@ -1,0 +1,1120 @@
+A Multi -Scale Finite Element Method for Investigating  Fiber 
+Remodeling in Hypertrophic Cardiomyopathy  
+ 
+Mohammad Mehri1, Kenneth S. Campbell2, Lik Chuan Lee3, Jonathan F. Wenk 1,4* 
+ 
+1Department of Mechanical and Aerospace Engineering, University of Kentucky, Lexington, 
+Kentucky, USA  
+2Division of Cardiovascular Medicine and Department of Physiology, University of Kentucky, 
+Lexington, KY  
+3Department of Mechanical Engineering, Michigan State University, East Lansing, Michigan, 
+USA 
+4Department of Surgery , University of Kentucky, Lexington, Kentucky, USA  
+ 
+ 
+*Corresponding Author:  
+Jonathan F. Wenk, PhD  
+University of Kentucky  
+Department of Mechanical and Aerospace Engineering  
+269 Ralph G. Anderson Building  
+Lexington, KY 40506 -0503  
+Phone:  (859) 218 -0658  
+Fax: (859) 257 -3304  
+Email: jonathan.wenk@uky.edu  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Abstract : 
+A significant hallmark of hypertrophic cardiomyopathy (HCM) is fiber disarray, which is associated 
+with various cardiac events such as heart failure. Quantifying fiber disarray  remains critical for 
+understanding the disease’s complex pathophysiology. This study investigates the role of heterogeneous 
+HCM -induced cellular abnormalities in the development  of fiber disarray and their subsequent impact on 
+cardiac pumping function. Fiber disarray is predicted  using a stress -based law to reorient myofibers and 
+collagen within a multiscale finite element cardiac modeling framework, MyoFE. Specifically, the mode l is 
+used to  quantif y the distinct impacts of heterogeneous distributions of hypercontractility, hyp ocontractility , 
+and fibrosis on fiber disarray development and examines  their effect on  functional characteristics of the 
+heart. Our results show that  heter ogenous cell level abnormalities highly disrupt the normal mechanics of 
+myocardium and lead to significant fiber disarray.  The pattern of disarray varies depending on the specific 
+perturbation, offering valuable insights into the progression of HCM . Despit e the random  distribution of 
+perturbed regions within the cardiac muscle, significantly higher fiber disarray is observed near the 
+epicardium compared to the endocardium across all perturbed  left ventricle ( LV) models. This regional 
+difference in fiber dis array, irrespective of perturbation severity, aligns with previous DT -MRI studies, 
+highlighting the role of regional myocardial mechanics in the development of fiber disarray. Furthermore, 
+cardiac performance declined in the remodeled L Vs, particularly in those with fibrosis and 
+hypocontractility. These findings provide important insights into the structural and functional 
+consequences of HCM and offer a framework for future investigations into therapeutic interventions 
+targeting cardiac remodeling . 
+ 
+Keywor ds: Multiscale modeling, HCM , Finite element modeling, Cardiac 
+mechanics, Fiber remodeling  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+1. Introduction  
+ 
+Hypertrophic cardiomyopathy (HCM) is the most prevalent inherited heart disease, affecting over 
+1 in 200 individuals [1, 2] . It is a leading cause of sudden cardiac death (SCD) in you ng individuals and a 
+common cause of heart failure in adults [3]. A hallmark feature specific to patients who die suddenly with 
+HCM is extensive fiber disarray, which is thought to play a key role in the development of re -entrant 
+ventricular arrhythmias leading to SCD  [4]. This  disorganization of myocardial fibers can be localized to 
+specific regions of the left ventricle (LV) or spread throughout the entire LV  [5]. In addition to fiber 
+disarray, HCM is also associated with other pathological features, including LV hypertrophy, altered 
+myocardial contractility, and cardiac fibrosis. The emergence of  fiber disarray is often thought to be 
+connected to contractile imbalance and heterogeneous myocardial stiffening due to fibrosis; however, the 
+underlying mechanisms are still not fully understood.  
+Several studies have proposed that contractile imbalance, resulting from heterogeneity in force 
+generation among cardiomyocytes, may contribute to the development of fiber disarray in patients with 
+HCM [6-11]. To date, over 1,000 causative mutations have been identified for HCM, predominantly within 
+genes encoding sarcomeric proteins responsible for generating and regulating contraction, wit h 
+approximately one -third of these mutations located in β -cardiac myosin  [12]. Experimental studies have 
+shown  substantial differences in force generation between individual cardiomyocytes from HCM patients 
+with mutations in β -myosin heavy chain (β -MyHC) even  at the same calcium concentration  [7, 9, 10] . It is 
+assumed that unequal fractions of mutant and wild -type protein , from cell to cell , may underlie such 
+contractile imbalance. While the prevailing trend  is that HCM mutations cause hypercontractility —linked to 
+mutation -induced disruption of the super -relaxed state (SRX) of myosin heads [7, 13-16]—several studies 
+have also reported reduced force generation in certain HCM mutations, leading to hypocontractility  [7, 14, 
+17-19].  
+Alongside contractile imbalance, myocardial fibrosis plays a critical role in HCM pathology. 
+Increased myocardial fibrosis is maladaptive, as its accumulation is correlate d with impaired cardiac 
+relaxation  and a higher risk of heart failure  [20]. Myocardial fibrosis  can be categorized into  the general 
+subtypes of replacement fibrosis  and interstitial fibrosis. In HCM, the predominant type of myocardial 
+fibrosis  is replacement fibrosis, and late gadolinium enhancement (LGE) with cardiac  MRI is the reference 
+standard for detect ing this type of fibrosis  [21-23]. The emergence  of replacement fibrosis in HCM is 
+driven by the premature death of mutant myocytes and the expansion of the interstitial matrix . Factors 
+such as compromised coronary flow due to  hypertrophy, micro vascular dysfunction, increased oxidative 
+stress, and heightened metabolic demands from abnormal biophysical properties of mutant sarcomeres 
+contribute to myocyte death and the formation of replacement fibrosis in HCM [20]. The expansion of the 
+extracellular matrix in fibrotic areas causes local stiffening and makes the myocardium highly 
+heterogeneous, disrupting its mechanics and altering the stress distribution, which is assumed to 
+contribute to  further remodeling of myocardial fibers.  
+The intricate mechanisms underlying cardiac pathophysiological conditions are difficult to 
+evaluate in a clinical setting due to ethical and technical limitations  [24]. But, c omputational methods , 
+particularly finite element (FE) modeling, offer a promising solution by overcoming these limitations and 
+providing valuable insights into cardiac structure and function. A key aspect of these models is the 
+effective estimation of the cardiac fiber confi guration. Many models rely on rule -based assignments of 
+myofiber angles based on experimental data  [25-29], while others use warping and projection methods to 
+integrate geometry -specific myofiber angles from diffusion tensor magnetic resonance imaging (DTMRI)  
+[30-32]. A machine learning based model, which was used to estimate myocardial stiffness, showed the 
+importance of fiber orientation on capturing realistic global pumping function  [33]. Given the crucial role of 
+fiber organization in cardiac function and the disruptions caused by pathological conditions, it is essential 
+to use a model that is flexible in assigning the initial fiber configuration and can predict gradual fiber 
+remodeling in  conditions like HCM.  
+Kroon et al. (2009) developed a cardiac FE model that adapts  myofiber orientation to minimize 
+shear strain, based on the assumption  that shear strain disrupts the extracellular matrix (ECM) and leads 
+to permanent fiber reorientatio n [34]. Similarly, Washio et al. (2015) used an adaptive model to predict 
+myofiber orientation in healthy hearts, based on two independent optimization parameters: (1) local 
+muscle workload and (2) contractile load impulse. Both of these parameters were functions of "active" 
+cardiac c ontraction, which limited their ability to reflect passive behavior, especially in fibrotic regions  [35]. 
+Washio et al. (2020) later found that the impulse -based mechanism was more suitable for myofiber 
+reorientati on [36]. Another study utilized an agent -based model to describe fibroblast -driven collagen 
+remodeling, regulated by chemic al and mechanical cues. This cell -level model was then scaled up to a 
+3D FE model of the LV, but was limited to simulating only the diastolic phase  [37]. Mendiola et al.  [38] 
+used a combination of image -driven micromechanics and computational modeling to assess the effects of 
+fiber orientation and fibrosis over time in a rat model of myocardial infarction.  Other studies have 
+investigated stress -based laws for collagen remodeling in arterial tissue  [39, 40] . 
+The current  study employs  a stress -based fiber remodeling algorithm that extends the  previous 
+methods by incorporating both active and passive stress as fiber adaptation drivers. This allows for the 
+simulation of remodeling throughout the entire cardiac cycle in both myofibers and the extracellular 
+matrix. In this approach, fibers tend to reorient toward local traction vectors, which can be altered due to 
+heterogenous mechanical properties . Unlike ea rlier HCM finite element modeling studies that examine 
+fiber disarray as a model  input affecting cardiac performance  [5, 41, 42] , i.e. the disarray is assigned a 
+priori, the current  research investigates the underlying mechanisms driving fiber reorientation and predicts 
+subsequent myocardial disarray. In a prior study, we demonstrated the accuracy of a stress -based fiber 
+reorientation  law in predicting both normal fiber configurations and pathological remodeling post 
+myocardial infarction (MI)  [43]. The aim of the current study is to deepen our understanding of HCM 
+progression by examining how heterogeneous hypercontractility, hypocontractility, and fibrosis influence 
+myocardial remodeling an d cardiac function.  This is motivated by studies looking at the  established 
+stages of HCM, where the disease may be self -sustaining beyond the effects of the mutant protein  
+affecting contractility , with the diseased ECM  in fibrotic tissue potentially playing a significant role  [44]. By 
+isolating the effects of these cell -level HCM -induced abnormalities, this study provides new insights into 
+disease progression and may help the development of more targeted therapeutic strategies.  
+2. Methods  
+2.1 MyoFE framework  
+The current study examines fiber remodeling and cardiac behavior related to  HCM using a 
+modular multiscale FE framework known as MyoFE (Figure 1). The MyoFE framework combines  various 
+aspects of cardiovascular function, including calcium dynamics , myofiber  contraction, and circulatory 
+hemodynamics, within a closed -loop model of the LV and systemic circulation. Additionally, a fiber 
+reorientation module is coupled with this central framework to predict the fiber configuration in both the 
+normal LV and advers e remodeling caused by HCM. All model parameters are detailed in Table S1 of the 
+Supplementary Material.  
+Myofiber  contraction is implemented  using a molecular -level model called MyoSim  [12, 26] , which  
+computes the  active stress generated by sarcomeres based on the deformation of  the myofibers and the 
+calcium concentration. In this study, a pacing stimulus activates  a two -compartment model of calcium 
+dynamics. The mechanical configuration of the myofibers, including  changes  in sarcomere length and 
+total stress, is derived from the 3D FE model of the LV . To impose the hemodynamic boundary condition 
+related  with the  volume of the  LV cavity , a Windkessel circulation model [45] is used. Essentially , the total 
+stress state in the myocardium  of the 3D FE model ( i.e., passive and active stress) is balanced by the 
+pressure in the LV cavity. The coupling of the FE model and circulatory model constrains the LV cavity 
+volume  calculated by each model, via a Lagrange multiplier,  which  allows for the determination of the 
+cavity pressure.  
+ 
+ 
+Figure 1: MyoFE framework schematic. A: The fiber reorientation algorithm reorients fibers using the myocardial 
+stress from the LV model (upper panel) in the central framework. In regions of heterogeneous mechanical properties, 
+this can lead to localized remodeling of the fibers (lower panel). The updated fiber vectors are then passed to the 
+central framework for the subsequent time step. The unit vector 𝒇𝟎 represents the initial direction of a fiber. 𝒇𝟎 
+reorients toward the local traction vector 𝑺𝒇𝟎, where 𝑺 is the total stress tensor, e ncompassing both passive and 
+active stresses. B: The central framework consists of the lumped parameter circulatory model and modules in the 
+yellow boxes on the left. Detailed information for each module is provided in the text.  
+2.2 Circulation model  
+The FE model is joined  with a Windkessel model of the closed systemic circulation  to determine  
+the hemodynamic boundary conditions within the LV cavity . This circulation model, which includes six 
+compartments in addition to the left ventricle, is represente d by a set of resistance (R) and compliance  (C) 
+parameters . In each compartment, the rate of change in blood volume is determined by the difference 
+between the inflow and outflow of blood per unit time, as follow s: 
+𝑑𝑉𝑎𝑜𝑟𝑡𝑎
+𝑑𝑡=𝑄𝐿𝑉 𝑡𝑜 𝑎𝑜𝑟𝑡𝑎 −𝑄𝑎𝑜𝑟𝑡𝑎  𝑡𝑜 𝑎𝑟𝑡𝑒𝑟𝑖𝑒𝑠
+𝑑𝑉𝑎𝑟𝑡𝑒𝑟𝑖𝑒𝑠
+𝑑𝑡=𝑄𝑎𝑜𝑟𝑡𝑎  𝑡𝑜 𝑎𝑟𝑡𝑒𝑟𝑖𝑒𝑠  −𝑄𝑎𝑟𝑡𝑒𝑟𝑖𝑒𝑠  𝑡𝑜 𝑎𝑟𝑡𝑒𝑟𝑖𝑜𝑙𝑒𝑠
+𝑑𝑉𝑎𝑟𝑡𝑒𝑟𝑖𝑜𝑙𝑒𝑠
+𝑑𝑡=𝑄𝑎𝑟𝑡𝑒𝑟𝑖𝑒𝑠  𝑡𝑜 𝑎𝑟𝑡𝑒𝑟𝑖𝑜𝑙𝑒𝑠 −𝑄𝑎𝑟𝑡𝑒𝑟𝑖𝑜𝑙 𝑒𝑠 𝑡𝑜 𝑐𝑎𝑝𝑖𝑙𝑙𝑎𝑟𝑖𝑒𝑠
+𝑑𝑉𝑐𝑎𝑝𝑖𝑙𝑙𝑎𝑟𝑖𝑒𝑠
+𝑑𝑡=𝑄𝑎𝑟𝑡𝑒𝑟𝑖𝑜𝑙𝑒𝑠  𝑡𝑜 𝑐𝑎𝑝𝑖𝑙𝑙𝑎𝑟𝑖𝑒𝑠 −𝑄𝑐𝑎𝑝𝑖𝑙𝑙𝑎𝑟𝑖𝑒𝑠  𝑡𝑜 𝑣𝑒𝑛𝑢𝑙𝑒𝑠
+𝑑𝑉𝑣𝑒𝑛𝑢𝑙𝑒𝑠
+𝑑𝑡=𝑄𝑐𝑎𝑝𝑖𝑙𝑙𝑎𝑟 𝑖𝑒𝑠 𝑡𝑜 𝑣𝑒𝑛𝑢𝑙𝑒𝑠 −𝑄𝑣𝑒𝑛𝑢𝑙𝑒𝑠  𝑡𝑜 𝑣𝑒𝑖𝑛𝑠
+𝑑𝑉𝑣𝑒𝑖𝑛 𝑠
+𝑑𝑡=𝑄𝑣𝑒𝑛𝑢𝑙𝑒𝑠  𝑡𝑜 𝑣𝑒𝑖𝑛𝑠 −𝑄𝑣𝑒𝑖𝑛𝑠  𝑡𝑜 𝐿𝑉
+𝑑𝑉𝐿𝑉
+𝑑𝑡=𝑄𝑣𝑒𝑖𝑛𝑠  𝑡𝑜 𝐿𝑉−𝑄𝐿𝑉 𝑡𝑜 𝑎𝑜𝑟𝑡𝑎 . (1) 
+
+According to Ohm’s law, the blood flow from one compartment to another is equal to the pressure 
+gradient between adjacent compartments divided by the resistance between them:  
+ 
+𝑄𝐿𝑉 𝑡𝑜 𝑎𝑜𝑟𝑡𝑎 ={𝑃𝐿𝑉−𝑃𝑎𝑜𝑟𝑡𝑎
+𝑅𝑎𝑜𝑟𝑡𝑎𝑤ℎ𝑒𝑛 𝑃𝐿𝑉≥𝑃𝑎𝑜𝑟𝑡𝑎
+0 𝑜𝑡ℎ𝑒𝑟𝑤𝑖𝑠𝑒
+𝑄𝑎𝑜𝑟𝑡𝑎  𝑡𝑜 𝑎𝑟𝑡𝑒𝑟𝑖𝑒𝑠 =𝑃𝑎𝑜𝑟𝑡𝑎 −𝑃𝑎𝑟𝑡𝑒𝑟𝑖𝑒𝑠
+𝑅𝑎𝑟𝑡𝑒𝑟𝑖𝑒𝑠
+𝑄𝑎𝑟𝑡𝑒𝑟𝑖𝑒𝑠  𝑡𝑜 𝑎𝑟𝑡𝑒𝑟𝑖𝑜𝑙𝑒𝑠 =𝑃𝑎𝑟𝑡𝑒𝑟𝑖𝑒𝑠 −𝑃𝑎𝑟𝑡𝑒𝑟𝑖𝑜𝑙𝑒𝑠
+𝑅𝑎𝑟𝑡𝑒𝑟𝑖𝑜𝑙𝑒 𝑠
+𝑄𝑎𝑟𝑡𝑒𝑟𝑖𝑜𝑙𝑒𝑠  𝑡𝑜 𝑐𝑎𝑝𝑖𝑙𝑙𝑎𝑟𝑖𝑒𝑠 =𝑃𝑎𝑟𝑡𝑒𝑟𝑖𝑜𝑙𝑒𝑠 −𝑃𝑐𝑎𝑝𝑖𝑙𝑙𝑎𝑟𝑖𝑒𝑠
+𝑅𝑐𝑎𝑝𝑖𝑙𝑙𝑎𝑟𝑖𝑒𝑠
+𝑄𝑐𝑎𝑝𝑖𝑙𝑙𝑎𝑟𝑖𝑒𝑠  𝑡𝑜 𝑣𝑒𝑛𝑢𝑙𝑒𝑠 =𝑃𝑐𝑎𝑝𝑖𝑙𝑙𝑎𝑟𝑖𝑒𝑠 −𝑃𝑣𝑒𝑛𝑢𝑙𝑒𝑠
+𝑅𝑣𝑒𝑛𝑢𝑙𝑒𝑠
+𝑄𝑣𝑒𝑛𝑢𝑙𝑒𝑠  𝑡𝑜 𝑣𝑒𝑖𝑛𝑠 =𝑃𝑣𝑒𝑛𝑢𝑙𝑒𝑠 −𝑃𝑣𝑒𝑖𝑛𝑠
+𝑅𝑣𝑒𝑖𝑛𝑠
+𝑄𝑣𝑒𝑖𝑛𝑠  𝑡𝑜 𝐿𝑉={𝑃𝑣𝑒𝑖𝑛𝑠 −𝑃𝐿𝑉
+𝑅𝐿𝑉𝑤ℎ𝑒𝑛 𝑃𝑣𝑒𝑖𝑛𝑠 ≥𝑃𝐿𝑉
+0 𝑜𝑡ℎ𝑒𝑟𝑤𝑖𝑠𝑒 . (2) 
+For all compartments except the LV, the blood pressure is determined by the difference between 
+the instantaneous and slack volumes  divided by the compartment's compliance:  
+𝑃𝑖(𝑡)=𝑉𝑖(𝑡)−𝑉𝑖,𝑠𝑙𝑎𝑐𝑘
+𝐶𝑖 , (3) 
+where V i(t), V i,slack and C i are the instantaneous blood volume, the slack volume, and the compliance of 
+compartment i, respectively. For the LV, cavity pressure is determined via the FE model, using the LV 
+cavity volume from equation (1)  as a boundary condition  as described below . 
+2.3 Finite element formulation  
+The LV mechanics in this study are solved using a FE model implemented with the open -source 
+FE library FEniCS  [46]. An implicit backward Euler scheme with a fixed time step of 1 ms  is used for time 
+integration. The displacement field is represented by quadratic interpolation  over the mesh , while linear 
+interpolation is used to describe the hydrostatic pressure. The FE formulation governs  the LV mechanics 
+based on the minimization of  the Lagrangian functional  as described  below:  
+ 
+ℒ(𝒖,𝑝,𝑃𝐿𝑉,𝑐𝑥,𝑐𝑦,𝑐𝑧)=∫𝑊(𝒖)𝑑𝑉Ω0−∫𝑝(𝐽−1)𝑑𝑉Ω0−
+𝑃𝐿𝑉(𝑉𝐿𝑉(𝒖)−𝑉𝐿𝑉)−𝑐𝑥∙∫𝑢𝑥𝑑𝑉Ω0−
+𝑐𝑦∙∫𝑢𝑦𝑑𝑉Ω0−𝑐𝑧∙∫𝒛×𝒖𝑑𝑉Ω0      ,       (4)         
+where u is the displacement field, W is the total strain energy, and p is a Lagrange multiplier that enforces 
+incompressibility by constraining the Jacobian of the deformation gradient tensor to unity (J=1). The LV 
+cavity volume VLV(u) is constrained via the Lagrange multiplier PLV according to the hemodynamic 
+boundary condition from the circulatory model VLV. Lagrange multipliers cx and cy constrain rigid body 
+translation in the x and y directions, respectively, and cz constrains rigid body rotation.  
+Additionally, the relationship between the volume of the LV cavity and the displacement field is 
+defined as : 
+𝑉𝐿𝑉(𝒖)=∫ 𝑑𝑉Ω𝑘,𝑒𝑛𝑑𝑜=−1
+3∫ 𝒙̅∙𝒏𝑑𝑎              Γ𝑘,𝑒𝑛𝑑𝑜, (5) 
+ 
+where 𝛺k,endo denotes the volume enclosed by the endocardial surface 𝛤k,endo and the basal plane  at z = 0 
+and n is the direction of the outward normal vector  to the surface . The position vector 𝒙̅ is relative to the 
+origin of the global coordinate system.  
+Taking the first variation of equation (4)  allows us to express the weak formulation of the 
+mechanics problem as follows:  
+𝛿ℒ(𝒖,𝑝,𝑃𝐿𝑉,𝑐𝑥,𝑐𝑦,𝑐𝑧)=∫𝑭𝑺:𝛁𝜹𝒖𝑑𝑉−∫(𝑝𝐽𝑭−𝑻:𝛁𝜹𝒖−𝛿𝑝(𝐽−1)𝑑𝑉−Ω0 Ω0
+𝑃𝐿𝑉∫𝐽𝑭−𝑻:𝛁𝜹𝒖𝑑𝑉−Ω0𝛿𝑃𝐿𝑉(𝑉𝐿𝑉(𝒖)−𝑉𝐿𝑉)−𝛿𝑐𝑥∙∫𝑢𝑥𝑑𝑉−Ω0𝑐𝑥∙∫𝛿𝑢𝑥𝑑𝑉−Ω0
+𝛿𝑐𝑦∙∫𝑢𝑦𝑑𝑉−Ω0𝑐𝑦∙∫𝛿𝑢𝑦𝑑𝑉−Ω0𝛿𝑐𝑧∙∫𝒛×𝒖𝑑𝑉Ω0−𝑐𝑧∙∫𝒛×𝜹𝒖𝑑𝑉Ω0=0 , (6) 
+where F denotes the deformation gradient tensor, S is the 2nd Piola Kirchhoff stress te nsor, δu∈H1(Ω0), 
+δp∈L2(Ω0), δP LV∈R, δc x∈R, δc y∈R, and δcz∈R are test functions corresponding to u, p, P LV, cx, cy, and cz, 
+respectively. In addition , a Dirichlet boundary condition 𝒖∙𝒏|𝑏𝑎𝑠𝑒 =0 is considered for the base of the LV, 
+which enforces  in-plane  deformation. The pressure in the LV cavity, derived from the Lagrange multiplier  
+PLV  is incorporated into circulatory equation (2), ensuring complete coupling between the 3D FE model 
+and the circulatory model.  
+2.4 Mechanics of cardiac muscle  
+This study incorporates both the passive and active properties of the myocardium to model the 
+mechanical behavior of the LV.  Accordingly , the 2nd Piola Kirchhoff stress tensor is additively 
+decomposed into active ( Sa) and passive ( Sp) components:  
+𝑺=𝑺𝒂+𝑺𝒑 . (7) 
+To capture the force -dependent nature  of myofibers, it is essential to decompose the passive 
+response into two distinct components: the myofiber component and the  remaining  bulk material. 
+Furthermore, a passive component is incorporated to account for the incompressibility of the tissue . The 
+passive stress tensor for each component is calculated by taking the deriv ative of the strain energy 
+function with respect to the Green -Lagrange strain tensor  E:  
+𝑺𝒑=𝑺𝒗𝒐𝒍+𝑺𝒃𝒖𝒍𝒌 +𝑺𝒎𝒚𝒐𝒇𝒊𝒃𝒆𝒓
+=𝜕Ψ𝑣𝑜𝑙
+𝜕𝑬+𝜕Ψ𝑏𝑢𝑙𝑘
+𝜕𝑬+𝜕Ψ𝑚𝑦𝑜𝑓𝑖𝑏𝑒𝑟
+𝜕𝑬    ,   (8) 
+where the volumetric strain energy function is Ψ𝑣𝑜𝑙=−𝑝(𝐽−1), with a Lagrange multiplier p to enforce  
+incompressibility exactly. The strain energy function of the bulk tissue, which reflects the distribution of 
+collagen, elastin, and microvasculature, is  modeled as a transversely isotropic material using the 
+Guccione constitutive law  [47]: 
+Ψ𝑏𝑢𝑙𝑘 = 𝐶
+2(𝑒𝑄−1)
+𝑤𝑖𝑡ℎ 𝑄=𝑏𝑓𝑓𝐸𝑓𝑓2+𝑏𝑥𝑥(𝐸𝑠𝑠2+𝐸𝑛𝑛2+𝐸𝑠𝑛2+𝐸𝑛𝑠2)+𝑏𝑓𝑠(𝐸𝑓𝑠2+𝐸𝑠𝑓2+𝐸𝑓𝑛2+𝐸𝑛𝑓2)  ,  (9) 
+where C, b ff, bxx, and bfs are passive material parameters for the bulk tissue. E represents the Green -
+Lagrange strain tensor  defined with respect to  the fiber, sheet, and sheer -normal directions  (f, s, and n 
+components ), respectively. Lastly, the myofiber strain energy function  is defined as : 
+Ψ𝑚𝑦𝑜𝑓𝑖𝑏𝑒𝑟 ={𝐶1(𝑒𝐶2(𝛼−1)2)𝛼>1
+0                       𝛼≤1  , (10) 
+where  𝛼=√𝒇𝟎∙𝑪𝒇𝟎 is the stretch along the fiber direction, C=FTF is the right Cauchy -Green deformation 
+tensor, 𝒇𝟎 is the referential fiber direction, and C1, C2 are material constants.  
+The active stress component ( Sa) is calculated  using the MyoSim framework [12], which  models 
+the mechanical properties of dynamically  coupled  myofilaments of a half sarcomere  at each integration 
+point in the LV FE mesh . A schematic of the cross -bridge scheme is illustrated in Figure 2 [28]. To 
+describe  the MyoSim methodology , we define the transition fluxes of the binding sites on the actin 
+filaments,  Jon and Joff and then describe the transition fluxes for the myosin filaments, represented by  J1, 
+J2, J3, and J4, which capture various states of the myosin heads  [26]. 
+The binding sites on actin trans ition between an inactive state (N off), where no myosin heads can 
+attach, and an active state ( Non). The binding sites that are active can be  categorized into two 
+configurations: Nunbound , representing sites that are not bound to myosin heads, and N bound, representing 
+sites that are bound  to myosin heads and cannot transition  back to the Noff state . Jon is the flux that 
+governs the transition of  binding sites from Noff to Non and is defined as: 
+𝐽𝑜𝑛= 𝑘𝑜𝑛[𝐶𝑎2+](𝑁𝑜𝑣𝑒𝑟𝑙𝑎𝑝 − 𝑁𝑜𝑛)(1+𝑘𝑐𝑜𝑜𝑝 (𝑁𝑜𝑛
+𝑁𝑜𝑣𝑒𝑟𝑙𝑎𝑝))   ,  (11) 
+where Non represents the proportion of binding sites in the active state, kon denotes a rate constant,  
+Noverlap  represents the proportion of binding sites in the vicinity of myosin heads, kcoop is a constant factor 
+that controls the cooperativity of the thin filame nt. 
+ 
+ 
+Figure 2: Cross -bridge scheme. Sites on the thin filament switch between states that are available (N on) and 
+unavailable (N off) for cross -bridges to bind to. Myosin heads transition between a super -relaxed detached state 
+(MSRX), a disordered -relaxed detached state (M DRX), and a single attached force -generating state (M FG). J terms 
+indicate fluxes between different states. Reproduced with permission from Springer Nature from Sharifi et al  [28]. 
+The activated unbound sites transition  back into the inactive state via the Joff flux, which is 
+governed by a rate constant of koff: 
+𝐽𝑜𝑓𝑓= 𝑘𝑜𝑓𝑓 (𝑁𝑜𝑛− 𝑁𝑏𝑜𝑢𝑛𝑑 )(1+𝑘𝑐𝑜𝑜𝑝 (𝑁𝑜𝑣𝑒𝑟𝑙𝑎𝑝 − 𝑁𝑜𝑛
+𝑁𝑜𝑣𝑒𝑟𝑙𝑎𝑝))   .               (12) 
+On the myosin filament, myosin heads can switch  between three states: MSRX (detached super -
+relaxed), MDRX (detached disordered -relaxed), and MFG (attached force generating). The fluxes governing 
+the transitions between M SRX and M DRX are represented by J1 and J2, respectively  as below : 
+𝐽1= 𝑘1 (1 + 𝑘𝑓𝑜𝑟𝑐𝑒 𝐹𝑡𝑜𝑡𝑎𝑙 )𝑀𝑆𝑅𝑋 .       (13)  
+𝐽2 = 𝑘2𝑀𝐷𝑅𝑋 
+
+In this equation, k1 and k2 are the rate constants, kforce is a parameter related to force -dependent 
+recruitment  of myosin heads , Ftotal is the total stress (passive and active) along the myofiber , and MSRX 
+and MDRX are the proportions of myosin heads in the SRX and DRX states.  Notably, since the HCM 
+mutation s disrupt the SRX state, we implemented the abnormal contractility of the diseased LV by 
+adjusting  k1. 
+ 
+The attachment of myosin heads to binding sites is defined  by the transition flux J 3, while the 
+detachment is governed by the transition flux J 4: 
+                                            𝐽3 (𝑥)= 𝑘3𝑒−𝑘𝑐𝑏𝑥2
+2𝑘𝐵𝑇(𝑁𝑜𝑛− 𝑁𝑏𝑜𝑢𝑛𝑑 )𝑀𝐷𝑅𝑋                 ,               (14) 
+𝐽4 (𝑥)=(𝑘4,0+𝑘4,1𝑥4) 𝑀𝐹𝐺(𝑥) 
+where k3 and k4,0 are rate constants, kcb is the stiffness of the cross -bridge link, kB is the Boltzmann constant, 
+T is temperature in Kelvin, k4,1 is the strain dependent cross -bridge detachment rate parameter, MFG is the 
+proportion of myosin heads in the attached state, and x is the cross -bridge length.  
+By utilizing the transition fluxes mentioned above, a system of ordinary differential equations  
+(ODEs) is created to determine the proportion of  myosin head s and binding site s in each configuration.  
+This system of ODEs is partitioned with a spatial resolution of 1 nm, spanning a range of −10≤𝑥≤10 
+nm (i.e., n=21).  As a result, a total of 25 ODEs are solved at each integration point within the LV mesh, 
+defined as : 
+𝑑𝑁𝑜𝑓𝑓
+𝑑𝑡 = −𝐽𝑜𝑛 + 𝐽𝑜𝑓𝑓
+𝑑𝑁𝑜𝑛
+𝑑𝑡 = 𝐽𝑜𝑛 − 𝐽𝑜𝑓𝑓
+𝑑𝑀𝑆𝑅𝑋
+𝑑𝑡 = − 𝐽1+ 𝐽2
+𝑑𝑀𝐷𝑅𝑋
+𝑑𝑡 = (𝐽1+ ∑ 𝐽4,𝑥𝑖𝑛
+𝑖=1 ) − (𝐽2+ ∑ 𝐽3,𝑥𝑖𝑛
+𝑖=1 )
+𝑑𝑀𝐹𝐺,𝑖
+𝑑𝑡 =  𝐽3,𝑥𝑖− 𝐽4,𝑥𝑖 𝑤ℎ𝑒𝑟𝑒 𝑖 = 1...𝑛             .          (15) 
+The active stress experienced along  each myofiber can be determined by using  the proportion of 
+myosin heads in the force -generating state, expressed as: 
+ 
+𝐹𝑎𝑐𝑡𝑖𝑣𝑒  = 𝑁𝑜𝑘𝑐𝑏∑ 𝑀𝐹𝐺,𝑖𝑛
+𝑖=1  (𝑥𝑖+ 𝑥𝑝𝑠)            ,                     (16) 
+                   
+where N0 represents the density of myosin heads [48], and xps refers to the power stroke of an attached 
+cross -bridge.  
+Finally, the active stress tensor is defined by projecting Factive  along the myofiber direction:  
+𝑺𝒂=𝐹𝑎𝑐𝑡𝑖𝑣𝑒 𝒇𝟎⨂𝒇𝟎      .                                        (17) 
+ 
+2.5 Stress -Based  Fiber Reorientation  
+The fiber reorientation mechanism  is depicted in Figure 3, where  𝒇𝟎 represents the unit vector 
+along the fiber direction in the reference configuration, which is shared by  the myofibers and perimysial 
+collagen fibers.  The traction vector ( 𝑺𝒇𝟎) is associated with the cross -sectional face of the fibers at a point 
+in the L V. The stress -based reorientation law incrementally reorients the fibers at each integration point in 
+the LV mesh, aligning them with the local traction vector as below:  
+                                                      𝑑𝒇𝟎
+𝑑𝑡=1
+𝜅(𝑺𝒇𝟎
+‖𝑺𝒇𝟎‖−𝒇𝟎)                            ,                (22) 
+where 𝜅 is a time constant used to enforce the separation of time scales , which acts like a map between 
+model time and real time. This is a numerical necessity to speed up the calculation of remodeling . 
+Specifically, it facilitates a reasonable rate of fiber reorientation, enabling the capture of case -specific fiber 
+configurations within a limited number of cardiac beats, which  leads to better  computationally efficiency . 
+The gradual reorientat ion process minimizes the difference between the fiber direction and the direction 
+of the traction experienced by the fibers. To capture the reorientation occurring in both myofibers and 
+collagen, it is necessary  to use the total stress tensor, which inclu des both active and passive stress 
+components.  This is especially important in the fibrotic  region s where the scar tissue is devoid of 
+contracting myofibers.  For more details on the stress -based fiber reorientation law, please refer to our 
+previous paper  [43]. 
+ 
+Figure 3:   Stress based fiber reorientation. The unit vector 𝒇𝟎 represents the initial direction of the myofiber and 
+collagen. 𝒇𝟎 reorients toward the local traction vector 𝑺𝒇𝟎, which is associated with the cross -sectional face of the 
+fiber. 𝑺 is the total stress tensor, encompassing both passive and active stresses.  Reproduced with permission from 
+Elsevier  from Mehri  et al [43]. 
+ 
+2.6 LV model geometry  
+The LV of a human heart was modeled using an ellipsoidal geometry consisting of ~1250 
+quadratic tetrahedral elements (refer to Supplementary Figure S 1 for the mesh sensitivity analysis). The 
+LV's unloaded  chamber volume was 75 mL, with a length from base to apex of 7 .3 cm. At the base, the 
+outer diameter was 7. 2 cm, and the wall thickness was about  1.3 cm , while the apical wall thickness was 
+half of tha t value  [25]. The initial helical fiber angle was defined using a Laplace -Dirichlet rule -based 
+algorithm, varying linearly from 60° at the endocardium to -60° at the epicardium transmurally across the 
+wall's thickness [49]. The initial transverse angle was set to zero.   
+
+2.7 Simulation cases and protocol  
+To investigate the distinct effects of cell -level abnormalities induced by HCM, we developed a 
+baseline LV model, as well as hypercontractile, hypocontractile, and fibrotic models. Previous studies 
+have shown that mutant myocytes undergo biophysical damage , leading to myocyte death and focal 
+scarring (replacement fibrosis)  [20]. Therefore, we hypothesized that the  myocardial  regions exhibiting 
+abnormal contractility are the sa me regions  that progress to fibrosis  and assume  that these regions are 
+similarly distributed in all perturbed models . We utilized the results from histological studies of fibrotic 
+tissue  to prepare our fibrous model and applied the same  distribution pattern to the hypercontractile and 
+hypocontractile models , as shown in Figure 4A. This assumption enables a direct comparison of how 
+each type of abnormality affects the simulation results . Our assumption regarding the distribution of 
+perturbed regions  in the models is also inspired by T2* images, which show patterns of regional abnormal 
+contractility in HCM patients. Myocardial T2* is commonly regarded as a surrogate for myocardial tissue 
+oxyg enation and is associated with myocardial contraction  [50]. 
+According to measurements by Galati et al., we incorporated heterogeneous perturbed tissue 
+consisting of 30% of the LV myocardium  in all of the disease d LV models  [21]. Notably, based on 
+histological studies, fibrosis in HCM is almost evenly distributed among the epicardium, endocardium, and 
+midwall layer  [21]. Therefore, we did not assign  any regional preferences, and the perturbed cells were 
+randomly distributed within the myocardium of the LV.  
+To determine whether variations in the distribution and size of perturbed regions influence the 
+severity and pattern of fiber disarray, we modeled all cases using two additional different distributions of 
+perturbed cells. According to prior histological studies, collagen scars of uninterrupted fibrosis , 
+characterized by local foci greater than 2 mm , are classified as replacement fibrosis  [21]. Accordingly, we 
+investigated three different sets of models with pert urbed regions of minimum sizes: 3 mm for Distribution 
+1 (original distribution), 2.5 mm for Distribution 2, and 2 mm for Distribution 3  as shown in Figure 4 B.  
+ 
+ 
+ 
+ 
+ 
+ 
+Figure  4: LV models . A: Epicardial and endocardial views of the baseline and perturbed LV models. For the baseline 
+and hyp er/hypocontractile models, the k1 parameter represents myocardial contractility, while in the fibrous model, 
+the C parameter represents stiffness. The spheres represent the integration points  where properties are defined , 
+while the color map represents the interpolated heterogenous region s. B: From left to right, a histological cross -
+section of myocardium with replacement fibrosis excised from a patient with HCM (adapted from [51]), followed  by 
+short -axis views of LV models at mid -ventricle with varying distributions of perturbed regions. Distribution 1 
+represents perturbed region s of minimum size  3 mm, followed by Distribution 2 (2.5 mm) and Distribution 3 (2 mm).  
+All result figures in this paper are based on Distribution 1, and other distributions are investigated in Section 3.7.  
+Baseline  
+A baseline simulation was developed using par ameters that are representative of a healthy adult, 
+with cardiac performance characteristics aligned with values reported in the literature  [52, 53] . The total 
+blood volume was set to 4.5 liters, the end -diastolic volume (EDV) was 123 ml, the end -systolic volume 
+
+(ESV) was 54 ml, and the ejection fraction (EF) of the LV was approximately 56% with a heart rate of 66 
+beats per minute. Alongside the baseline LV model representing a healthy case, we prepared perturbed 
+LV models as described below:  
+Hypercontractile  
+Cons idering the disruption of the SRX state of myosin heads in HCM patients, which modulates 
+myocardial  contraction  [7, 12] , we incorporated a 100% increase in t he k1 value for perturbed cells in the 
+hypercontractile models, where k1 represents the transition rate of SRX to DRX in the MyoSim contraction 
+model. Subsequently, we investigated the sensitivity to k1 values by testing models with increased values 
+of 20% , 60%, and 100%.  
+Hypocontractile  
+For the hypocontractile models , k1 is reduced with a similar percentage  to the hypercontractile 
+models  in the affected  cardiomyocytes with impaired contractility.  
+Fibrous  
+To model the effects of heterogeneous replacement fibrosis in the LV, perturbed  myocar dial 
+regions  are assigned with a 2-fold increase  in stiffness, as well as being isotropic  [44]. We utilized the 
+stress -strain relation for biaxial loading within the physiological strain range (~15%) to identify the 
+corresponding material parameters reflecting the increase in stiffness  (see Supplementary Material Figure 
+S2). The  material properties of the fibrotic regions, incorporating both passive and active mechanical 
+responses, were applied based on the parameters listed in Table 1.  
+Table 1: Regional material  properties of cardiac muscle in the LV models  for normal and fibrous myoca rdium.  
+ Passive properties  Active properties  
+Region  C (Pa)  C1 (Pa) C2 bf bt bfs Cross -bridge density (m-2) 
+normal  200 250 15 8.0 3.58 1.63 6.96e+16  
+fibrous  2720  0 0 4 4 4 0 
+ 
+Protocol  
+The adaptation time constant , 𝜅, is set to 4 000 ms (Supplementary Material). The cardiac cycle 
+time is assigned to be 937 ms (mimicking 6 4 bpm), with a numerical integration time step of 1 ms.  
+Therefore, during each simulation time step, a 2.5x10-4 (dt/𝜅) fraction of the difference between the 
+traction vector and fiber vector is used to update the fiber direction. All models ran for 200 second s (211 
+cardiac cycles) to ensure  convergence  (cardi ac function reached a steady state , as shown in  the 
+pressure -volume ( PV) loops  in Supplementary Material Figure S3) and results are reported for the last 
+cardiac cycle . The simulation protocol for all the LV models  were developed with the following steps: (1)  
+the initial fiber configuration was assigned to the LV using a rule -based approach, as described in Section  
+2.6, then (2) the system reached hemodynamic steady state by simulating the first five second s without 
+perm itting fiber reorientation, finally (3) fiber reorientation was simulated over the remaining  simulation 
+time (195 s)  to obtain the case -specific fiber configuration.  
+ 
+2.8 Implementation and Computer Code  
+The MyoFE  source code was developed in Python utilizing widely used libraries such as Numpy  
+[54], Scipy [55], and pandas  [56]. All simulations in this research were run on the Lipscomb Compute 
+Cluster (LCC), a high -performance computing system at the University of Kentucky.  The required time for 
+simulating one cardiac cycle using a single  node containing 32 cores was about  15 minutes. In this study, 
+model parameters were not calibrated with specific experimental data; instead, the default parameters 
+listed in Supplementary Material Table S1 were c hosen based on prior studies  and exper ience , ensuring 
+the model replicates  typical healthy human characteristics  [45]. 
+2.9 Code Availability  
+The MyoFE code is maintained in a github  repository. The code will be made available to other 
+researchers upon request to the corresponding author.  
+3. Results  
+3.1. Comparison of Stress State  
+To explore the behavior of all models leading to fiber remodeling, we beg an by examining stress 
+distributions, which serve as the driver of our fiber reorientation  algorithm. As shown in Figure 5, the 
+baseline model exhibit s smooth  stress distribution s across  the endocardial surface and epicardial surface, 
+with a decreasing transmural gradient from endo to epi, as well as variations from base to apex. This 
+trend is seen in  the LV during both peak systole and diastole. In contrast, all perturbed models display ed 
+highly heterogeneous stress distributions. In Figure 5A, the hypercontractile model shows  regions of  
+elevated systolic stress, relative to baseline, while the hypocontractile and fibrous models exhibit a mix of 
+elevated and  suppressed active stress  relative to baseline . Figure 5B reveals a different pattern for peak 
+diastolic stress: the hypocontractile model demonstrates increased passive stress on the endocardial 
+side, relative to baseline, which is most likely induced by an increase in end -diastolic vo lume (to be 
+discussed in a later section).  However,  no such elevation is seen in the hypercontractile model and the 
+fibrous model shows a reduction in stress. A similar, though milder, pattern is observed on the epicardial 
+side.  
+ 
+ 
+ 
+ 
+ 
+Figure 5: A compariso n of myofiber stress distributions in the baseline and perturbed LV models . All models show 
+the 2nd Piola Kirchhoff stress mapped onto the reference  configuration. A: Myofiber active stress in peak systole  
+(when ventricular volume is minimum just before relaxation).  B: Myofiber passive stress in peak diastole  (when 
+ventricular volume is maximum just before contraction) . Top row of each panel : Epicardial side of the myocardium. 
+Bottom  row of each panel : Endocardial  side of the myocardium.  
+
+3.2. Comparison of fiber reorientation   
+ 
+This section evaluates the severity of fiber reorientation in each model and identifies the patterns 
+of fiber disarray induced by each underlying perturbation . Figure 6 shows the magnitude of  the 3D angle 
+between  the initial and reoriented fibers using the  dot product of their direction vectors. In the baseline 
+model, this value remains low and uniform, whereas in all perturbed models, fiber reorientation is 
+significantly heterogeneous, indicating substantial fiber disarray.  
+On the epicardial surface (Figure 6A), the highest degree of fiber reorientation is observed in the 
+fibrous model, slightly exceeding that of the hyp er- and hyp ocontractile models . The magnified view of 
+Figure 6A further emphasizes the regional severity an d unique patterns of fiber disarray induced by each 
+perturbation . In the hypercontractile model, fibers within the perturbed region show minimal reorientation, 
+whereas the adjacent normal myocardium experiences severe reorientation. In contrast, both 
+hypoc ontractile and fibrous models exhibit pronounced fiber reorientation within the perturbed region, 
+accompanied by milder reorientation in the surrounding normal myocardium. This level of disarray, with 
+fibers nearly orthogonal to each other, is consistent w ith previously reported findings in the literature for 
+HCM (Figure 6B) . On the endocardial surface (Figure 6.C), comparable patterns of fiber disarray are 
+observed , with more pronounced fiber reorientation in the hypocontractile and fibrous models compared  
+to the hypercontractile model.  These results collectively demonstrate the distinct spatial patterns and 
+severity of fiber disarray associated with each  perturbation type, providing mechanistic insights into the 
+development of myocardial fiber disarray in HCM . Additional visual representations of the fiber disarray 
+for each case can be found in Supp lementar y Figure  S4. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Figure 6: Patterns of fiber disarray caused by cell -level perturbations in HCM. (A) Total angle of fiber reorientation 
+(magnitude of the 3D angle between initial and reoriented fibers) in the baseline and perturbed LV models, shown on 
+the epicardial side of the myoc ardium. Magnified views provide detailed insights into regional fiber reorientation within 
+and in the vicinity of the perturbed region . (B) Myocardial histology comparing normal and HCM cases (adapted with 
+permission from Springer Nature from Matos  al. [57]), illustrating fiber disarray in HCM as a loss of myocyte 
+architectural organization, with fibers  oriented obliquely or  perpendicularly in a disorganized pattern  [57]. (C) Total 
+angle of fiber reorientation in the baseline and perturbed LV models, displayed on the endocardial side of the 
+myocardiu m. In panels (A) and (C), red represents the normal myocardium, while the other colors represent the 
+heterogeneous hypercontractile (orange), hypocontractile (green), and fibro us (blue) regions.  
+ 
+
+3.3. Comparison of Fiber Disarray  
+As a quantitative measure of fiber disarray , the angular deviation (AD) of the helical and 
+transverse  angles were  analyzed as shown in Figure 7. AD is defined as the regional standard deviation 
+within the  epicardial layer and endocardial layer , each  with a  thickness of 20% of the transmural 
+thickness . The baseline model exhibit s relatively low AD, indicating minor variations  in fiber orientations 
+within the epicardial and endocardial layers. In all perturbed cases, helical AD (Figure 7A) show s a 
+substantial  increase in the epicardium, with a comparatively smaller rise in the endocardium . In the 
+endocardium, the hypocontractile model exhibited the highest helical AD, followed by the hypercontractile 
+and fibrous models. Similarly, transverse AD also  increased across all perturbed models  (Figure 7B) , with 
+higher values observed in the epicardium compared to the endocardium. Notably, within the 
+endocardium, the hyper contractile model displayed the highest transverse AD, while the fibrous model 
+showed t he greatest value in the epicardial layer.   
+ 
+Figure 7: Angular deviations in the epicardium and endocardium across baseline and perturbed  LV models  A: Helical 
+angular deviation. B: Transverse angular deviation  
+3.4. Contractile Sensitivity of Disarray  
+In this section, we investigate how the severity of abnormal contractility influences the degree of 
+fiber disarray. For hyp ercontractility, we developed separate models with k1 increa se of 20%, 60%, and 
+100%  from the baseline LV model value  (k1 = 3.7 ). Similarly, we created hyp ocontractile models with 
+corresponding k1 reduced  by the same percentages. Notably , we assigned the distributions of perturbed 
+cells to be the same across all models.  010203040
+Baseline Hyper
+100%Hypo
+100%Fibrous
+100%Helical Angular Deviation (Degree)Epi Endo
+010203040
+Baseline Hyper
+100%Hypo
+100%Fibrous
+100%Transverse Angular Deviation (Degree)Epi Endo A B 
+In all cases, we observed an almost linear trend between the induced fiber disarray (AD) and the 
+k1 parameter , as shown in Figure 8 . Notably, all models demonstrated that fiber disarray is more 
+pronounced near the epicardium compared to the endocardium. Ne ar the epicardium, the 
+hypercontractile and hyp ocontractile models exhibited similar sensitivity to changes in the k1 parameter. 
+However, near the endocardium, the hypocontractile model displayed a more sizable  increase in disarray 
+with altered  k1 values compared to the hypercontractile model.  
+ 
+Figure 8:  Helical angular deviations in the epicardium and endocardium across baseline, hyp ercontractile, and 
+hypocontractile LV models with 20%, 60%, and 100% changes in the k1 parameter. In hypocontractil e models, k1 is 
+reduced compared to the baseline, while in hypercontractile models, k1 is increased.  
+ 
+3.5. Comparison of systolic strain pattern  
+The heterogenous cell -level perturbations, along with the resultant remodeled fiber 
+configurations, had an  influence  on cardiac behavior.  As illustrated in Figure 9, notable regional 
+differences emerged in the  systolic  strain patterns of the perturbed models compared to the baseline.  In 
+the hypocontractile and fibrous models, systolic longitudinal strain exhibited a reduction specifically within 
+the perturbed regions. Conversely, the hypercontractile model showed an overall increase in longitudinal 
+strain, although local decreases wer e also observed  in some regions . In terms of the systolic  
+circumferential strain, the fibrous model exhibiting the greatest decline  in the perturbed regions , followed 
+by the hypocontractile model. The hypercontractile model  exhibited some regional variation, but the 
+overall level of circumferential strain was comparable to baseline . Systolic r adial strain displayed a 
+transmural pattern across all cases, with variability in its alterations among the perturbed models. Notably,  010203040
+Baseline Hyper 20% Hyper 60% Hyper 100% Hypo 20% Hypo 60% Hypo 100%Helical Angular Deviation (Degree)Epi Endo
+the fibrous model demonstrated a substantial decrease in radial strain.  Overall, the fibrous model 
+displayed the greatest decrease in all systolic strain components relative to baseline.  
+ 
+ 
+Figure 9: Systolic s train pattern s in baseline and perturbed LV models  in a midventri cular short axis view  reported in 
+percent strain . A: Baseline , B: Hypercontractile , C: Hypocontractile , D: Fibrous . Note: Systolic strain was 
+calculated by taking a multiplicative decomposition of the deformation gradient, such that the deformation gradient 
+between end -diastole and end -systole could be used to calculate the Lagrangian strain relative to end -diastole. 
+This is the standard approach used for reporting systolic strain  [58]. 
+
+ 
+3.6. Comparison of pumping performance  
+All perturbations influence the PV loop of the LV by altering its size and positi on (Figure 10) . In 
+the hypercontractile model, there is a minimal change in stroke volume (SV) accompanied by a leftward 
+shift in the PV loop, resulting in a 3.5% increase in EF. Conversely, in the hypocontractile  model, the PV 
+loop shrinks and shifts to the right, leading to a 16% reduction in SV and a 23% decline in EF, along with 
+a reduction in systolic pressure. In the fibrous model, the PV loop shrinks “inward” (i.e. ESV increases 
+and EDV decreases) along with  a reduction in systolic pressure. In the fibrous model, SV decreases by 
+22% and EF drops by 18%. 
+ 
+   
+Figure 1 0: Cardiac pumping performance. A: Pressure -volume (PV) loops for baseline and perturbed LV models. B: 
+Cardiac stroke volume (SV) and ejection fraction (EF) values for baseline and perturbed LV models.                                  
+              
+3.7. Comparison of spatial distribution  
+To investigate the effects of spatial distribution on the induction of fiber disarray, we tested three 
+sets of models with varying spatial distributions and sizes of perturbed region s (but all still affect  30% of 
+the myocardium) . In these  models, the perturbed regions were progressively refined into smaller patches  
+as showed in Figure 4 starting from Distribution  1 then further refined to Distribution 2, and finally to 
+Distribution 3. Based on Figure 1 1, higher fiber disarray is observed near the epicardium compared to the 
+endocardium in all perturbations. Near the epicardium, the highest variability was observed in the 
+hypo contractile  model, with a Coefficient of Variation (CV) of 2.5 %. Meanwhile , near the endocardium, 
+the greatest variability occurred in the hyper contractile  model, with a CV of 5.2%. However, it should be 
+Model  SV(L)  EF(%)  
+Baseline  0.068  56 
+Hyper  0.069  58 
+Hypo  0.057  43 
+Fibrous  0.053  46 A 
+B 
+noted that t hese relatively low CV values (both below 10%) suggest that the fiber disarray results are 
+largely independent of the distribution of perturbed  cells.  Furthermore, additional analyses, where spatial 
+distribution effects were evaluated without altering the size of the perturbed regions ( see Figure S5 in 
+Supplementary Material ), confirmed the independence of fiber disarray from the distribution of perturbed 
+cells.  
+ 
+Figure 1 1: Comparison of different spatial distributions for inducing fiber disarray.  Helical angular deviations in the 
+epicardium and endocardium across perturbed LV models based on Distribution 1, Distribution 2, and Distribution 3.  
+ 
+4. Discussion:  
+This study investigates  the development of fiber disarray in HCM and evaluates the cardiac 
+performance of remodeled LVs.  By integrating a stress -based fiber reorientation algorithm into a 
+multiscale FE model of the LV, we explored the role of different cellular abnormalities in the development  
+of fiber disarray. Building on our previous work  [43], which demonstrated the utility  of the stress -based 
+fiber remodeling law in predicting both normal fiber configuration s and pathological remodeling post 
+myocardial infarction (MI), this study focused on how specific HCM -related abnormalities —
+hypercontractility, hyp ocontractility , and fibrosis —lead to fiber disarray and altered cardiac function. The 
+perturbed LV models developed appreciable fiber disarray, with distinct patterns depending on the type of 
+abnormality , offering important  mechanistic  insights into HCM progression.   
+The baseline model demonstrated smooth  distribution s of stress throughout the LV. However, in 
+the perturbed cases, a significantly more heterogeneous stress distribution was observed, as shown  in 
+Figure 5. In peak systole, the active myofiber stress was prim arily influenced by the contractile capacity of 
+the myocardium , with the hypercontractile model showing regional increases in stress  within the 
+perturbed region. However,  the hypocontractile and fibrotic models exhibited reduc ed stress  in the 
+perturbed regions  with increased stress in some of the surrounding  myocardium  (Figure 5A) . This could 
+be due to an increase in sarcomere length within the normal myocardium at end systole (as seen in the 010203040
+Hyper Hypo FibrousHelical Angular Deviation 
+(Degree)Distribution 1 Epi
+Distribution 1 Endo
+Distribution 2 Epi
+Distribution 2 Endo
+Distribution 3 Epi
+Distribution 3 Endo
+systolic strain patterns in Figure 9), which  leads to increased active stress  [59]. In peak diastole, pass ive 
+myofiber stress increased in the hypocontractile model (Figure 5B) due to increased end diastolic volume  
+(i.e., the ventricle is more distended).  Similar to a thick -walled pressure vessel, there is a dominant  stress  
+in the circumferential  direction during diastole , particularly near the endocardium. This led to the 
+reorientation of  fibers toward the circumferential direction, as seen in Figure 6C, and contributed to the 
+observed rise in myofiber stress. Although the fibro us model also showed increased fiber reorientation  
+toward  the circumferential direction  in the endocardium , increased stiffness resulted in stress reduction in 
+the perturbed regions (Figure 5B) . In contrast, the hypercontractile model exhibited a reduction in diastolic 
+passive stress, due to reduced end diastolic  volume , and remodeling with limited reorientation toward the 
+circumferential direction  on the endocardium  (remodeling was dominated by  contractile stress  along 
+fibers rather tha n passive stress ).  
+Interestingly, the case -specific heterogeneity in stress distribution resulted in distinct patterns of 
+fiber disarray across the perturbed models. As illustrated in the magnified view of Figure 6A, fibers within 
+hypercontractile regions exhibited minimal r eorientation, as expected, due to the dominant contractile 
+stress aligned with the fiber direction. However, these hypercontractile fibers exerted excessive shear 
+stress on the surrounding normal myocardial fibers, causing them to reorient.  In contrast, in  
+hypocontractile and fibrous models, the normal myocardial fibers around the perturbed regions displayed 
+minimal  reorientation due to the dominant passive and active stress in the fiber direction. However, in the 
+hypocontractile and fibrous regions themsel ves, the lack of contractility, coupled with an absence of 
+directional dominance in passive stress (particularly in fibrous regions), resulted in substantial fiber 
+reorientation. In this case, the elevated stress in the surrounding normal myocardium induce d 
+reorientation within the perturbed regions . 
+Previous studies using DT -MRI have demonstrated that a reduction in fractional anisotropy (FA) 
+is a reliable indicator of increased myocardial fiber disarray, with lower FA values often observed in 
+fibrotic reg ions. However, not all regional cases of low FA in patients with HCM can be fully corelated with  
+fibrosis alone  [4], suggesting that myocardial mechanics also play s a significant role i n the severity of  
+fiber disarray. Our models support this conclusion. Despite not incorporating any spatial preference within 
+the myocardium when assigning perturbed regions, the angular deviation (AD) analysis (Figure 7) reveals 
+significantly higher fiber  disarray in the epicardium. This finding can be attributed to the circumferential 
+stress (hoop stress) induced within the LV wall  during loading , which has the largest magnitude  near the 
+endocardium and diminishes toward the epicardium. As a result, the endocardium experiences a 
+dominant stress direction that aligns fibers more uniformly, reducing directional randomness and disarray.  
+These results highlight the significant impact  of mechanical stress distribution s within the myocardium on 
+fiber organization. To further investigate the relationship between impaired contractility and fiber disarray, 
+we examined the effect of varying degrees of contractile dysfunction on fiber disarr ay. A  nearly  linear 
+relationship was observed between fiber disarray (AD) and the k1 parameter (Figure 8) . This  confirm s the 
+previously mentioned observation about the differences in disarray between the epicardium and 
+endocardium, regardless of the severity of contractile imbalance . Lastly, to assess the influence of spatial 
+distribution on our results, we modeled various spatial distributions and sizes of perturbed regions ( see 
+Figure 4B , Figure 11, and Figure S4 ), while preserving the 30%  volume fraction of heterogeneity . Our 
+findings indicate that fiber disarray is largely independent of the spatial distribution of pertu rbed cells.  
+The systolic strain results shown in Figure 9 align closely with previous experimental studies on 
+normal and diseased hearts. CMR feature tracking studies have reported  average values of strain using 
+the AHA bullseye guidelines. In healthy adults, the  value of  longitudinal strain  is approximately -16%, 
+circumferential strain  is around -20%, and radial strain is around 38% [60, 61] , all of which match well with 
+the baseline model (Figure 9A) that mimics normal cardiac function. This baseline serves as a reference 
+for comparing the effects of different pathological conditions on myocardial strain.  The perturbed models  
+(Figure 9B-D) exhibit significant alterations in deformation patterns . The reduction  in systolic strain  can be 
+attributed to different mechanisms depending on the specific  cellular  abnormality . In the hypo contractile  
+case, reduced longitudinal strain reflects a decrease in contractile capacity, while in the fibrous case, the 
+reduction in strain is linked to both reduced contractility and impaired myocardial shortening caused by 
+increased stiffness. Notably, the hyper contractile  case showed an increase in longitudinal strain in the 
+unaffected (normal) myocardial regions.  When compared to experimental data, localized increases in 
+longitudinal strain have been reported in early -stage HCM patients  [5], particularly in the non -obstructive 
+form, which aligns with the behavior observed in our hyp ercontractile  model. However, in more advanced 
+stages of HCM, as documented in several studies  [5, 60 -65], a marked reduction in longitudinal strain is 
+observed, consistent with the results of our fibrous model  (Figure 9D). Circumferential strain followed a 
+similar trend to longitu dinal strain, with  regional  reductions observed in all perturbed models. With regards 
+to radial strain , the hypocontractile and hyper contractile  model s showed slight deviation s from the 
+baseline case , with typical transmural gradients, while the fibrous model demonstrated a considerable 
+reduction  (also observed in CMR studies  of HCM  [60]), indicating compromised function of the  
+myocardium.  Overall, these results highlight the dominant role of fibrosis in altering myocardial strain 
+patterns, particularly in its pronounced impact on longitudinal, circumferential, and radial strain.  
+Cardiac pumping performance was altered in almost all perturb ed LV models, as demonstrated 
+by substantial changes in the size and position of the PV loops compared to the baseline (Figure 10). In 
+the hypercontractile model, SV remained relatively unchanged; however, the PV loop displayed a marked 
+leftward shift (EDV  118 ml vs. 123 ml, ESV 48 ml vs. 54 ml) as reported for HCM patients [66, 67] , which 
+was also accompanied by an increase in systolic pressure.  These  changes are primarily due to enhanced 
+myocardial contractility. In contrast, in the hypocontractile model, the PV loop shrank and shifted 
+rightward , along with a noticeable reduction in systolic pressure, which reflects the reduced contractile 
+ability of the myocardium. The fibrous model followed a similar but more severe trend than the 
+hypocontractile model, with further PV loop shrinkage, an “inwar d” shift (i.e. ESV increases and EDV 
+decreases) , and a more pronounced decline in systolic pressure. This exacerbated deterioration in 
+cardiac performance can be attributed to diminished contractile function , increased myocardial stiffness , 
+and fiber disar ray, which not only impairs systolic ejection  but also diastolic filling. These observed PV 
+loop behaviors , specifically in the hypocontractile and fibrous model s, are consistent with previous 
+findings from PV catheterization studies in patients with established HCM  [66]. Overall, these results 
+suggest that cell -level abnormalities, such as altered contractility and incre ased myocardial stiffness, 
+result in significant  fiber remodeling and  impairments in cardiac pumping performance . 
+ 
+4.1 Limitations  
+ This study has some  limitations. First, the predictive capabilities of the MyoFE framework for fiber 
+remodeling and resulting cardiac performance were assessed using idealized LV geometry . Future 
+studies will incorporate more realistic geometries. Second, it should be noted that the current 
+investigation did not consider volumetric growth, which typically occurs concurrently with HCM. This 
+limitation will be addressed in future studies by incorporating a growth model into the modular framework  
+and coupling it to the fiber rem odeling algorithm . Another limitation of the current model is that we did not 
+tune the time constant κ in the reorientation law. This would require fitting to experimental data, which will 
+be the focus of future studies.  Lastly, while we modeled fibrosis b y imposing the mechanical properties of 
+fibrotic tissue, the underlying biological mechanism of fibrosis development was not implemented. 
+Incorporating a predictive model that simulates the deposition of both diffuse fibrosis and localized 
+replacement fibr osis as an adaptive immune response will be a focus of future research.  
+ 
+5. Conclusion   
+In conclusion, this study highlights the effectiveness of the multiscale cardiac modeling framework 
+in predicting fiber remodeling within the LV. The results show that various heterogeneous perturbations in 
+the LV models —including  hypercontracti lity, hypocontractil ity, and fibro sis—disrupt the normal stress 
+distribution within  the LV muscle, leading to significant fiber remodeling. Each type of perturbation 
+resulted in d istinct patterns of fiber disarray, which offer valuable insights into the underlying mechanisms 
+of HCM disease progression. The cumulative impact of cellular -level abnormalities and the resulting fiber 
+disarray  alter cardiac performance and functional cha racteristics, with unique patterns emerging for each 
+perturbation. This comparative analysis provides a deeper understanding of structural and functional 
+cardiac anomalies, potentially aiding in the identification of specific cellular -level causes linked t o cardiac 
+dysfunction.  
+ 
+ 
+References  
+[1] C. Semsarian, J. Ingles, M.S. Maron, B.J. Maron, New perspectives on the prevalence of hypertrophic 
+cardiomyopathy, J Am Coll Cardiol 65(12) (2015) 1249 -1254.  
+[2] S.S. Virani, A. Alonso, E.J. Benjamin, M.S. Bittencourt, C.W. Callaway, A.P. Carson, A.M. Chamberlain, 
+A.R. Chang, S. Cheng, F.N. Delling, L. Djousse, M.S.V. Elkind, J.F. Ferguson, M. Fornage, S.S. Khan, B.M. 
+Kissela, K.L. Knutson, T.W. Kwan, D.T. Lackland, T.T. Lewis, J.H. Lichtman, C.T. Longenecker, M.S. Loop, 
+P.L. Lutsey, S.S. Martin, K. Matsushita, A.E. Moran, M.E. Mussolino, A.M. Perak, W.D. Rosamond, G.A. 
+Roth, U.K.A. Sampson, G.M. Satou, E.B. Schroeder, S.H. Shah, C.M. Shay, N.L. Spartano, A. Stokes, D.L. 
+Tirschwell, L.B. VanWag ner, C.W. Tsao, E. American Heart Association Council on, C. Prevention 
+Statistics, S. Stroke Statistics, Heart Disease and Stroke Statistics -2020 Update: A Report From the 
+American Heart Association, Circulation 141(9) (2020) e139 -e596.  
+[3] J.A. Coleman, Z. Ashkir, B. Raman, A. Bueno -Orovio, Mechanisms and prognostic impact of 
+myocardial ischaemia in hypertrophic cardiomyopathy, Int J Cardiovasc Imaging 39(10) (2023) 1979 -
+1996.  
+[4] R. Ariga, E.M. Tunnicliffe, S.G. Manohar, M. Mahmod, B. Raman, S.K. Piechni k, J.M. Francis, M.D. 
+Robson, S. Neubauer, H. Watkins, Identification of Myocardial Disarray in Patients With Hypertrophic 
+Cardiomyopathy and Ventricular Arrhythmias, J Am Coll Cardiol 73(20) (2019) 2493 -2502.  
+[5] J. Mojumder, L. Fan, T. Nguyen, K.S. Campb ell, J.F. Wenk, J.M. Guccione, T. Abraham, L.C. Lee, 
+Computational analysis of ventricular mechanics in hypertrophic cardiomyopathy patients, Sci Rep 13(1) 
+(2023) 958.  
+[6] V. Burkart, K. Kowalski, D. Aldag -Niebling, J. Beck, D.A. Frick, T. Holler, A. Radoc aj, B. Piep, A. Zeug, D. 
+Hilfiker -Kleiner, C.G. Dos Remedios, J. van der Velden, J. Montag, T. Kraft, Transcriptional bursts and 
+heterogeneity among cardiomyocytes in hypertrophic cardiomyopathy, Front Cardiovasc Med 9 (2022) 
+987889.  
+[7] T. Kraft, J. Monta g, Altered force generation and cell -to-cell contractile imbalance in hypertrophic 
+cardiomyopathy, Pflugers Arch 471(5) (2019) 719 -733.  
+[8] T. Kraft, E.R. Witjas -Paalberends, N.M. Boontje, S. Tripathi, A. Brandis, J. Montag, J.L. Hodgkinson, A. 
+Francino, F . Navarro -Lopez, B. Brenner, G.J.M. Stienen, J. van der Velden, Familial hypertrophic 
+cardiomyopathy: Functional effects of myosin mutation R723G in cardiomyocytes, Journal of Molecular 
+and Cellular Cardiology 57 (2013) 13 -22. 
+[9] J. Montag, K. Kowalski, M . Makul, P. Ernstberger, A. Radocaj, J. Beck, E. Becker, S. Tripathi, B. Keyser, 
+C. Mühlfeld, K. Wissel, A. Pich, J. van der Velden, C.G. dos Remedios, A. Perrot, A. Francino, F. Navarro -
+López, B. Brenner, T. Kraft, Burst -Like Transcription of Mutant and W ildtype Alleles as Possible Origin of 
+Cell-to-Cell Contractile Imbalance in Hypertrophic Cardiomyopathy, Frontiers in Physiology 9 (2018).  
+[10] J. Montag, T. Kraft, Stochastic allelic expression as trigger for contractile imbalance in hypertrophic 
+cardiomy opathy, Biophys Rev 12(4) (2020) 1055 -1064.  
+[11] J. Montag, M. Syring, J. Rose, A.L. Weber, P. Ernstberger, A.K. Mayer, E. Becker, B. Keyser, C. Dos 
+Remedios, A. Perrot, J. van der Velden, A. Francino, F. Navarro -Lopez, C.Y. Ho, B. Brenner, T. Kraft, 
+Intrinsic MYH7 expression regulation contributes to tissue level allelic imbalance in hypertrophic 
+cardiomyopathy, J Muscle Res Cell Motil 38(3 -4) (2017) 291 -302.  
+[12] K.S. Campbell, Dynamic coupling of regulated binding sites and cycling myosin heads in striat ed 
+muscle, J Gen Physiol 143(3) (2014) 387 -99. 
+[13] A.S. Vander Roest, C. Liu, M.M. Morck, K.B. Kooiker, G. Jung, D. Song, A. Dawood, A. Jhingran, G. 
+Pardon, S. Ranjbarvaziri, G. Fajardo, M. Zhao, K.S. Campbell, B.L. Pruitt, J.A. Spudich, K.M. Ruppel, D. 
+Bernstein, Hypertrophic cardiomyopathy beta -cardiac myosin mutation (P710R) leads to 
+hypercontractility by disrupting super relaxed state, Proc Natl Acad Sci U S A 118(24) (2021).  
+[14] H. Ashrafian, C. Redwood, E. Blair, H. Watkins, Hypertrophic cardiomyopa thy: a paradigm for 
+myocardial energy depletion, Trends Genet 19(5) (2003) 263 -268.  
+[15] P.J.M. Wijnker, V. Sequeira, D.W.D. Kuster, J. van der Velden, Hypertrophic Cardiomyopathy: A 
+Vicious Cycle Triggered by Sarcomere Mutations and Secondary Disease Hits , Antioxid Redox Sign 31(4) 
+(2019) 318 -358.  
+[16] J.A. Spudich, N. Nandwani, J. Robert -Paganin, A. Houdusse, K.M. Ruppel, Reassessing the unifying 
+hypothesis for hypercontractility caused by myosin mutations in hypertrophic cardiomyopathy, EMBO J 
+43(19) (20 24) 4139 -4155.  
+[17] P.G. Vikhorev, N.N. Vikhoreva, Cardiomyopathies and Related Changes in Contractility of Human 
+Heart Muscle, Int J Mol Sci 19(8) (2018).  
+[18] M. Luedde, U. Flögel, M. Knorr, C. Grundt, H.J. Hippe, B. Brors, D. Frank, U. Haselmann, C. Ant ony, 
+M. Voelkers, J. Schrader, P. Most, B. Lemmer, H.A. Katus, N. Frey, Decreased contractility due to energy 
+deprivation in a transgenic rat model of hypertrophic cardiomyopathy, J Mol Med 87(4) (2009) 411 -422.  
+[19] M. Usaj, L. Moretto, A. Mansson, Critic al Evaluation of Current Hypotheses for the Pathogenesis of 
+Hypertrophic Cardiomyopathy, Int J Mol Sci 23(4) (2022).  
+[20] P. Teekakirikul, S. Eminaga, O. Toka, R. Alcalai, L.B. Wang, H. Wakimoto, M. Nayor, T. Konno, J.M. 
+Gorham, C.M. Wolf, J.B. Kim, J.P. S chmitt, J.D. Molkentin, R.A. Norris, A.M. Tager, S.R. Hoffman, R.R. 
+Markwald, C.E. Seidman, J.G. Seidman, Cardiac fibrosis in mice with hypertrophic cardiomyopathy is 
+mediated by non -myocyte proliferation and requires Tgf -β, Journal of Clinical Investigati on 120(10) 
+(2010) 3520 -3529.  
+[21] G. Galati, O. Leone, F. Pasquale, I. Olivotto, E. Biagini, F. Grigioni, E. Pilato, M. Lorenzini, B. Corti, A. 
+Foa, V. Agostini, F. Cecchi, C. Rapezzi, Histological and Histometric Characterization of Myocardial 
+Fibrosis in  End-Stage Hypertrophic Cardiomyopathy: A Clinical -Pathological Study of 30 Explanted 
+Hearts, Circ Heart Fail 9(9) (2016).  
+[22] J. Liu, S.H. Zhao, S.Q. Yu, G.X. Wu, D. Wang, L.L. Liu, J.L. Song, Y.M. Zhu, L.M. Kang, J.Z. Wang, L. 
+Song, Patterns of Replacem ent Fibrosis in Hypertrophic Cardiomyopathy, Radiology 302(2) (2022) 298 -
+306.  
+[23] N. Mewton, C.Y. Liu, P. Croisille, D. Bluemke, J.A. Lima, Assessment of myocardial fibrosis with 
+cardiovascular magnetic resonance, J Am Coll Cardiol 57(8) (2011) 891 -903.  
+[24] T. Gerach, S. Schuler, J. Fröhlich, L. Lindner, E. Kovacheva, R. Moss, E.M. Wülfers, G. Seemann, C. 
+Wieners, A. Loewe, Electro -Mechanical Whole -Heart Digital Twins: A Fully Coupled Multi -Physics 
+Approach, Mathematics -Basel 9(11) (2021).  
+[25] S.M. Shav ik, S. Wall, J. Sundnes, J.M. Guccione, P. Sengupta, S.D. Solomon, D. Burkhoff, L.C. Lee, 
+Computational Modeling Studies of the Roles of Left Ventricular Geometry, Afterload, and Muscle 
+Contractility on Myocardial Strains in Heart Failure with Preserved Ej ection Fraction, J Cardiovasc Transl 
+Res 14(6) (2021) 1131 -1145.  
+[26] C.K. Mann, L.C. Lee, K.S. Campbell, J.F. Wenk, Force -dependent recruitment from myosin OFF -state 
+increases end -systolic pressure -volume relationship in left ventricle, Biomech Model Mech anobiol 19(6) 
+(2020) 2683 -2692.  
+[27] H. Wang, C.B. Rodell, X. Zhang, N.N. Dusaj, J.H. Gorman, 3rd, J.J. Pilla, B.M. Jackson, J.A. Burdick, 
+R.C. Gorman, J.F. Wenk, Effects of hydrogel injection on borderzone contractility post -myocardial 
+infarction, Biomech  Model Mechanobiol 17(5) (2018) 1533 -1542.  
+[28] H. Sharifi, C.K. Mann, A.L. Rockward, M. Mehri, J. Mojumder, L.C. Lee, K.S. Campbell, J.F. Wenk, 
+Multiscale simulations of left ventricular growth and remodeling, Biophys Rev 13(5) (2021) 729 -746.  
+[29] H. Wan g, X. Zhang, S.M. Dorsey, J.R. McGarvey, K.S. Campbell, J.A. Burdick, J.H. Gorman, 3rd, J.J. 
+Pilla, R.C. Gorman, J.F. Wenk, Computational Investigation of Transmural Differences in Left Ventricular 
+Contractility, J Biomech Eng 138(11) (2016).  
+[30] A. Lewal le, S. Land, E. Carruth, L.R. Frank, P. Lamata, J.H. Omens, A.D. McCulloch, S.A. Niederer, N.P. 
+Smith, Decreasing Compensatory Ability of Concentric Ventricular Hypertrophy in Aortic -Banded Rat 
+Hearts, Front Physiol 9 (2018) 37.  
+[31] M. Genet, C.T. Stoeck,  C. von Deuster, L.C. Lee, S. Kozerke, Equilibrated warping: Finite element 
+image registration with finite strain equilibrium gap regularization, Medical Image Analysis 50 (2018) 1 -
+22. 
+[32] A. Krishnamurthy, C.T. Villongco, J. Chuang, L.R. Frank, V. Nigam,  E. Belezzuoli, P. Stark, D.E. 
+Krummen, S. Narayan, J.H. Omens, A.D. McCulloch, R.C. Kerckhoffs, Patient -Specific Models of Cardiac 
+Biomechanics, J Comput Phys 244 (2013) 4 -21. 
+[33] H. Babaei, E.A. Mendiola, S. Neelakantan, Q. Xiang, A. Vang, R.A.F. Dixon,  D.J. Shah, P. Vanderslice, 
+G. Choudhary, R. Avazmohammadi, A machine learning model to estimate myocardial stiffness from 
+EDPVR, Sci Rep 12(1) (2022) 5433.  
+[34] W. Kroon, T. Delhaas, P. Bovendeerd, T. Arts, Computational analysis of the myocardial structu re: 
+adaptation of cardiac myofiber orientations through deformation, Med Image Anal 13(2) (2009) 346 -53. 
+[35] T. Washio, K. Yoneda, J. Okada, T. Kariya, S. Sugiura, T. Hisada, Ventricular fiber optimization 
+utilizing the branching structure, Int J Numer Me thod Biomed Eng 32(7) (2016).  
+[36] T. Washio, S. Sugiura, J.I. Okada, T. Hisada, Using Systolic Local Mechanical Load to Predict Fiber 
+Orientation in Ventricles, Front Physiol 11 (2020) 467.  
+[37] X. Zhuan, X. Luo, H. Gao, R.W. Ogden, Coupled agent -based an d hyperelastic modelling of the left 
+ventricle post -myocardial infarction, Int J Numer Method Biomed Eng 35(1) (2019) e3155.  
+[38] E.A. Mendiola, S. Neelakantan, Q. Xiang, S. Xia, J. Zhang, V. Serpooshan, P. Vanderslice, R. 
+Avazmohammadi, An image -driven mi cromechanical approach to characterize multiscale remodeling in 
+infarcted myocardium, Acta Biomater 173 (2024) 109 -122.  
+[39] I. Hariton, G. de Botton, T.C. Gasser, G.A. Holzapfel, Stress -driven collagen fiber remodeling in 
+arterial walls, Biomech Model Mec hanobiol 6(3) (2007) 163 -75. 
+[40] E. Gacek, R.R. Mahutga, V.H. Barocas, Hybrid discrete -continuum multiscale model of tissue growth 
+and remodeling, Acta Biomater 163 (2023) 7 -24. 
+[41] E. Kovacheva, T. Gerach, S. Schuler, M. Ochs, O. Dossel, A. Loewe, Cause s of altered ventricular 
+mechanics in hypertrophic cardiomyopathy: an in -silico study, Biomed Eng Online 20(1) (2021) 69.  
+[42] T.P. Usyk, J.H. Omens, A.D. McCulloch, Regional septal dysfunction in a three -dimensional 
+computational model of focal myofiber d isarray, Am J Physiol Heart Circ Physiol 281(2) (2001) H506 -14. 
+[43] M. Mehri, H. Sharifi, C.K. Mann, A.L. Rockward, K.S. Campbell, L.C. Lee, J.F. Wenk, Multiscale Fiber 
+Remodeling in the Infarcted Left Ventricle using a Stress -Based Reorientation Law, Act a Biomater  
+(2024).  
+[44] L.R. Sewanan, J. Schwan, J. Kluger, J. Park, D.L. Jacoby, Y. Qyang, S.G. Campbell, Extracellular Matrix 
+From Hypertrophic Myocardium Provokes Impaired Twitch Dynamics in Healthy Cardiomyocytes, JACC 
+Basic Transl Sci 4(4) (2019) 495 -505.  
+[45] H. Sharifi, M. Mehri, C.K. Mann, K.S. Campbell, L.C. Lee, J.F. Wenk, Multiscale Finite Element 
+Modeling of Left Ventricular Growth in Simulations of Valve Disease, Ann Biomed Eng  (2024).  
+[46] J.H. M.S. Alnaes Jb, A. Johansson, B. Kehlet, A. Log g, C. Richardson, J. Ring,, G.N.W. M.E. Rognes, 
+The FEniCS project version 1.5, Archive of Numerical Software 3 (2015)  (2015).  
+[47] J.M. Guccione, A.D. McCulloch, L.K. Waldman, Passive material properties of intact ventricular 
+myocardium determined from a  cylindrical model, J Biomech Eng 113(1) (1991) 42 -55. 
+[48] K.S. Campbell, P.M.L. Janssen, S.G. Campbell, Force -Dependent Recruitment from the Myosin Off 
+State Contributes to Length -Dependent Activation, Biophys J 115(3) (2018) 543 -553.  
+[49] J.D. Bayer, R. C. Blake, G. Plank, N.A. Trayanova, A novel rule -based algorithm for assigning 
+myocardial fiber orientation to computational heart models, Ann Biomed Eng 40(10) (2012) 2243 -54. 
+[50] T. Huelnhagen, M.C. Ku, H.M. Reimann, T.S. Duarte, A. Pohlmann, B. Flemmin g, E. Seeliger, C. 
+Eichhorn, V.A. Ferrari, M. Prothmann, J. Schulz -Menger, T. Niendorf, Myocardial Effective Transverse 
+Relaxation Time T* is Elevated in Hypertrophic Cardiomyopathy: A 7.0 T Magnetic Resonance Imaging 
+Study, Sci Rep -Uk 8 (2018).  
+[51] M. De  Gaspari, C. Basso, M. Perazzolo Marra, S. Elia, M. Bueno Marinas, A. Angelini, G. Thiene, S. 
+Rizzo, Small Vessel Disease: Another Component of the Hypertrophic Cardiomyopathy Phenotype Not 
+Necessarily Associated with Fibrosis, J Clin Med 10(4) (2021).  
+[52] S.E. Petersen, N. Aung, M.M. Sanghvi, F. Zemrak, K. Fung, J.M. Paiva, J.M. Francis, M.Y. Khanji, E. 
+Lukaschuk, A.M. Lee, V. Carapella, Y.J. Kim, P. Leeson, S.K. Piechnik, S. Neubauer, Reference ranges for 
+cardiac structure and function using cardiovas cular magnetic resonance (CMR) in Caucasians from the 
+UK Biobank population cohort, J Cardiovasc Magn Reson 19(1) (2017) 18.  
+[53] A.M. Maceira, S.K. Prasad, M. Khan, D.J. Pennell, Normalized left ventricular systolic and diastolic 
+function by steady state free precession cardiovascular magnetic resonance, J Cardiovasc Magn Reson 
+8(3) (2006) 417 -26. 
+[54] S. van der Walt, S.C. Colbert, G. Varoquaux, The NumPy Array: A Structure for Efficient Numerical 
+Computation, Comput Sci Eng 13(2) (2011) 22 -30. 
+[55] P. Vi rtanen, R. Gommers, T.E. Oliphant, M. Haberland, T. Reddy, D. Cournapeau, E. Burovski, P. 
+Peterson, W. Weckesser, J. Bright, S.J. van der Walt, M. Brett, J. Wilson, K.J. Millman, N. Mayorov, A.R.J. 
+Nelson, E. Jones, R. Kern, E. Larson, C.J. Carey, I. Polat , Y. Feng, E.W. Moore, J. VanderPlas, D. Laxalde, J. 
+Perktold, R. Cimrman, I. Henriksen, E.A. Quintero, C.R. Harris, A.M. Archibald, A.H. Ribeiro, F. Pedregosa, 
+P. van Mulbregt, C. SciPy, SciPy 1.0: fundamental algorithms for scientific computing in Python , Nat 
+Methods 17(3) (2020) 261 -272.  
+[56] T.p.d. team, pandas -dev/pandas: Pandas,  (2020).  
+[57] J. Novo Matos, P. Garcia -Canadilla, I.C. Simcock, J.C. Hutchinson, M. Dobromylskyj, A. Guy, O.J. 
+Arthurs, A.C. Cook, V. Luis Fuentes, Micro -computed tomography ( micro -CT) for the assessment of 
+myocardial disarray, fibrosis and ventricular mass in a feline model of hypertrophic cardiomyopathy, Sci 
+Rep 10(1) (2020) 20169.  
+[58] K. Sun, N. Stander, C.S. Jhun, Z. Zhang, T. Suzuki, G.Y. Wang, M. Saeed, A.W. Wallace, E.E . Tseng, A.J. 
+Baker, D. Saloner, D.R. Einstein, M.B. Ratcliffe, J.M. Guccione, A computationally efficient formal 
+optimization of regional myocardial contractility in a sheep with left ventricular aneurysm, J Biomech 
+Eng 131(11) (2009) 111001.  
+[59] J.M. Gu ccione, A.D. McCulloch, Mechanics of active contraction in cardiac muscle: Part I --
+Constitutive relations for fiber stress that describe deactivation, J Biomech Eng 115(1) (1993) 72 -81. 
+[60] F. Wang, Y. Deng, S. Li, Q. Cheng, Q. Wang, D. Yu, Q. Wang, CMR l eft ventricular strains beyond 
+global longitudinal strain in differentiating light -chain cardiac amyloidosis from hypertrophic 
+cardiomyopathy, Front Cardiovasc Med 10 (2023) 1108408.  
+[61] T. Yingchoncharoen, S. Agarwal, Z.B. Popovic, T.H. Marwick, Normal r anges of left ventricular strain: 
+a meta -analysis, J Am Soc Echocardiogr 26(2) (2013) 185 -91. 
+[62] D. Korthals, G. Chatzantonis, M. Bietenbeck, C. Meier, P. Stalling, A. Yilmaz, CMR -based T1 -mapping 
+offers superior diagnostic value compared to longitudinal  strain -based assessment of relative apical 
+sparing in cardiac amyloidosis, Sci Rep 11(1) (2021) 15521.  
+[63] J. Huang, Z.N. Yan, L. Fan, Y.F. Rui, X.T. Song, Left ventricular systolic function changes in 
+hypertrophic cardiomyopathy patients detected by the  strain of different myocardium layers and 
+longitudinal rotation, Bmc Cardiovasc Disor 17 (2017).  
+[64] D. Liu, K. Hu, P. Nordbeck, G. Ertl, S. Stork, F. Weidemann, Longitudinal strain bull's eye plot 
+patterns in patients with cardiomyopathy and concentric left ventricular hypertrophy, Eur J Med Res 
+21(1) (2016) 21.  
+[65] C.M. Kramer, N. Reichek, V.A. Ferrari, T. Theobald, J. Dawson, L. Axel, Regional Heterogeneity of 
+Function in Hypertrophic Cardiomyopathy, Circulation 90(1) (1994) 186 -194.  
+[66] P.H. Pak, L.  Maughan, K.L. Baughman, D.A. Kass, Marked discordance between dynamic and passive 
+diastolic pressure -volume relations in idiopathic hypertrophic cardiomyopathy, Circulation 94(1) (1996) 
+52-60. 
+[67] T.F. Haland, N.E. Hasselberg, V.M. Almaas, L.A. Dejgaard,  J. Saberniak, I.S. Leren, K.E. Berge, K.H. 
+Haugaa, T. Edvardsen, The systolic paradox in hypertrophic cardiomyopathy, Open Heart 4(1) (2017) 
+e000571.  
+ 
+Acknowledgments:  
+Support for this research was provided by National Institutes  of Health grant R01 HL 163977 and National 
+Science Foundation grant IIS -2406028.  
+ 
+Author Contributions:  
+JFW, LCL, and KSC  conceived the study design. MM developed the finite element model and 
+implemented the fiber reorientation algorithm . MM ran all of  the simulations and  analyzed the results.  
+JFW, LCL, and KSC assisted in the interpretation of the results . All authors contributed to the review and 
+finalization of the manuscript.  
+ 
+Competing Interests : 
+The author(s) declare no competing interests.  
+ 
+Data Availability Statement : 
+The MyoFE code is maintained in a github  repository. The code will be made available to other 
+researchers upon request to the corresponding author.  
+ 
+ 
+ 1 Supplementary Materials  
+Supplementary tables  
+Table S1. Model parameters for baseline simulation . 
+Component  Parameter  Value  Units  
+Lumped parameter model of 
+systemic circulation  HR 65 (bpm)  (bpm)  
+Vtotal  4.5 (liters)  (liters)  
+Raorta  25.0 (mmHg L-1 s) 
+Rarteries  25.0 (mmHg L-1 s) 
+Rarterioles  787.0 (mmHg L-1 s) 
+Rcapillaries  350.0  (mmHg L-1 s) 
+Rvenules  50.0  (mmHg L-1 s) 
+Rveins  50.0  (mmHg L-1 s) 
+RLV 10.0  (mmHg L-1 s) 
+Caorta 0.000 35  (mmHg-1 L s-1) 
+Carteries  0.0008  (mmHg-1 L s-1) 
+Carterioles  0.001  (mmHg-1 L s-1) 
+Ccapillaries  0.01  (mmHg-1 L s-1) 
+Cvenules  0.03  (mmHg-1 L s-1) 
+Cveins 0.07 (mmHg-1 L s-1) 
+Vaorta,slack  0.3 (liters)  
+Varteries,slack  0.3 (liters)  
+Varterioles,slack  0.1 (liters)  
+Vcapillaries,slack  0.25  (liters)  
+Vvenules,slack  0.5 (liters)  
+ 2 Vveins,slack  2.0 (liters)  
+Myocardium passive properties  C 200.0 (Pa) 
+bff 8.0  (Unitless)  
+bxx 3.58  (Unitless)  
+bfs 1.63 (Unitless)  
+C1 250.0  (Pa) 
+C2 15.0  (Unitless)  
+MyoSim model of contraction  kon 1.7×108 (M-1 s-1) 
+koff 200 (s-1) 
+kcoop  5 (Unitless)  
+k1 3.7 (s-1) 
+k2 200 (s-1) 
+k3 100 (s-1 nm-1) 
+k4,0 80 (s-1) 
+k4,1 1.5 (s-1 nm-4) 
+kcb 0.001  (pN nm-1) 
+xps 5 (nm)  
+N0 6.9×1016 (m-2) 
+kB 1.38×10-23 (JK-1) 
+T 310 (K) 
+Two compartment model of Ca2+ 
+transient  kSERCA  7.866 (M-1 s-1) 
+kact 8.06×10-2 (M-1 s-1) 
+kleak 6×10-4 (M-1 s-1) 
+ 3 Fiber reorientation law  𝜅 4000  (ms)  
+ 
+Supplementary figure s: 
+ 
+ 
+Figure S 1: Comparison of Pressure -Volume (PV ) loops in LV Models with different levels of mesh refinement. The original mesh 
+contains ~1 250 quadratic tetrahedral elements. Note that there is minimal variation between the loop plots.    
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 4  
+Figure S2:  Stress -strain curves of the myocardium and fibrotic regions. These represent the mechanical response along the fiber 
+direction. Stiffness was calculated by taking the slope of the stress -strain curves at a strain value of 0.15 (i.e., 15% strain).  
+ 
+ 
+ 
+ 
+ 
+
+ 5  
+Figure S3: Evolution  and convergence of Pressure -Volume (PV) loops in LV model.  PV loops are plotted for the 1st, 50th, 100th, 150 th 
+and 200th cardiac cycles with fiber reorientation.  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 6  
+ 
+ 
+ 
+ 
+Figure S4: Comparison  of fiber disarray between baseline and perturbed LV models based on the total angle of fiber reorientation.  Top: 
+Epicardial side of the myocardium. Bottom: E ndocardial side of the myocardium.  
+ 
+ 
+
+ 7  
+Figure S5: Spatial variability without variation in size of perturbed regions , i.e., the heterogenous perturbed tissue consisted of 30% of 
+the LV myocardium and the minimum size of a perturbed region was 3 mm . A: Short axis view of mid ventricle with perturbed 
+distribution of a and b. B: Induced disarray from distribution a and b in baseline and perturbed LV models.  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

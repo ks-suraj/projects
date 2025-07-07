@@ -27,6 +27,23 @@ class CodeFrameworkAnalyzer:
         'requests': ['requests', 'Response'],
         'sqlalchemy': ['sqlalchemy', 'Column', 'Model'],
         'pydantic': ['pydantic', 'BaseModel'],
+        'xgboost': ['xgboost', 'DMatrix', 'train'],
+        'lightgbm': ['lightgbm', 'LGBMClassifier', 'LGBMRegressor'],
+        'transformers': ['transformers', 'AutoModel', 'AutoTokenizer'],
+        'nltk': ['nltk', 'word_tokenize', 'pos_tag'],
+        'spacy': ['spacy', 'Language', 'Doc'],
+        'opencv': ['cv2', 'imread', 'imshow'],
+        'gymnasium': ['gymnasium', 'make', 'Env'],
+        'stable_baselines3': ['stable_baselines3', 'PPO', 'A2C'],
+        'torch_geometric': ['torch_geometric', 'Data', 'GCNConv'],
+        'cvxpy': ['cvxpy', 'Variable', 'Problem'],
+        'statsmodels': ['statsmodels', 'OLS', 'ARIMA'],
+        'simpy': ['simpy', 'Environment', 'Process'],
+        'sympy': ['sympy', 'symbols', 'solve'],
+        'qiskit': ['qiskit', 'QuantumCircuit', 'Aer'],
+        'geopandas': ['geopandas', 'GeoDataFrame', 'read_file'],
+        'control': ['control', 'tf', 'step_response'],
+        'biopython': ['Bio', 'Seq', 'SeqIO']
     }
     
     def detect_frameworks(self, code: str) -> List[str]:
@@ -259,7 +276,7 @@ class CodeExpertAgent:
 Original code:
 {analysis['code']}
 
-Return only the improved code without explanations or markdown."""
+Return only the improved code without explanations or markdown. STRICTLY GIVE ONLY PYTHON CODE, NO TEXT FORM"""
         
         return prompt
 

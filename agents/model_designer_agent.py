@@ -13,15 +13,15 @@ def load_paper_summary():
         return None
     with open(input_path, "r", encoding="utf-8") as f:
         return f.read()
-
+    
 def design_model(paper_summary):
     system_message = {
         "role": "system",
         "content": (
-            "You are an expert AI research engineer. "
-            "Given the following paper summary, design a deep learning model inspired by it. "
+            "You are an expert AI research and scientific engineer. "
+            "Given the following paper summary, design a model inspired by it, and include important frameworks and models related to the code. "
             "Respond ONLY with valid python code with perfect indentation, perfect working, ready to deploy, and correct parameter parsing. "
-            "Do not include explanations or extra text."
+            "Do not include explanations or extra text, no suggestions, no examples.STRICTLY NO TEXT, ONLY PYTHON CODE"
         )
     }
     user_message = {

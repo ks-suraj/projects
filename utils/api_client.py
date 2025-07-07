@@ -21,7 +21,7 @@ def call_openrouter_api(messages):
         }
 
         data = {
-            "model": "qwen/qwen3-32b:free",
+            "model": "qwen/qwq-32b:free",
             "messages": messages
         }
 
