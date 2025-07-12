@@ -1,0 +1,11 @@
+timestamp,cloud,service,metric,value,description
+2025-07-12 15:32:06.965495,AWS,S3,cost,7.370891389396039,GCP Blob requests anomaly
+2025-07-12 15:31:06.965505,Azure,EC2,requests,25.636663305974995,GCP BigQuery requests anomaly
+2025-07-12 15:30:06.965508,AWS,BigQuery,requests,27.49305778276092,Azure EC2 cpu_usage anomaly
+2025-07-12 15:29:06.965511,Azure,Blob,cost,61.792464826562664,Azure EC2 cost anomaly
+2025-07-12 15:28:06.965513,GCP,Blob,requests,57.576202280233105,Azure EC2 requests anomaly
+2025-07-12 15:27:06.965515,Azure,EC2,requests,92.2932581340485,AWS EC2 requests anomaly
+2025-07-12 15:26:06.965518,GCP,Blob,cost,91.17841993836325,Azure VM cost anomaly
+2025-07-12 15:25:06.965521,AWS,EC2,cost,68.5530424249445,AWS BigQuery cost anomaly
+2025-07-12 15:24:06.965524,GCP,VM,cpu_usage,76.45379299679378,GCP S3 cost anomaly
+2025-07-12 15:23:06.965527,GCP,EC2,cpu_usage,56.34324941121166,AWS BigQuery cost anomaly

@@ -1,0 +1,6 @@
+# AETHER-AI API Keys & Config
+OPENROUTER_API_KEY = "key"
+PINECONE_API_KEY = "key"
+PINECONE_INDEX_NAME = "index"
+PINECONE_HOST = "host"
+HF_TOKEN = "token"
