@@ -1,93 +1,112 @@
-# 🧠 ks-suraj/projects — Autonomous Systems, RAG Pipelines, and AI Agents
+# 🧠 KS-Suraj | Advanced AI, RAG & Infra Projects
 
-Welcome to my **multi-project repository**, where each Git branch contains a standalone AI/ML project — ranging from retrieval-augmented generation (RAG) systems to full-blown multi-agent research engineers and autonomous infrastructure optimizers.
+This repository is a portfolio of autonomous systems, AI research tools, and cloud optimization engines — each isolated in a separate Git branch.
 
-> ⚠️ Each project lives in its own **branch** — not the `main` branch.
-
----
-
-## 📦 Projects at a Glance
-
-| Branch Name        | Project Title             | Description                                                                 | Technologies |
-|--------------------|---------------------------|-----------------------------------------------------------------------------|--------------|
-| `AETHER-AI`        | 🌩️ AETHER-AI              | Autonomous cloud infra optimization using LLMs, RAG, and RL                | LangGraph, RLlib, FastAPI, Streamlit, Colab |
-| `AutoDocGen`       | 📝 AutoDocGen              | Autonomous Python documentation generator via AST + OpenRouter LLM         | Python, AST, LLM (Llama 4), Colab |
-| `AutoRAG-Agent`    | 🔍 AutoRAG-Agent           | Modular GPU-accelerated RAG pipeline for semantic search + LLM answering   | FAISS, LangChain, Transformers, Colab |
-| `Genesis`          | 🤖 Genesis                 | Autonomous AI Research Engineer — parses papers and builds runnable ML     | Python, agent framework, modular pipeline |
-| `RAG-Agent-Ops`    | 🔥 RAG-Agent-Ops           | Lightweight Pinecone-backed RAG prototype for document QA                  | Pinecone, PyPDF2, Sentence Transformers, Colab |
 
 ---
 
-## 🧠 Project Overviews
+## 📁 Project Index
 
-### 🌩️ [`AETHER-AI`](https://github.com/ks-suraj/projects/tree/AETHER-AI)
-A fully autonomous **multi-cloud monitoring and optimization system**. Built using LLMs, RAG, LangGraph DAG orchestration, and simulated reinforcement learning.
-
-**Features:**
-- Multi-cloud (AWS, Azure, GCP) support
-- RAG + OpenRouter-powered anomaly detection
-- RCA agent using LLM + vector store
-- Cost optimization via RL
-- FastAPI + Streamlit dashboards
-
-> Developed & tested 100% inside **Colab** — deploys via Docker & optional Kubernetes YAMLs.
+| Project | Description | Branch | Technologies Used |
+|--------|-------------|--------|-------------------|
+| **🌩️ AETHER-AI** | Multi-cloud anomaly detection, RCA, and cost optimization powered by LLMs, LangGraph, and Reinforcement Learning. Outputs visual insights via Streamlit and FastAPI. | [`AETHER-AI`](https://github.com/ks-suraj/projects/tree/AETHER-AI) | LangGraph, LangChain, LlamaIndex, SentenceTransformers, OpenRouter, FAISS, Pinecone, Chroma, Weaviate, RLlib, Stable-Baselines3, MLflow, W&B, Streamlit, FastAPI, Docker, Kubernetes YAML, Google Colab, Git, GitHub |
+| **📝 AutoDocGen** | Automatically generates clean Markdown documentation for any Python codebase using AST + LLM (Llama 4 Maverick via OpenRouter). All inside Colab. | [`AUTODOCGEN`](https://github.com/ks-suraj/projects/tree/AUTODOCGEN) | AST, SentenceTransformers, OpenRouter, Markdown, Python zipfile/glob, Google Colab, Git, GitHub |
+| **🔍 AutoRAG-Agent** | Modular Retrieval-Augmented Generation pipeline for PDFs and web content. Includes ingestion, vector indexing, semantic search, and QA using lightweight LLMs. | [`AUTORAG-AGENT`](https://github.com/ks-suraj/projects/tree/AUTORAG-AGENT) | FAISS, LangChain, SentenceTransformers, Flan-T5, PyPDF2, BeautifulSoup, Transformers, Google Colab, Git, GitHub |
+| **🧬 Genesis** | Experimental AI system that simulates an autonomous ML research engineer. Parses research, drafts model code, and runs refinement loops offline. | [`GENESIS`](https://github.com/ks-suraj/projects/tree/GENESIS) | Python, Modular Agents, Code Generation Logic, Git, GitHub |
+| **🔥 RAG-Agent-Ops** | Lightweight RAG pipeline focused on Pinecone integration with simple PDF upload and semantic search via Colab widgets. Ideal for demo or production prototyping. | [`RAG-AGENT-OPS`](https://github.com/ks-suraj/projects/tree/RAG-AGENT-OPS) | Pinecone, SentenceTransformers, PyPDF2, Colab Widgets, Google Colab, Git, GitHub |
 
 ---
 
-### 📝 [`AutoDocGen`](https://github.com/ks-suraj/projects/tree/AutoDocGen)
-An **autonomous Python doc generator** using AST parsing + OpenRouter LLM (Llama 4 Maverick).
-
-**Workflow:**
-- Upload Python `.zip` → Extract AST → Send snippets to LLM → Output Markdown docs
-- Fully works in Google Colab (no setup)
-- Outputs zip of generated documentation
-
-> Great for automating internal code documentation and onboarding.
+## 🧠 About Each Project
 
 ---
 
-### 🔍 [`AutoRAG-Agent`](https://github.com/ks-suraj/projects/tree/AutoRAG-Agent)
-End-to-end **RAG pipeline** for document ingestion and QA — with modular architecture.
+### 🌩️ AETHER-AI  
+A fully autonomous pipeline for **multi-cloud infrastructure monitoring**, **root cause analysis**, and **cost optimization**.
 
-**Components:**
-- PDF and URL ingestion
-- Text chunking via LangChain
-- Embedding with MiniLM → FAISS index
-- Query → Semantic retrieval → Answer via Flan-T5
+Includes:
+- LLM-based anomaly detection and RCA (LangChain + OpenRouter)
+- Reinforcement learning agent for cost-saving actions
+- Colab-ready end-to-end pipeline with Streamlit + FastAPI interface
+- Multi-vector store compatibility: Pinecone, FAISS, Chroma, Weaviate
+- Modular agent design (Monitoring, RCA, Optimizer, Orchestrator)
 
-> Built for speed and research flexibility. Easily extendable to UI apps.
+> Built for enterprise cloud ops teams needing resilience, explainability, and automation.
 
 ---
 
-### 🤖 [`Genesis`](https://github.com/ks-suraj/projects/tree/Genesis)
+### 📝 AutoDocGen  
+An autonomous Python documentation generator that runs 100% in **Google Colab**.
+
+Includes:
+- AST parsing of uploaded `.py` files
+- Docstring and usage generation via LLM (Llama 4 Maverick / OpenRouter)
+- Markdown doc creation per file + ZIP download
+- Secure API handling + polite rate-limiting
+
+> Ideal for developers who want fast, explainable docs for personal or professional projects.
+
+---
+
+### 🔍 AutoRAG-Agent  
+A clean, modular **RAG pipeline** for answering questions from documents using semantic search and lightweight LLMs.
+
+Includes:
+- PDF & web ingestion (PyPDF2, BeautifulSoup)
+- Embedding with SentenceTransformers (MiniLM)
+- FAISS-based vector search
+- QA via Flan-T5 (fast and Colab-compatible)
+
+> Perfect for anyone building semantic search systems or learning how RAG works.
+
+---
+
+### 🤖 Genesis  
 An experimental **multi-agent AI research assistant** that reads papers, generates runnable code, and iterates over experiments.
 
-**Includes:**
+Includes:
 - Modular agent architecture (abstracted)
 - Architecture generation
 - Logging, summaries, and pipeline execution
 - Designed for high-level research workflows
+- Security-first, offline-compatible. Ideal for vetted collaborators.
 
-> Security-first, offline-compatible. Ideal for vetted collaborators.
-
----
-
-### 🔥 [`RAG-Agent-Ops`](https://github.com/ks-suraj/projects/tree/RAG-Agent-Ops)
-Lean & functional **Colab-based RAG pipeline** optimized for Pinecone vector DB.
-
-**Pipeline Flow:**
-- Upload PDF → Chunk → Embed → Store in Pinecone
-- Query via natural language → Retrieve matching chunks
-- Built-in Colab widget interface (no external servers needed)
+> Research automation, reimagined.
 
 ---
 
-## 🔎 How to Explore
+### 🔥 RAG-Agent-Ops  
+A Pinecone-integrated RAG pipeline built for **quick testing and semantic document search**, all inside Colab.
 
-Each project lives in its **own Git branch**.  
-To check one out:
+Includes:
+- PDF upload with simple Colab widgets
+- Text extraction, embedding, and vector storage (Pinecone)
+- Natural language querying and semantic retrieval
+- Minimal setup, production-ready structure
 
+> A great entry point for learning RAG + Pinecone workflows.
+
+---
+
+## 🧰 Common Technologies
+
+- **LLMs**: OpenRouter (Llama 4 Maverick, Mistral), Flan-T5
+- **Vector Search**: FAISS, Pinecone, Chroma, Weaviate
+- **Embeddings**: SentenceTransformers (MiniLM)
+- **Pipelines**: LangGraph, LangChain, LlamaIndex
+- **RL & MLOps**: Stable-Baselines3, RLlib, Weights & Biases, MLflow
+- **APIs / UIs**: FastAPI, Streamlit, Colab Widgets
+- **DevOps / Tooling**: Docker, Kubernetes YAML, Git, GitHub
+- **Development**: 100% runnable in Google Colab
+
+---
+
+## 🔀 Repo Strategy
+
+Each project lives in its own Git branch — clean, self-contained, and versionable.
+
+To explore a project:
 ```bash
-git clone https://github.com/ks-suraj/projects.git
+git clone https://github.com/ks-suraj/projects
 cd projects
-git checkout AETHER-AI  # or any branch listed above
+git checkout <PROJECT-BRANCH>
