@@ -57,6 +57,7 @@ Includes:
 - FAISS-based vector search
 - QA via Flan-T5 (fast and Colab-compatible)
 
+
 > Perfect for anyone building semantic search systems or learning how RAG works.
 
 ---
@@ -83,6 +84,7 @@ Includes:
 - Text extraction, embedding, and vector storage (Pinecone)
 - Natural language querying and semantic retrieval
 - Minimal setup, production-ready structure
+- HuggingFace all-MiniLM-L6-v2
 
 > A great entry point for learning RAG + Pinecone workflows.
 
@@ -90,7 +92,7 @@ Includes:
 
 ## 🧰 Common Technologies
 
-- **LLMs**: OpenRouter (Llama 4 Maverick, Mistral), Flan-T5
+- **LLMs**: OpenRouter (Llama 4 Maverick, Mistral, Qwen), HuggingFace all-MiniLM-L6-v2,  Flan-T5
 - **Vector Search**: FAISS, Pinecone, Chroma, Weaviate
 - **Embeddings**: SentenceTransformers (MiniLM)
 - **Pipelines**: LangGraph, LangChain, LlamaIndex
