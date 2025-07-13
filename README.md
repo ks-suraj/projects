@@ -1,6 +1,6 @@
 # 🚀 AutoDocGen — Autonomous Python Documentation Generator (LLM-Powered)
 
-AutoDocGen automatically generates Markdown documentation for your Python projects using **OpenRouter's Llama 4 Maverick (free tier)** model.
+AutoDocGen automatically generates Markdown documentation for your Python projects using **OpenRouter's Mistral-7b (free tier)** model.
 
 This project runs **entirely on Google Colab** — no local setup needed.
 
@@ -51,7 +51,7 @@ This project runs **entirely on Google Colab** — no local setup needed.
     * doc_generator.py → Handles:
         - Parsing Python files using AST
         - Extracting function/class code snippets
-        - Sending them to OpenRouter API (Llama 4 Maverick)
+        - Sending them to OpenRouter API (Mistral-7b)
         - Generating documentation with docstrings and usage examples
     
     * utils.py → Reserved for helper functions or reusable components if the project scales.
@@ -138,7 +138,7 @@ Here is the code:
 """
 
     payload = {
-        "model": "meta-llama/llama-4-maverick:free",
+        "model": "mistralai/mistral-7b-instruct:free",
         "messages": [
             {"role": "user", "content": prompt}
         ]
