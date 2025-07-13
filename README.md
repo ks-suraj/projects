@@ -40,7 +40,7 @@ An autonomous Python documentation generator that runs 100% in **Google Colab**.
 
 Includes:
 - AST parsing of uploaded `.py` files
-- Docstring and usage generation via LLM (Llama 4 Maverick / OpenRouter)
+- Docstring and usage generation via LLM (Mistrl-7b / OpenRouter)
 - Markdown doc creation per file + ZIP download
 - Secure API handling + polite rate-limiting
 
